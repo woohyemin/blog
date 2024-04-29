@@ -1,5 +1,5 @@
 import { Color } from "./Color";
-import { ThemeStyleType } from "./types/ThemeStyleType";
+import { ThemeStyleType } from "./types/styled";
 
 export const lightTheme: ThemeStyleType = {
   palette: {
@@ -23,7 +23,7 @@ export const lightTheme: ThemeStyleType = {
     text: {
       primary: Color.gray["800"],
       secondary: Color.gray["600"],
-      disabled: Color.beige["300"],
+      disabled: Color.gray["400"],
     },
     button: {
       background: {
@@ -50,23 +50,23 @@ export const lightTheme: ThemeStyleType = {
   typography: {
     variant: {
       primary: "'Noto Sans KR', sans-serif",
-      secondary: "",
+      secondary: "'Montserrat', sans-serif",
     },
     weight: {
       light: 300,
-      regular: 500,
-      bold: 700,
+      regular: 400,
+      bold: 500,
     },
     size: {
-      h1: { fontSize: "64px" },
-      h2: { fontSize: "48px" },
-      h3: { fontSize: "40px" },
-      h4: { fontSize: "32px" },
-      h5: { fontSize: "28px" },
-      h6: { fontSize: "24px" },
-      body1: { fontSize: "20px" },
-      body2: { fontSize: "16px" },
-      caption: { fontSize: "14px" },
+      h1: "64px",
+      h2: "48px",
+      h3: "40px",
+      h4: "32px",
+      h5: "28px",
+      h6: "24px",
+      body1: "20px",
+      body2: "16px",
+      caption: "14px",
     },
     defaultStyles: {
       wordBreak: "keep-all",
@@ -97,14 +97,14 @@ export const darkTheme: ThemeStyleType = {
     },
     text: {
       primary: Color.white,
-      secondary: Color.gray["300"],
-      disabled: Color.gray["500"],
+      secondary: Color.gray["400"],
+      disabled: Color.gray["700"],
     },
     button: {
       background: {
-        default: "red",
+        default: Color.gray["800"],
         hover: Color.gray["700"],
-        active: "blue",
+        active: Color.gray["700"],
       },
     },
     logo: {
@@ -125,23 +125,23 @@ export const darkTheme: ThemeStyleType = {
   typography: {
     variant: {
       primary: "'Noto Sans KR', sans-serif",
-      secondary: "",
+      secondary: "'Montserrat', sans-serif",
     },
     weight: {
       light: 300,
-      regular: 500,
-      bold: 700,
+      regular: 400,
+      bold: 500,
     },
     size: {
-      h1: { fontSize: "64px" },
-      h2: { fontSize: "48px" },
-      h3: { fontSize: "40px" },
-      h4: { fontSize: "32px" },
-      h5: { fontSize: "28px" },
-      h6: { fontSize: "24px" },
-      body1: { fontSize: "20px" },
-      body2: { fontSize: "16px" },
-      caption: { fontSize: "14px" },
+      h1: "64px",
+      h2: "48px",
+      h3: "40px",
+      h4: "32px",
+      h5: "28px",
+      h6: "24px",
+      body1: "20px",
+      body2: "16px",
+      caption: "14px",
     },
     defaultStyles: {
       wordBreak: "keep-all",
