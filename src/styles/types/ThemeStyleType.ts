@@ -16,12 +16,12 @@ export interface PaletteType {
     dark: string;
     contrastText: string;
   };
-  secondary: {
-    light: string;
-    main: string;
-    dark: string;
-    contrastText: string;
-  };
+  // secondary?: {
+  //   light: string;
+  //   main: string;
+  //   dark: string;
+  //   contrastText: string;
+  // };
   gray: {
     light: string;
     main: string;
@@ -37,6 +37,11 @@ export interface PaletteType {
       default: string;
       hover: string;
       active: string;
+    };
+  };
+  logo: {
+    color: {
+      basic: string;
     };
   };
 }

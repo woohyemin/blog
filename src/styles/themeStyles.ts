@@ -32,6 +32,11 @@ export const lightTheme: ThemeStyleType = {
         active: "blue",
       },
     },
+    logo: {
+      color: {
+        basic: Color.gray["800"],
+      },
+    },
   },
 
   effect: {
@@ -100,6 +105,11 @@ export const darkTheme: ThemeStyleType = {
         default: "red",
         hover: Color.gray["700"],
         active: "blue",
+      },
+    },
+    logo: {
+      color: {
+        basic: Color.white,
       },
     },
   },
