@@ -3,7 +3,7 @@ import { Tab } from "@/components/atoms/Tab";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Example/Tab",
+  title: "Navigation/Tab",
   component: Tab,
   parameters: {
     layout: "centered",
@@ -18,7 +18,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
     variant: "button",
