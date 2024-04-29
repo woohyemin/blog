@@ -1,10 +1,9 @@
 "use client";
 
 import styled from "styled-components";
-import ThemeButton from "../atoms/ThemeButton";
 import { useRecoilState } from "recoil";
 import { ThemeFlag, currentThemeState } from "../../store/themeState";
-import { useEffect } from "react";
+import { Typography } from "./data-display/Typography";
 
 const ToggleBox = styled.button`
   display: flex;
@@ -13,6 +12,7 @@ const ToggleBox = styled.button`
   border-radius: 40px;
   padding: 8px 20px;
   width: fit-content;
+  background-color: ${({ theme }) => theme.palette.button.background.default};
 `;
 
 const ThemeToggle = () => {
@@ -30,8 +30,9 @@ const ThemeToggle = () => {
 
   return (
     <ToggleBox onClick={changeThemeHandler}>
-      {currentTheme === ThemeFlag.dark ? "Dark Mode" : "Light Mode"}
-      {/* <ThemeButton currentTheme={currentTheme} /> */}
+      <Typography variant="secondary" size="caption">
+        {currentTheme === ThemeFlag.dark ? "Dark Mode" : "Light Mode"}
+      </Typography>
     </ToggleBox>
   );
 };

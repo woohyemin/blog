@@ -1,10 +1,12 @@
-import ThemeToggle from "@/components/atoms/ThemeToggle";
+"use client";
+
+import { Tab } from "@/components/atoms/Tab";
 
 export default function About() {
   return (
     <main>
-      <ThemeToggle />
       <p>About Page</p>
+      <Tab label="About Page" size="large" />
     </main>
   );
 }

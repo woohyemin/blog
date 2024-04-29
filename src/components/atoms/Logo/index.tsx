@@ -1,9 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { CSSProperties } from "react";
 import { logos } from "./logos";
 import styled, { css } from "styled-components";
 
+/**
+ * logo component props
+ */
 interface LogoProps {
   /**
    * logo style type
@@ -13,7 +16,13 @@ interface LogoProps {
   /**
    * logo size
    */
-  size?: "small" | "medium" | "large";
+  size?:
+    | "extraSmall"
+    | "small"
+    | "medium"
+    | "large"
+    | "extraLarge"
+    | CSSProperties["width"];
 
   /**
    * logo color
@@ -22,29 +31,36 @@ interface LogoProps {
 }
 
 const StyledLogoWrapper = styled.div<LogoProps>`
-  ${(props) => {
-    if (props.size === "small") {
-      return css`
-        svg {
-          width: 140px;
-        }
-      `;
-    } else if (props.size === "medium") {
-      return css`
-        svg {
-          width: 280px;
-          height: 52px;
-        }
-      `;
-    } else if (props.size === "large") {
-      return css`
-        svg {
+  svg {
+    ${(props) => {
+      if (props.size === "extraSmall") {
+        return css`
+          width: 48px;
+        `;
+      } else if (props.size === "small") {
+        return css`
+          width: 70px;
+        `;
+      } else if (props.size === "medium") {
+        return css`
+          width: 106px;
+        `;
+      } else if (props.size === "large") {
+        return css`
+          width: 560px;
+        `;
+      } else if (props.size === "extraLarge") {
+        return css`
           width: 646px;
-          height: 120px;
-        }
-      `;
-    }
-  }};
+        `;
+      } else {
+        return css`
+          width: ${props.size};
+        `;
+      }
+    }};
+  }
+
   color: ${(props) => {
     if (props.color === "basic") return props.theme.palette.logo.color.basic;
   }};

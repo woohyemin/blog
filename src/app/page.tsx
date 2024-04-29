@@ -1,12 +1,13 @@
 "use client";
 
-import { Tab } from "@/components/atoms/Tab";
-import styled, { useTheme } from "styled-components";
+import { Logo } from "@/components/atoms/Logo";
+import { Typography } from "@/components/atoms/data-display/Typography";
+import { Box } from "@/components/atoms/layout/Box";
+import { Column } from "@/components/molecules/layout/FlexBox/Column";
+import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
+import styled from "styled-components";
 
 export default function Home() {
-  const theme = useTheme();
-  console.log(theme);
-
   const Container = styled.div`
     background-color: ${({ theme }) =>
       theme.palette?.button?.background?.default};
@@ -15,12 +16,13 @@ export default function Home() {
   `;
 
   return (
-    <main>
-      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-        <p>Get started by editing&nbsp;</p>
-        <Container>테스트</Container>
-        <Tab label="탭 버튼" size="large" />
-      </div>
-    </main>
+    <TemplateLayout size="medium">
+      <Column gap="40px" pt="15vh">
+        <Typography size="body1" color="secondary">
+          그냥 내가 개발하고 싶은거 개발하고 공부하는 기술 블로그
+        </Typography>
+        <Logo size="large" />
+      </Column>
+    </TemplateLayout>
   );
 }

@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
-import ThemeToggle from "@/components/atoms/ThemeToggle";
 import Providers from "@/styles/Providers";
 import GlobalStyles from "@/styles/GlobalStyles";
+import { Noto_Sans_KR } from "next/font/google";
+import { Footer } from "@/components/organisms/Footer";
+import { CommonLayout } from "@/components/templates/layout/CommonLayout";
+import { Header } from "@/components/organisms/Header";
+
+const noto_sans_kr = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["300", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,12 +22,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={noto_sans_kr.className}>
       <body>
         <Providers>
+          <Header
+            menus={[
+              { label: "About Me", value: "aboutMe" },
+              { label: "Projects", value: "projects" },
+            ]}
+          />
           <GlobalStyles />
-          <ThemeToggle />
           {children}
+          <Footer size="medium" />
         </Providers>
       </body>
     </html>
