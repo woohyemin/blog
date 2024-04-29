@@ -15,12 +15,12 @@ export const GlobalStyles = createGlobalStyle`
     // // min-width: 1200px;
     // font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI;
     // font-size : 16px;
-    color: ${(props) => props.theme.palette?.text?.primary};
-    background-color: ${(props) => props.theme.palette?.background?.default};
+    color: ${(props) => props.theme.palette.text.primary};
+    background-color: ${(props) => props.theme.palette.background.default};
 
     transition: all 0.5s;
     a {
-        color: ${(props) => props.theme.palette?.text?.primary};
+        color: ${(props) => props.theme.palette.text.primary};
     }
   }
 

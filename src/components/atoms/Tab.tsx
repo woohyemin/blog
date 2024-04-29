@@ -37,7 +37,7 @@ interface TabProps {
 
 const StyledTab = styled.button<Omit<TabProps, "label">>`
   border: none;
-  font-weight: ${({ theme }) => theme.typography?.weight?.bold};
+  font-weight: ${({ theme }) => theme.typography.weight.bold};
   width: fit-content;
 
   ${(props) => {
@@ -74,25 +74,25 @@ const StyledTab = styled.button<Omit<TabProps, "label">>`
     if (props.color === "basic") {
       if (props.isActivated) {
         return {
-          backgroundColor: props.theme.palette?.button?.background?.active,
-          color: props.theme.palette?.primary?.main,
+          backgroundColor: props.theme.palette.button.background.active,
+          color: props.theme.palette.primary.main,
           ":hover": {
-            backgroundColor: props.theme.palette?.button?.background?.active,
+            backgroundColor: props.theme.palette.button.background.active,
           },
         };
       }
 
       return {
-        backgroundColor: props.theme.palette?.button?.background?.default,
-        color: props.theme.palette?.text?.secondary,
+        backgroundColor: props.theme.palette.button.background.default,
+        color: props.theme.palette.text.secondary,
         ":hover": {
-          backgroundColor: props.theme.palette?.button?.background?.hover,
+          backgroundColor: props.theme.palette.button.background.hover,
         },
       };
     }
   }};
 
-  // color: ${(props) => props.theme.palette?.button?.background?.active};
+  // color: ${(props) => props.theme.palette.button.background.active};
 `;
 
 /**

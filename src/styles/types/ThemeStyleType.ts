@@ -4,39 +4,39 @@ import { CSSProperties } from "react";
  * palette type
  */
 export interface PaletteType {
-  background?: {
-    default?: string;
-    primary?: string;
-    secondary?: string;
-    paper?: string;
+  background: {
+    default: string;
+    primary: string;
+    secondary: string;
+    paper: string;
   };
-  primary?: {
-    light?: string;
-    main?: string;
-    dark?: string;
-    contrastText?: string;
+  primary: {
+    light: string;
+    main: string;
+    dark: string;
+    contrastText: string;
   };
-  secondary?: {
-    light?: string;
-    main?: string;
-    dark?: string;
-    contrastText?: string;
+  secondary: {
+    light: string;
+    main: string;
+    dark: string;
+    contrastText: string;
   };
-  gray?: {
-    light?: string;
-    main?: string;
-    dark?: string;
+  gray: {
+    light: string;
+    main: string;
+    dark: string;
   };
-  text?: {
-    primary?: string;
-    secondary?: string;
-    disabled?: string;
+  text: {
+    primary: string;
+    secondary: string;
+    disabled: string;
   };
-  button?: {
-    background?: {
-      default?: string;
-      hover?: string;
-      active?: string;
+  button: {
+    background: {
+      default: string;
+      hover: string;
+      active: string;
     };
   };
 }
@@ -45,10 +45,10 @@ export interface PaletteType {
  * effect type
  */
 export interface EffectType {
-  shadow?: {
-    small?: string;
-    medium?: string;
-    large?: string;
+  shadow: {
+    small: string;
+    medium: string;
+    large: string;
   };
 }
 
@@ -56,34 +56,34 @@ export interface EffectType {
  * typography type
  */
 export interface TypographyType {
-  variant?: {
-    primary?: string;
-    secondary?: string;
+  variant: {
+    primary: string;
+    secondary: string;
   };
-  weight?: {
-    light?: number;
-    regular?: number;
-    bold?: number;
+  weight: {
+    light: number;
+    regular: number;
+    bold: number;
   };
-  size?: {
-    h1?: CSSProperties;
-    h2?: CSSProperties;
-    h3?: CSSProperties;
-    h4?: CSSProperties;
-    h5?: CSSProperties;
-    h6?: CSSProperties;
-    body1?: CSSProperties;
-    body2?: CSSProperties;
-    caption?: CSSProperties;
+  size: {
+    h1: CSSProperties;
+    h2: CSSProperties;
+    h3: CSSProperties;
+    h4: CSSProperties;
+    h5: CSSProperties;
+    h6: CSSProperties;
+    body1: CSSProperties;
+    body2: CSSProperties;
+    caption: CSSProperties;
   };
-  defaultStyles?: CSSProperties;
+  defaultStyles: CSSProperties;
 }
 
 /**
  * theme style type
  */
 export interface ThemeStyleType {
-  palette?: PaletteType;
-  effect?: EffectType;
-  typography?: TypographyType;
+  palette: PaletteType;
+  effect: EffectType;
+  typography: TypographyType;
 }
