@@ -28,7 +28,7 @@ export default function RootLayout({
           <Header
             menus={[
               { label: "About Me", value: "about-me" },
-              { label: "Projects", value: "projects" },
+              { label: "Posts", value: "posts" },
             ]}
           />
           <GlobalStyles />

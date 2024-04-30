@@ -75,7 +75,7 @@ const StyledTab = styled.button<Omit<TabProps, "label">>`
       if (props.isActivated) {
         return {
           backgroundColor: props.theme.palette.button.background.active,
-          color: props.theme.palette.primary.main,
+          color: props.theme.palette.button.text.active,
           ":hover": {
             backgroundColor: props.theme.palette.button.background.active,
           },
@@ -84,9 +84,10 @@ const StyledTab = styled.button<Omit<TabProps, "label">>`
 
       return {
         backgroundColor: props.theme.palette.button.background.default,
-        color: props.theme.palette.text.secondary,
+        color: props.theme.palette.button.text.default,
         ":hover": {
           backgroundColor: props.theme.palette.button.background.hover,
+          color: props.theme.palette.button.text.hover,
         },
       };
     }

@@ -16,16 +16,17 @@ export interface TemplateLayoutProps extends ColumnProps {
 
 const Layout = styled(Column)<TemplateLayoutProps>`
   margin: 0 auto;
-  padding: 40px;
+  padding: 40px 40px 100px;
   min-height: calc(100vh - 144px);
 
   max-width: ${({ size }) => {
     if (size === "small") {
       return "640px";
     } else if (size === "medium") {
-      return "1300px";
+      // return "824px";
+      return "1208px";
     } else {
-      return "1600px";
+      return "1592px";
     }
   }};
 `;

@@ -32,10 +32,15 @@ interface SizeProps {
   h?: CSSProperties["height"];
 }
 
+interface StyleProps {
+  borderRadius?: CSSProperties["borderRadius"];
+}
+
 type LayoutProps = HTMLAttributes<HTMLDivElement> &
   PaddingProps &
   MarginProps &
-  SizeProps;
+  SizeProps &
+  StyleProps;
 
 /**
  * Box component props
@@ -58,6 +63,7 @@ const StyledDiv = styled.div<BoxProps>`
   margin-bottom: ${(props) => props.mb};
   margin-left: ${(props) => props.ml};
   background-color: ${(props) => props.bgColor};
+  border-radius: ${(props) => props.borderRadius};
 `;
 
 /**

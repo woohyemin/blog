@@ -10,9 +10,9 @@ export const lightTheme: ThemeStyleType = {
       paper: Color.gray["100"],
     },
     primary: {
-      light: Color.beige["300"],
-      main: Color.beige["500"],
-      dark: Color.beige["700"],
+      light: Color.indigo["300"],
+      main: Color.indigo["500"],
+      dark: Color.indigo["700"],
       contrastText: Color.gray["900"],
     },
     gray: {
@@ -27,15 +27,21 @@ export const lightTheme: ThemeStyleType = {
     },
     button: {
       background: {
-        default: Color.gray["250"],
-        hover: Color.gray["500"],
-        active: "blue",
+        default: Color.gray["150"],
+        hover: Color.indigo["100"],
+        active: Color.indigo["100"],
+      },
+      text: {
+        default: Color.gray["600"],
+        hover: Color.gray["800"],
+        active: Color.indigo["500"],
       },
     },
     logo: {
-      color: {
-        basic: Color.gray["800"],
-      },
+      basic: Color.gray["800"],
+    },
+    divider: {
+      basic: Color.gray["300"],
     },
   },
 
@@ -55,7 +61,7 @@ export const lightTheme: ThemeStyleType = {
     weight: {
       light: 300,
       regular: 400,
-      bold: 500,
+      bold: 600,
     },
     size: {
       h1: "64px",
@@ -85,9 +91,9 @@ export const darkTheme: ThemeStyleType = {
       paper: Color.gray["800"],
     },
     primary: {
-      light: Color.beige["300"],
-      main: Color.beige["500"],
-      dark: Color.beige["700"],
+      light: Color.indigo["300"],
+      main: Color.indigo["500"],
+      dark: Color.indigo["700"],
       contrastText: Color.gray["900"],
     },
     gray: {
@@ -104,13 +110,19 @@ export const darkTheme: ThemeStyleType = {
       background: {
         default: Color.gray["800"],
         hover: Color.gray["700"],
-        active: Color.gray["700"],
+        active: "#1A2437",
+      },
+      text: {
+        default: Color.gray["500"],
+        hover: Color.white,
+        active: Color.indigo["400"],
       },
     },
     logo: {
-      color: {
-        basic: Color.white,
-      },
+      basic: Color.white,
+    },
+    divider: {
+      basic: Color.gray["800"],
     },
   },
 
@@ -130,7 +142,7 @@ export const darkTheme: ThemeStyleType = {
     weight: {
       light: 300,
       regular: 400,
-      bold: 500,
+      bold: 600,
     },
     size: {
       h1: "64px",

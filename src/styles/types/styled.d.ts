@@ -25,17 +25,22 @@ export type TypographyColorType = "primary" | "secondary" | "disabled";
 /**
  * button color type
  */
-export type ButtonColorType = "background";
+export type ButtonColorType = "background" | "text";
 
 /**
- * button background color type
+ * button state color type
  */
-export type ButtonBackgroundColorType = "default" | "hover" | "active";
+export type ButtonStateType = "default" | "hover" | "active";
 
 /**
  * logo color type
  */
 export type LogoColorType = "basic";
+
+/**
+ * divider color type
+ */
+export type DividerColorType = "basic";
 
 /**
  * palette type
@@ -45,8 +50,9 @@ export interface PaletteType {
   primary: Record<PrimaryColorType, string>;
   gray: Record<GrayColorType, string>;
   text: Record<TypographyColorType, string>;
-  button: Record<ButtonColorType, Record<ButtonBackgroundColorType, string>>;
+  button: Record<ButtonColorType, Record<ButtonStateType, string>>;
   logo: Record<LogoColorType, string>;
+  divider: Record<DividerColorType, string>;
 }
 
 /**
