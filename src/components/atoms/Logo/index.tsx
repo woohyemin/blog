@@ -62,7 +62,7 @@ const StyledLogoWrapper = styled.div<LogoProps>`
   }
 
   color: ${(props) => {
-    if (props.color === "basic") return props.theme.palette.logo.color.basic;
+    if (props.color === "basic") return props.theme.palette.logo.basic;
   }};
 `;
 

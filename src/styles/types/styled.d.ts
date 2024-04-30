@@ -3,61 +3,62 @@ import "styled-components";
 import { CSSProperties } from "react";
 
 /**
+ * background color type
+ */
+export type BackgroundColorType = "default" | "primary" | "secondary" | "paper";
+
+/**
+ * primary color type
+ */
+export type PrimaryColorType = "light" | "main" | "dark" | "contrastText";
+
+/**
+ * gray color type
+ */
+export type GrayColorType = "light" | "main" | "dark";
+
+/**
  * text color type
  */
 export type TypographyColorType = "primary" | "secondary" | "disabled";
 
 /**
+ * button color type
+ */
+export type ButtonColorType = "background";
+
+/**
+ * button background color type
+ */
+export type ButtonBackgroundColorType = "default" | "hover" | "active";
+
+/**
+ * logo color type
+ */
+export type LogoColorType = "basic";
+
+/**
  * palette type
  */
 export interface PaletteType {
-  background: {
-    default: string;
-    primary: string;
-    secondary: string;
-    paper: string;
-  };
-  primary: {
-    light: string;
-    main: string;
-    dark: string;
-    contrastText: string;
-  };
-  // secondary?: {
-  //   light: string;
-  //   main: string;
-  //   dark: string;
-  //   contrastText: string;
-  // };
-  gray: {
-    light: string;
-    main: string;
-    dark: string;
-  };
+  background: Record<BackgroundColorType, string>;
+  primary: Record<PrimaryColorType, string>;
+  gray: Record<GrayColorType, string>;
   text: Record<TypographyColorType, string>;
-  button: {
-    background: {
-      default: string;
-      hover: string;
-      active: string;
-    };
-  };
-  logo: {
-    color: {
-      basic: string;
-    };
-  };
+  button: Record<ButtonColorType, Record<ButtonBackgroundColorType, string>>;
+  logo: Record<LogoColorType, string>;
 }
+
+/**
+ * shadow effect type
+ */
+export type ShadowEffectType = "small" | "medium" | "large";
 
 /**
  * effect type
  */
 export interface EffectType {
-  shadow: {
-    small: string;
-    medium: string;
-    large: string;
-  };
+  shadow: Record<ShadowEffectType, string>;
 }
 
 /**
