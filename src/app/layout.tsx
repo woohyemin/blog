@@ -27,7 +27,7 @@ export default function RootLayout({
         <Providers>
           <Header
             menus={[
-              { label: "About Me", value: "aboutMe" },
+              { label: "About Me", value: "about-me" },
               { label: "Projects", value: "projects" },
             ]}
           />

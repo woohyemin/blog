@@ -4,6 +4,8 @@ import { Logo } from "@/components/atoms/Logo";
 import ThemeToggle from "@/components/atoms/ThemeToggle";
 import { Typography } from "@/components/atoms/data-display/Typography";
 import { Row } from "@/components/molecules/layout/FlexBox/Row";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useMemo } from "react";
 import styled, { css } from "styled-components";
 
@@ -48,10 +50,16 @@ const StyledHeaderWrapper = styled(Row)<Omit<HeaderProps, "menus">>`
   }};
 `;
 
+const MenuLink = styled(Link)`
+  text-decoration: none;
+`;
+
 /**
  * header component
  */
 export const Header = ({ menus, size, ...props }: HeaderProps) => {
+  const router = useRouter();
+
   const menuFontSize = useMemo(() => {
     if (size === "small") {
       return "caption";
@@ -70,18 +78,18 @@ export const Header = ({ menus, size, ...props }: HeaderProps) => {
       size={size}
       {...props}
     >
-      <Logo size="medium" />
+      <MenuLink href="/">
+        <Logo size="medium" />
+      </MenuLink>
+
       <Row gap="48px" alignItems="center">
         <ThemeToggle />
         {menus.map((menu) => (
-          <Typography
-            key={menu.value}
-            variant="secondary"
-            size={menuFontSize}
-            weight="bold"
-          >
-            {menu.label}
-          </Typography>
+          <MenuLink key={menu.value} href={`/${menu.value}`}>
+            <Typography variant="secondary" size={menuFontSize} weight="bold">
+              {menu.label}
+            </Typography>
+          </MenuLink>
         ))}
       </Row>
     </StyledHeaderWrapper>

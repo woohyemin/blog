@@ -2,19 +2,10 @@
 
 import { Logo } from "@/components/atoms/Logo";
 import { Typography } from "@/components/atoms/data-display/Typography";
-import { Box } from "@/components/atoms/layout/Box";
 import { Column } from "@/components/molecules/layout/FlexBox/Column";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
-import styled from "styled-components";
 
 export default function Home() {
-  const Container = styled.div`
-    background-color: ${({ theme }) =>
-      theme.palette?.button?.background?.default};
-    color: blue;
-    padding: 8px;
-  `;
-
   return (
     <TemplateLayout size="medium">
       <Column gap="40px" pt="15vh">
