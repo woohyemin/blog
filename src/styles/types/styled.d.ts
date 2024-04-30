@@ -34,7 +34,7 @@ export interface PaletteType {
     main: string;
     dark: string;
   };
-  text: { [key in TypographyColorType]: string };
+  text: Record<TypographyColorType, string>;
   button: {
     background: {
       default: string;
@@ -88,9 +88,9 @@ export type TypographySizeType =
  * typography type
  */
 export interface TypographyType {
-  variant: { [key in TypographyVariantType]: string };
-  weight: { [key in TypographyWeightType]: CSSProperties["fontWeight"] };
-  size: { [key in TypographySizeType]: CSSProperties["fontSize"] };
+  variant: Record<TypographyVariantType, string>;
+  weight: Record<TypographyWeightType, CSSProperties["fontWeight"]>;
+  size: Record<TypographySizeType, CSSProperties["fontSize"]>;
   defaultStyles: CSSProperties;
 }
 
