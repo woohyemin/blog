@@ -2,7 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
-import { ThemeFlag } from "../../recoil/themeState";
+import { ThemeFlag } from "../../store/themeState";
 
 type Props = {
   currentTheme: ThemeFlag;

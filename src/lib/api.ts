@@ -2,7 +2,7 @@ import path from "path";
 import { promises as fs } from "fs";
 import { readFile } from "fs/promises";
 import { cache } from "react";
-import { Category } from "@/components/categories";
+import { Category } from "@/components/Categories";
 
 export interface Post {
   id: number;

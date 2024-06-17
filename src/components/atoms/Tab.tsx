@@ -37,7 +37,7 @@ interface TabProps {
 
 const StyledTab = styled.button<Omit<TabProps, "label">>`
   border: none;
-  font-weight: ${({ theme }) => theme.typography.weight.bold};
+  font-weight: ${({ theme }) => theme.typography.weight.medium};
   width: fit-content;
 
   ${(props) => {

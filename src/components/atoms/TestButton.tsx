@@ -37,7 +37,7 @@ interface TestButtonProps {
 
 const TestStyledButton = styled.button<Omit<TestButtonProps, "label">>`
   border: none;
-  font-weight: ${(props) => props.theme.typography.weight.bold};
+  font-weight: ${(props) => props.theme.typography.weight.medium};
   width: fit-content;
 
   ${(props) => {
