@@ -74,14 +74,9 @@ export const Posts = ({ posts }: PostsProps) => {
               <Title size="h4" component="h3" weight="medium">
                 {el.title}
               </Title>
-              <Description
-                size="h5"
-                component="h5"
-                color="secondary"
-                weight="regular"
-              >
+              <Typography size="h5" component="p" color="secondary" pt="4px">
                 {el.description}
-              </Description>
+              </Typography>
 
               {/* <Row gap="4px" pt="16px">
             <Row p="2px 8px" borderRadius="4px" bgColor="lightGray">
@@ -95,9 +90,9 @@ export const Posts = ({ posts }: PostsProps) => {
             </Row>
           </Row> */}
 
-              <Date size="caption" color="disabled">
+              <Typography size="caption" color="disabled" pt="12px">
                 {el.date}
-              </Date>
+              </Typography>
             </Column>
           </Link>
           {index < posts.length - 1 && <Divider />}
