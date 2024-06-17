@@ -1,158 +1,103 @@
-"use client";
-
-import { Tab } from "@/components/atoms/Tab";
 import { Divider } from "@/components/atoms/data-display/Divider";
 import { Typography } from "@/components/atoms/data-display/Typography";
 import { Box } from "@/components/atoms/layout/Box";
+import { ByHyemin } from "@/components/molecules/ByHyemin";
 import { Column } from "@/components/molecules/layout/FlexBox/Column";
 import { Row } from "@/components/molecules/layout/FlexBox/Row";
+import { Header } from "@/components/organisms/Header";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
+import { getAllPosts } from "@/lib/api";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function Projects() {
+export default async function Projects() {
+  const allPosts = await getAllPosts();
+
+  if (!allPosts) {
+    return (
+      <Column justifyContent="center">
+        <Box bgColor="red" w="40px" h="40px" />
+      </Column>
+    );
+  }
+
   return (
     <TemplateLayout size="medium">
-      <Column gap="80px">
-        <Typography size="h2" component="h1" weight="bold">
-          개발하거나 공부한 내용을 여기에 정리하고 있어요
-        </Typography>
+      <Column gap="32px">
+        <Column gap="8px">
+          <Header
+            title={
+              <Row gap="12px" alignItems="end">
+                <Typography size="h2" component="h1" weight="medium">
+                  포스트
+                </Typography>
+                <ByHyemin />
+              </Row>
+            }
+          />
+          <Typography size="body1" color="secondary" h="24px">
+            개발하고 공부한 내용들을 기록하고 있습니다.
+          </Typography>
+        </Column>
 
-        <Column gap="48px">
-          <Row gap="16px">
-            <Tab label="포스트" size="large" isActivated />
-            <Tab label="시리즈" size="large" />
-          </Row>
-
-          <Column gap="40px">
-            <Row gap="40px">
-              <Column
-                gap="20px"
-                justifyContent="space-between"
-                style={{ flex: 1 }}
+        <Column gap="32px">
+          {allPosts.map((el, index) => (
+            <Column key={el.description} gap="32px">
+              <Link
+                href={`posts/${el.path}`}
+                style={{ textDecoration: "none" }}
               >
-                <Column gap="24px">
-                  <Column gap="12px">
-                    <Typography size="h5" component="h2" weight="bold">
-                      나만의 기술 블로그를 만들어보자!
-                    </Typography>
-                    <Typography size="body2" component="h3" color="secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer leo erat, bibendum vel rhoncus et, mattis in
-                      neque. Lorem ipsum dolor sit amet, consectetur adipiscing
-                      elit. Integer leo erat, bibendum v...
-                    </Typography>
-                  </Column>
-                  <Row gap="8px">
-                    <Box
-                      bgColor="lightgray"
-                      w="80px"
-                      h="32px"
-                      borderRadius="8px"
-                    />
-                    <Box
-                      bgColor="lightgray"
-                      w="80px"
-                      h="32px"
-                      borderRadius="8px"
-                    />
-                    <Box
-                      bgColor="lightgray"
-                      w="80px"
-                      h="32px"
-                      borderRadius="8px"
-                    />
-                  </Row>
+                <Column w="100%">
+                  <Image
+                    src={`/images/thumbnails/${el.thumbnail}`}
+                    alt=""
+                    width={640}
+                    height={280}
+                    style={{
+                      width: "100%",
+                      height: "280px",
+                      borderRadius: "12px",
+                      objectFit: "cover",
+                    }}
+                  />
+
+                  <Typography
+                    size="h4"
+                    component="h3"
+                    weight="medium"
+                    pt="16px"
+                  >
+                    {el.title}
+                  </Typography>
+                  <Typography
+                    size="body2"
+                    component="h4"
+                    color="secondary"
+                    pt="8px"
+                  >
+                    {el.description}
+                  </Typography>
+
+                  {/* <Row gap="4px" pt="16px">
+                    <Row p="2px 8px" borderRadius="4px" bgColor="lightGray">
+                      <Typography size="body2">React</Typography>
+                    </Row>
+                    <Row p="2px 8px" borderRadius="4px" bgColor="lightGray">
+                      <Typography size="body2">Next.js</Typography>
+                    </Row>
+                    <Row p="2px 8px" borderRadius="4px" bgColor="lightGray">
+                      <Typography size="body2">Typescript</Typography>
+                    </Row>
+                  </Row> */}
+
+                  <Typography size="caption" color="disabled" pt="20px">
+                    {el.date}
+                  </Typography>
                 </Column>
-
-                <Typography size="caption" component="h3" color="disabled">
-                  YYYY.MM.DD
-                </Typography>
-              </Column>
-
-              <Box
-                bgColor="lightgray"
-                w="360px"
-                h="220px"
-                borderRadius="20px"
-              />
-            </Row>
-
-            <Divider />
-
-            <Row gap="40px">
-              <Column
-                gap="20px"
-                justifyContent="space-between"
-                style={{ flex: 1 }}
-              >
-                <Column gap="24px">
-                  <Column gap="12px">
-                    <Typography size="h5" component="h2" weight="bold">
-                      나만의 디자인 시스템을 만들어보자!
-                    </Typography>
-                    <Typography size="body2" component="h3" color="secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </Typography>
-                  </Column>
-                  <Row gap="8px">
-                    <Box
-                      bgColor="lightgray"
-                      w="80px"
-                      h="32px"
-                      borderRadius="8px"
-                    />
-                    <Box
-                      bgColor="lightgray"
-                      w="80px"
-                      h="32px"
-                      borderRadius="8px"
-                    />
-                    <Box
-                      bgColor="lightgray"
-                      w="80px"
-                      h="32px"
-                      borderRadius="8px"
-                    />
-                  </Row>
-                </Column>
-
-                <Typography size="caption" component="h3" color="disabled">
-                  YYYY.MM.DD
-                </Typography>
-              </Column>
-
-              <Box
-                bgColor="lightgray"
-                w="360px"
-                h="220px"
-                borderRadius="20px"
-              />
-            </Row>
-          </Column>
-
-          {/* <Row gap="24px" style={{ flexWrap: "wrap" }}>
-            <Column
-              bgColor="lightgray"
-              w="360px"
-              h="420px"
-              borderRadius="24px"
-              style={{ overflow: "hidden" }}
-            >
-              <Box bgColor="gray" w="100%" h="200px" />
-              <Column gap="16px" p="16px 24px">
-                <Typography size="h5" component="h3" weight="bold">
-                  포스트 제목
-                </Typography>
-                <Typography size="body2" component="h4" color="secondary">
-                  포스트 설명 영역입니다.
-                </Typography>
-              </Column>
+              </Link>
+              {index < allPosts.length - 1 && <Divider />}
             </Column>
-            <Box bgColor="lightgray" w="360px" h="420px" borderRadius="24px" />
-            <Box bgColor="lightgray" w="360px" h="420px" borderRadius="24px" />
-            <Box bgColor="lightgray" w="360px" h="420px" borderRadius="24px" />
-            <Box bgColor="lightgray" w="360px" h="420px" borderRadius="24px" />
-            <Box bgColor="lightgray" w="360px" h="420px" borderRadius="24px" />
-          </Row> */}
+          ))}
         </Column>
       </Column>
     </TemplateLayout>

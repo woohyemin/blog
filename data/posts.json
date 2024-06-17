@@ -1,0 +1,32 @@
+[
+  {
+    "blog": [
+      {
+        "id": 1,
+        "category": "blog",
+        "title": "[블로그 만들기 Part 1] Next.js를 활용해서 블로그 프로젝트 생성하기",
+        "date": "2023년 05월 17일",
+        "path": "blog-part-1",
+        "thumbnail": "blog_part_1.jpg",
+        "featured": false,
+        "description": "Next.js를 활용해서 블로그 프로젝트 생성하기",
+        "related": []
+      }
+    ]
+  },
+  {
+    "CSR-SSR-SSG": [
+      {
+        "id": 1,
+        "category": "CSR-SSR-SSG",
+        "title": "CSR/SSR/SSG 차이를 알아보자",
+        "date": "2023년 05월 18일",
+        "path": "CSR-SSR-SSG",
+        "thumbnail": "CSR_SSR_SSG.jpg",
+        "featured": false,
+        "description": "CSR, SSR, SSG의 차이점에 대해 조금 더 자세히 알아보자",
+        "related": []
+      }
+    ]
+  }
+]

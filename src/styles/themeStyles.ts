@@ -1,5 +1,39 @@
 import { Color } from "./Color";
-import { ThemeStyleType } from "./types/styled";
+import { ThemeStyleType, TypographyType } from "./types/styled";
+
+const TypographyTheme: TypographyType = {
+  variant: {
+    primary: "'Noto Sans KR', sans-serif",
+    secondary: "'Montserrat', sans-serif",
+  },
+  weight: {
+    light: 300,
+    regular: 400,
+    medium: 500,
+  },
+  size: {
+    h1: "24px",
+    h2: "20px",
+    h3: "18px",
+    h4: "16px",
+    h5: "14px",
+    h6: "12px",
+    body1: "14px",
+    body2: "12px",
+    caption: "12px",
+  },
+  defaultStyles: {
+    wordBreak: "keep-all",
+    lineHeight: "160%",
+    letterSpacing: "-0.05em",
+  },
+};
+
+const BreakPoints = {
+  small: 360,
+  medium: 640,
+  large: 1100,
+};
 
 export const lightTheme: ThemeStyleType = {
   palette: {
@@ -7,12 +41,12 @@ export const lightTheme: ThemeStyleType = {
       default: Color.gray["100"],
       primary: Color.beige["100"],
       secondary: "",
-      paper: Color.gray["100"],
+      paper: Color.gray["300"],
     },
     primary: {
-      light: Color.indigo["300"],
-      main: Color.indigo["500"],
-      dark: Color.indigo["700"],
+      light: Color.beige["300"],
+      main: Color.beige["600"],
+      dark: Color.beige["700"],
       contrastText: Color.gray["900"],
     },
     gray: {
@@ -28,13 +62,23 @@ export const lightTheme: ThemeStyleType = {
     button: {
       background: {
         default: Color.gray["150"],
-        hover: Color.indigo["100"],
-        active: Color.indigo["100"],
+        hover: Color.beige["100"],
+        active: Color.beige["150"],
       },
       text: {
-        default: Color.gray["600"],
+        default: Color.gray["800"],
         hover: Color.gray["800"],
-        active: Color.indigo["500"],
+        active: Color.beige["600"],
+      },
+    },
+    chip: {
+      background: {
+        basic: Color.gray["150"],
+        primary: Color.beige["150"],
+      },
+      text: {
+        basic: Color.gray["600"],
+        primary: Color.beige["600"],
       },
     },
     logo: {
@@ -43,6 +87,13 @@ export const lightTheme: ThemeStyleType = {
     divider: {
       basic: Color.gray["300"],
     },
+    dot: {
+      basic: Color.gray["400"],
+    },
+    icon: {
+      primary: Color.gray["900"],
+      secondary: Color.gray["700"],
+    },
   },
 
   effect: {
@@ -53,33 +104,7 @@ export const lightTheme: ThemeStyleType = {
     },
   },
 
-  typography: {
-    variant: {
-      primary: "'Noto Sans KR', sans-serif",
-      secondary: "'Montserrat', sans-serif",
-    },
-    weight: {
-      light: 300,
-      regular: 400,
-      bold: 600,
-    },
-    size: {
-      h1: "64px",
-      h2: "48px",
-      h3: "40px",
-      h4: "32px",
-      h5: "28px",
-      h6: "24px",
-      body1: "20px",
-      body2: "16px",
-      caption: "14px",
-    },
-    defaultStyles: {
-      wordBreak: "keep-all",
-      lineHeight: "140%",
-      letterSpacing: "-0.03em",
-    },
-  },
+  typography: TypographyTheme,
 };
 
 export const darkTheme: ThemeStyleType = {
@@ -88,12 +113,12 @@ export const darkTheme: ThemeStyleType = {
       default: Color.gray["900"],
       primary: Color.beige["100"],
       secondary: "",
-      paper: Color.gray["800"],
+      paper: Color.gray["850"],
     },
     primary: {
-      light: Color.indigo["300"],
-      main: Color.indigo["500"],
-      dark: Color.indigo["700"],
+      light: Color.beige["300"],
+      main: Color.beige["600"],
+      dark: Color.beige["700"],
       contrastText: Color.gray["900"],
     },
     gray: {
@@ -102,20 +127,30 @@ export const darkTheme: ThemeStyleType = {
       dark: Color.gray["700"],
     },
     text: {
-      primary: Color.white,
+      primary: Color.gray["50"],
       secondary: Color.gray["400"],
-      disabled: Color.gray["700"],
+      disabled: Color.gray["600"],
     },
     button: {
       background: {
-        default: Color.gray["800"],
+        default: Color.gray["850"],
         hover: Color.gray["700"],
-        active: "#1A2437",
+        active: "#2A241E",
       },
       text: {
-        default: Color.gray["500"],
+        default: Color.gray["50"],
         hover: Color.white,
-        active: Color.indigo["400"],
+        active: Color.beige["600"],
+      },
+    },
+    chip: {
+      background: {
+        basic: Color.gray["800"],
+        primary: "#2A241E",
+      },
+      text: {
+        basic: Color.gray["500"],
+        primary: Color.beige["600"],
       },
     },
     logo: {
@@ -123,6 +158,13 @@ export const darkTheme: ThemeStyleType = {
     },
     divider: {
       basic: Color.gray["800"],
+    },
+    dot: {
+      basic: Color.gray["700"],
+    },
+    icon: {
+      primary: Color.gray["50"],
+      secondary: Color.gray["400"],
     },
   },
 
@@ -134,33 +176,7 @@ export const darkTheme: ThemeStyleType = {
     },
   },
 
-  typography: {
-    variant: {
-      primary: "'Noto Sans KR', sans-serif",
-      secondary: "'Montserrat', sans-serif",
-    },
-    weight: {
-      light: 300,
-      regular: 400,
-      bold: 600,
-    },
-    size: {
-      h1: "64px",
-      h2: "48px",
-      h3: "40px",
-      h4: "32px",
-      h5: "28px",
-      h6: "24px",
-      body1: "20px",
-      body2: "16px",
-      caption: "14px",
-    },
-    defaultStyles: {
-      wordBreak: "keep-all",
-      lineHeight: "140%",
-      letterSpacing: "-0.03em",
-    },
-  },
+  typography: TypographyTheme,
 };
 
 export const theme = {

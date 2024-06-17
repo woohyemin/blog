@@ -1,5 +1,4 @@
 import "styled-components";
-
 import { CSSProperties } from "react";
 
 /**
@@ -38,9 +37,29 @@ export type ButtonStateType = "default" | "hover" | "active";
 export type LogoColorType = "basic";
 
 /**
+ * icon color type
+ */
+export type IconColorType = "primary" | "secondary";
+
+/**
+ * dot color type
+ */
+export type DotColorType = "basic";
+
+/**
  * divider color type
  */
 export type DividerColorType = "basic";
+
+/**
+ * chip color type
+ */
+export type ChipColorType = "background" | "text";
+
+/**
+ * chip state color type
+ */
+export type ChipStateColorType = "basic" | "primary";
 
 /**
  * palette type
@@ -51,8 +70,11 @@ export interface PaletteType {
   gray: Record<GrayColorType, string>;
   text: Record<TypographyColorType, string>;
   button: Record<ButtonColorType, Record<ButtonStateType, string>>;
+  chip: Record<ChipColorType, Record<ChipStateType, string>>;
   logo: Record<LogoColorType, string>;
   divider: Record<DividerColorType, string>;
+  dot: Record<DotColorType, string>;
+  icon: Record<IconColorType, string>;
 }
 
 /**
@@ -75,7 +97,7 @@ export type TypographyVariantType = "primary" | "secondary";
 /**
  * typography weight type
  */
-export type TypographyWeightType = "light" | "regular" | "bold";
+export type TypographyWeightType = "light" | "regular" | "medium";
 
 /**
  * typography size type
@@ -113,3 +135,34 @@ export interface ThemeStyleType {
 declare module "styled-components" {
   export interface DefaultTheme extends ThemeStyleType {}
 }
+
+/**
+ * padding props
+ */
+
+export interface PaddingProps {
+  p?: CSSProperties["padding"];
+  pt?: CSSProperties["paddingTop"];
+  pr?: CSSProperties["paddingRight"];
+  pb?: CSSProperties["paddingBottom"];
+  pl?: CSSProperties["paddingLeft"];
+}
+
+/**
+ * margin props
+ */
+
+export interface MarginProps {
+  m?: CSSProperties["margin"];
+  mt?: CSSProperties["marginTop"];
+  mr?: CSSProperties["marginRight"];
+  mb?: CSSProperties["marginBottom"];
+  ml?: CSSProperties["marginLeft"];
+}
+
+export interface SizeProps {
+  w?: CSSProperties["width"];
+  h?: CSSProperties["height"];
+}
+
+export type CommonStyleProps = PaddingProps & MarginProps & SizeProps;

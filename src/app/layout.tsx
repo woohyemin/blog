@@ -25,15 +25,15 @@ export default function RootLayout({
     <html lang="ko" className={noto_sans_kr.className}>
       <body>
         <Providers>
-          <Header
+          {/* <Header
             menus={[
               { label: "About Me", value: "about-me" },
               { label: "Posts", value: "posts" },
             ]}
-          />
+          /> */}
           <GlobalStyles />
           {children}
-          <Footer size="medium" />
+          {/* <Footer size="medium" /> */}
         </Providers>
       </body>
     </html>
