@@ -1,6 +1,8 @@
 "use client";
 
 import {
+  CommonStyleProps,
+  PaddingProps,
   TypographyColorType,
   TypographySizeType,
   TypographyVariantType,
@@ -31,12 +33,15 @@ type TypographyComponentLevelType =
   | "h5"
   | "h6"
   | "span"
-  | "p";
+  | "p"
+  | "li";
+
+type CommonProps = CommonStyleProps & HTMLAttributes<HTMLSpanElement>;
 
 /**
  * Typography component props
  */
-export interface TypographyProps extends HTMLAttributes<HTMLSpanElement> {
+export interface TypographyProps extends CommonProps {
   variant?: TypographyVariantType;
   size?: TypographySizeType;
   weight?: TypographyWeightType;
@@ -63,6 +68,19 @@ export const Typography = ({
     font-weight: ${({ weight, theme }) =>
       theme.typography.weight[weight || "regular"]};
     color: ${({ color, theme }) => theme.palette.text[color || "primary"]};
+
+    width: ${(props) => props.w};
+    height: ${(props) => props.h};
+    padding: ${(props) => props.p};
+    padding-top: ${(props) => props.pt};
+    padding-right: ${(props) => props.pr};
+    padding-bottom: ${(props) => props.pb};
+    padding-left: ${(props) => props.pl};
+    margin: ${(props) => props.m};
+    margin-top: ${(props) => props.mt};
+    margin-right: ${(props) => props.mr};
+    margin-bottom: ${(props) => props.mb};
+    margin-left: ${(props) => props.ml};
   `;
 
   return (
