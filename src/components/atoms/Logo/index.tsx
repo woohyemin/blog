@@ -27,7 +27,7 @@ interface LogoProps {
   /**
    * logo color
    */
-  color?: "basic";
+  color?: "basic" | "primary";
 }
 
 const StyledLogoWrapper = styled.div<LogoProps>`
@@ -62,7 +62,11 @@ const StyledLogoWrapper = styled.div<LogoProps>`
   }
 
   color: ${(props) => {
-    if (props.color === "basic") return props.theme.palette.logo.basic;
+    if (props.color === "basic") {
+      return props.theme.palette.logo.basic;
+    } else if (props.color === "primary") {
+      return props.theme.palette.primary.main;
+    }
   }};
 `;
 
