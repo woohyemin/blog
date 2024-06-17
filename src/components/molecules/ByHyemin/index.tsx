@@ -20,7 +20,7 @@ interface ByHyeminProps {
  */
 export const ByHyemin = ({ variant = "default" }: ByHyeminProps) => {
   return (
-    <Row gap="4px" pb="4px" $alignItems="end">
+    <Row gap="4px" pb="4px" alignItems="end">
       <Typography size="h6" color="disabled">
         by
       </Typography>
