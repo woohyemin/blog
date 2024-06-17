@@ -1,12 +1,8 @@
 "use client";
 
-import { Logo } from "@/components/atoms/Logo";
 import ThemeToggle from "@/components/atoms/ThemeToggle";
-import { Typography } from "@/components/atoms/data-display/Typography";
 import { Row } from "@/components/molecules/layout/FlexBox/Row";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { useMemo } from "react";
+import React, { ReactNode, useMemo } from "react";
 import styled, { css } from "styled-components";
 
 export type MenuType = {
@@ -19,9 +15,9 @@ export type MenuType = {
  */
 interface HeaderProps {
   /**
-   * header size
+   * header title
    */
-  menus: MenuType[];
+  title: ReactNode;
 
   /**
    * header size
@@ -29,74 +25,33 @@ interface HeaderProps {
   size?: "small" | "medium" | "large";
 }
 
-const StyledHeaderWrapper = styled(Row)<Omit<HeaderProps, "menus">>`
+const StyledHeaderWrapper = styled(Row)<Omit<HeaderProps, "title">>`
+  max-width: 640px;
   width: 100%;
-  padding: 16px 40px;
-
-  ${(props) => {
-    if (props.size === "small") {
-      return css`
-        height: 56px;
-      `;
-    } else if (props.size === "medium") {
-      return css`
-        height: 80px;
-      `;
-    } else if (props.size === "large") {
-      return css`
-        height: 120px;
-      `;
-    }
-  }};
-`;
-
-const MenuLink = styled(Link)`
-  text-decoration: none;
+  margin: 0 auto;
 `;
 
 /**
  * header component
  */
-export const Header = ({ menus, size, ...props }: HeaderProps) => {
-  const router = useRouter();
-
-  const menuFontSize = useMemo(() => {
-    if (size === "small") {
-      return "caption";
-    } else if (size === "medium") {
-      return "body2";
-    } else {
-      return "body1";
-    }
-  }, [size]);
-
+export const Header = ({ title, size, ...props }: HeaderProps) => {
   return (
     <StyledHeaderWrapper
-      w="100%"
       justifyContent="space-between"
       alignItems="center"
       size={size}
       {...props}
     >
-      <MenuLink href="/">
-        <Logo size="medium" />
-      </MenuLink>
-
-      <Row gap="48px" alignItems="center">
+      {title}
+      <Row gap="8px" alignItems="center">
         <ThemeToggle />
-        {menus.map((menu) => (
-          <MenuLink key={menu.value} href={`/${menu.value}`}>
-            <Typography variant="secondary" size={menuFontSize} weight="bold">
-              {menu.label}
-            </Typography>
-          </MenuLink>
-        ))}
+        {/* <Box w="32px" h="32px" bgColor="#DDD" /> */}
       </Row>
     </StyledHeaderWrapper>
   );
 };
 
 Header.defaultProps = {
-  menus: [],
+  title: "Title",
   size: "medium",
 } as HeaderProps;
