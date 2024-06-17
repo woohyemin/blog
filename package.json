@@ -1,14 +1,16 @@
 {
-  "name": "hem-lab-blog",
+  "name": "blog",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://woohyemin.github.io/blog/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy": "next build && next export && touch out/.nojekyll && git add -f out/ && git commit -m 'deploy to gh-pages' && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "@types/react-syntax-highlighter": "^15.5.13",
@@ -41,6 +43,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.2",
     "eslint-plugin-storybook": "^0.8.0",
+    "gh-pages": "^6.1.1",
     "storybook": "^8.0.9",
     "typescript": "^5"
   }
