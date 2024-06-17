@@ -17,8 +17,10 @@ interface FooterProps {
 }
 
 const StyledFooterWrapper = styled(Row)<Omit<FooterProps, "menus">>`
+  max-width: 640px;
   width: 100%;
   padding: 16px 40px;
+  margin: 0 auto;
 
   ${(props) => {
     if (props.size === "small") {
