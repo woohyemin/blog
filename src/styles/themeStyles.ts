@@ -1,7 +1,11 @@
 import { Color } from "./Color";
-import { ThemeStyleType, TypographyType } from "./types/styled";
+import {
+  BreakPointsType,
+  ThemeStyleType,
+  TypographyType,
+} from "./types/styled";
 
-const TypographyTheme: TypographyType = {
+const typography: TypographyType = {
   variant: {
     primary: "'Noto Sans KR', sans-serif",
     secondary: "'Montserrat', sans-serif",
@@ -29,13 +33,14 @@ const TypographyTheme: TypographyType = {
   },
 };
 
-const BreakPoints = {
-  small: 360,
-  medium: 640,
-  large: 1100,
+const breakPoints: BreakPointsType = {
+  small: 600,
+  medium: 768,
+  large: 1200,
 };
 
 export const lightTheme: ThemeStyleType = {
+  breakPoints,
   palette: {
     background: {
       default: Color.gray["100"],
@@ -104,10 +109,11 @@ export const lightTheme: ThemeStyleType = {
     },
   },
 
-  typography: TypographyTheme,
+  typography,
 };
 
 export const darkTheme: ThemeStyleType = {
+  breakPoints,
   palette: {
     background: {
       default: Color.gray["900"],
@@ -176,7 +182,7 @@ export const darkTheme: ThemeStyleType = {
     },
   },
 
-  typography: TypographyTheme,
+  typography,
 };
 
 export const theme = {

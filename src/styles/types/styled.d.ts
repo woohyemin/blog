@@ -2,6 +2,16 @@ import "styled-components";
 import { CSSProperties } from "react";
 
 /**
+ * break points size type
+ */
+export type BreakPointsSizeType = "small" | "medium" | "large";
+
+/**
+ * break points type
+ */
+export type BreakPointsType = Record<BreakPointsSizeType, number>;
+
+/**
  * background color type
  */
 export type BackgroundColorType = "default" | "primary" | "secondary" | "paper";
@@ -127,6 +137,7 @@ export interface TypographyType {
  * theme style type
  */
 export interface ThemeStyleType {
+  breakPoints: BreakPointsType;
   palette: PaletteType;
   effect: EffectType;
   typography: TypographyType;

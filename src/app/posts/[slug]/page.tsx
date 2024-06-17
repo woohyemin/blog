@@ -43,16 +43,14 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
   return (
     <TemplateLayout size="medium">
-      <Column gap="8px">
-        <Column gap="32px">
-          <Column gap="8px">
-            <Header
-              title={
-                <Typography size="h2" color="primary" weight="medium">
-                  {title}
-                </Typography>
-              }
-            />
+      <Column mb="8px">
+        <Header
+          title={
+            <Typography size="h2" color="primary" weight="medium">
+              {title}
+            </Typography>
+          }
+          content={
             <Row gap="8px" alignItems="center" h="24px">
               <Typography size="h6" color="secondary">
                 {date}
@@ -60,22 +58,24 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
               <Dot />
               <ByHyemin variant="blog" />
             </Row>
-          </Column>
-          <Image
-            src={`/images/thumbnails/${thumbnail}`}
-            alt=""
-            width={640}
-            height={280}
-            style={{
-              width: "100%",
-              height: "280px",
-              objectFit: "cover",
-              borderRadius: "12px",
-            }}
-          />
-        </Column>
-        <PostLayout size="medium">{content}</PostLayout>
+          }
+        />
+
+        <Image
+          src={`/images/thumbnails/${thumbnail}`}
+          alt=""
+          width={640}
+          height={280}
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "cover",
+            borderRadius: "12px",
+          }}
+        />
       </Column>
+
+      <PostLayout size="medium">{content}</PostLayout>
     </TemplateLayout>
   );
 }
