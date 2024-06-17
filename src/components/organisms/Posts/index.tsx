@@ -62,11 +62,11 @@ export const Posts = ({ posts }: PostsProps) => {
                 src={`/images/thumbnails/${el.thumbnail}`}
                 alt=""
                 width={640}
-                height={280}
+                height={320}
                 style={{
                   width: "100%",
                   height: "auto",
-                  borderRadius: "12px",
+                  borderRadius: "8px",
                   objectFit: "cover",
                 }}
               />
@@ -74,7 +74,12 @@ export const Posts = ({ posts }: PostsProps) => {
               <Title size="h4" component="h3" weight="medium">
                 {el.title}
               </Title>
-              <Description size="h5" component="h5" color="secondary">
+              <Description
+                size="h5"
+                component="h5"
+                color="secondary"
+                weight="regular"
+              >
                 {el.description}
               </Description>
 

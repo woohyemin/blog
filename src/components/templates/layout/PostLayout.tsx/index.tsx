@@ -149,6 +149,7 @@ const PostBody = ({ children, ...props }: any) => {
             height: "320px",
             objectFit: "cover",
             margin: "6px 0",
+            borderRadius: "8px",
           }}
         />
       );

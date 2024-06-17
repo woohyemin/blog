@@ -65,12 +65,12 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
           src={`/images/thumbnails/${thumbnail}`}
           alt=""
           width={640}
-          height={280}
+          height={320}
           style={{
             width: "100%",
             height: "auto",
             objectFit: "cover",
-            borderRadius: "12px",
+            borderRadius: "8px",
           }}
         />
       </Column>
