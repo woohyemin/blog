@@ -33,8 +33,6 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
   const { title, date, content, thumbnail } = post;
 
-  console.log("post", post);
-
   if (!post) {
     return (
       <Column $justifyContent="center">
