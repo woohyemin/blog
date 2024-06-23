@@ -19,11 +19,6 @@ interface HeaderProps {
    * header content
    */
   content: ReactNode;
-
-  /**
-   * header size
-   */
-  size?: "small" | "medium" | "large";
 }
 
 const StyledHeaderWrapper = styled(Column)`
@@ -36,30 +31,16 @@ const StyledHeaderWrapper = styled(Column)`
   }
 `;
 
-const StyledTitleWrapper = styled(Row)<Omit<HeaderProps, "title" | "content">>`
-  max-width: 640px;
-  width: 100%;
-  margin: 0 auto;
-`;
-
 /**
  * header component
  */
-export const Header = ({ title, content, size, ...props }: HeaderProps) => {
+export const Header = ({ title, content }: HeaderProps) => {
   return (
     <StyledHeaderWrapper>
-      <StyledTitleWrapper
-        justifyContent="space-between"
-        alignItems="center"
-        size={size}
-        {...props}
-      >
+      <Row $justifyContent="space-between" $alignItems="center">
         {title}
-        <Row gap="8px" alignItems="center">
-          <ThemeToggle />
-          {/* <Box w="32px" h="32px" bgColor="#DDD" /> */}
-        </Row>
-      </StyledTitleWrapper>
+        <ThemeToggle />
+      </Row>
       {content}
     </StyledHeaderWrapper>
   );

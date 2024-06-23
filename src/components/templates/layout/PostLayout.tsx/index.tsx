@@ -45,11 +45,11 @@ const PostBody = ({ children, ...props }: any) => {
     h1({ ...props }) {
       return (
         <Typography
-          size="h3"
-          component="h2"
-          weight="medium"
-          mt="14px"
-          mb="4px"
+          $size="h3"
+          $component="h2"
+          $weight="medium"
+          $mt="14px"
+          $mb="4px"
           {...props}
         />
       );
@@ -57,11 +57,11 @@ const PostBody = ({ children, ...props }: any) => {
     h2({ ...props }) {
       return (
         <Typography
-          size="h4"
-          component="h3"
-          weight="medium"
-          mt="14px"
-          mb="4px"
+          $size="h4"
+          $component="h3"
+          $weight="medium"
+          $mt="14px"
+          $mb="4px"
           {...props}
         />
       );
@@ -69,11 +69,11 @@ const PostBody = ({ children, ...props }: any) => {
     h3({ ...props }) {
       return (
         <Typography
-          size="h5"
-          component="h4"
-          weight="medium"
-          mt="14px"
-          mb="4px"
+          $size="h5"
+          $component="h4"
+          $weight="medium"
+          $mt="14px"
+          $mb="4px"
           {...props}
         />
       );
@@ -81,11 +81,11 @@ const PostBody = ({ children, ...props }: any) => {
     h4({ ...props }) {
       return (
         <Typography
-          size="h6"
-          component="h5"
-          weight="medium"
-          mt="14px"
-          mb="4px"
+          $size="h6"
+          $component="h5"
+          $weight="medium"
+          $mt="14px"
+          $mb="4px"
           {...props}
         />
       );
@@ -93,28 +93,34 @@ const PostBody = ({ children, ...props }: any) => {
     h5({ ...props }) {
       return (
         <Typography
-          size="body1"
-          component="h6"
-          weight="medium"
-          mt="14px"
-          mb="4px"
+          $size="body1"
+          $component="h6"
+          $weight="medium"
+          $mt="14px"
+          $mb="4px"
           {...props}
         />
       );
     },
     h6({ ...props }) {
       return (
-        <Typography size="body1" component="p" mt="10px" mb="3px" {...props} />
+        <Typography
+          $size="body1"
+          $component="p"
+          $mt="10px"
+          $mb="3px"
+          {...props}
+        />
       );
     },
     p({ ...props }) {
       return (
         <Typography
-          size="body1"
-          component="p"
-          mt="3px"
-          mb="3px"
-          color="secondary"
+          $size="body1"
+          $component="p"
+          $mt="3px"
+          $mb="3px"
+          $color="secondary"
           {...props}
         />
       );
@@ -130,11 +136,11 @@ const PostBody = ({ children, ...props }: any) => {
     li({ ...props }) {
       return (
         <Typography
-          size="body1"
-          component="li"
-          mt="3px"
-          mb="3px"
-          color="secondary"
+          $size="body1"
+          $component="li"
+          $mt="3px"
+          $mb="3px"
+          $color="secondary"
           {...props}
         />
       );

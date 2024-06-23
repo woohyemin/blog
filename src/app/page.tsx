@@ -39,22 +39,22 @@ export default function Home() {
     <StyledTemplateLayout>
       <Header
         title={
-          <Row gap="8px" alignItems="center">
+          <Row $gap="8px" $alignItems="center">
             <Typography
-              size="h2"
-              component="h1"
-              color="primary"
-              weight="medium"
+              $size="h2"
+              $component="h1"
+              $color="primary"
+              $weight="medium"
             >
               우혜민
             </Typography>
             <Dot />
             <Typography
-              size="h3"
-              component="h1"
-              variant="secondary"
-              color="primary"
-              weight="medium"
+              $size="h3"
+              $component="h1"
+              $variant="secondary"
+              $color="primary"
+              $weight="medium"
             >
               hyemin woo
             </Typography>
@@ -62,7 +62,7 @@ export default function Home() {
         }
         content={
           <ContentWrapper>
-            <Typography size="h5" component="p" color="secondary">
+            <Typography $size="h5" $component="p" $color="secondary">
               더 나은 UI/UX를 고민하며 개발하는 웹 프론트엔드 개발자
               우혜민입니다.
               <br />
@@ -73,7 +73,7 @@ export default function Home() {
         }
       />
 
-      <Row gap="8px">
+      <Row $gap="8px">
         <MenuLink href={`/posts`}>
           <Button startIcon="filledDocument">Posts</Button>
         </MenuLink>

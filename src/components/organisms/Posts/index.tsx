@@ -24,28 +24,19 @@ const PostsWrapper = styled(Column)`
   }
 `;
 
-const Title = styled(Typography)`
-  padding-top: 16px;
+// const Title = styled(Typography)`
+//   padding-top: 16px;
 
-  @media only screen and (max-width: 600px) {
-    padding-top: 12px;
-  }
-`;
+//   @media only screen and (max-width: 600px) {
+//     padding-top: 12px;
+//   }
+// `;
 
-const Description = styled(Typography)`
-  padding-top: 8px;
-
-  @media only screen and (max-width: 600px) {
-    padding-top: 4px;
-  }
-`;
-
-const Date = styled(Typography)`
-  padding-top: 20px;
-
-  @media only screen and (max-width: 600px) {
-    padding-top: 12px;
-  }
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
 `;
 
 /**
@@ -57,24 +48,28 @@ export const Posts = ({ posts }: PostsProps) => {
       {posts.map((el, index) => (
         <Fragment key={el.description}>
           <Link href={`posts/${el.path}`} style={{ textDecoration: "none" }}>
-            <Column w="100%">
-              <Image
+            <Column $w="100%">
+              <StyledImage
                 src={`/images/thumbnails/${el.thumbnail}`}
-                alt=""
+                alt="포스트 섬네일 이미지"
                 width={640}
                 height={320}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "8px",
-                  objectFit: "cover",
-                }}
               />
 
-              <Title size="h4" component="h3" weight="medium">
+              <Typography
+                $size="h4"
+                $component="h3"
+                $weight="medium"
+                $pt="12px"
+              >
                 {el.title}
-              </Title>
-              <Typography size="h5" component="p" color="secondary" pt="4px">
+              </Typography>
+              <Typography
+                $size="h5"
+                $component="p"
+                $color="secondary"
+                $pt="4px"
+              >
                 {el.description}
               </Typography>
 
@@ -90,7 +85,7 @@ export const Posts = ({ posts }: PostsProps) => {
             </Row>
           </Row> */}
 
-              <Typography size="caption" color="disabled" pt="12px">
+              <Typography $size="caption" $color="disabled" $pt="12px">
                 {el.date}
               </Typography>
             </Column>

@@ -13,8 +13,8 @@ export default async function Projects() {
 
   if (!allPosts) {
     return (
-      <Column justifyContent="center">
-        <Box bgColor="red" w="40px" h="40px" />
+      <Column $justifyContent="center">
+        <Box $bgColor="red" $w="40px" $h="40px" />
       </Column>
     );
   }
@@ -23,15 +23,15 @@ export default async function Projects() {
     <TemplateLayout size="medium">
       <Header
         title={
-          <Row gap="12px" alignItems="end">
-            <Typography size="h2" component="h1" weight="medium">
+          <Row $gap="12px" $alignItems="end">
+            <Typography $size="h2" $component="h1" $weight="medium">
               포스트
             </Typography>
             <ByHyemin />
           </Row>
         }
         content={
-          <Typography size="body1" color="secondary" h="24px">
+          <Typography $size="body1" $color="secondary">
             개발하고 공부한 내용들을 기록하고 있습니다.
           </Typography>
         }

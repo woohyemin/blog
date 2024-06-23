@@ -33,26 +33,28 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
   const { title, date, content, thumbnail } = post;
 
+  console.log("post", post);
+
   if (!post) {
     return (
-      <Column justifyContent="center">
-        <Box bgColor="red" w="40px" h="40px" />
+      <Column $justifyContent="center">
+        <Box $bgColor="red" $w="40px" $h="40px" />
       </Column>
     );
   }
 
   return (
     <TemplateLayout size="medium">
-      <Column mb="8px">
+      <Column $mb="8px">
         <Header
           title={
-            <Typography size="h2" color="primary" weight="medium">
+            <Typography $size="h2" $color="primary" $weight="medium">
               {title}
             </Typography>
           }
           content={
-            <Row gap="8px" alignItems="center" h="24px">
-              <Typography size="h6" color="secondary">
+            <Row $gap="8px" $alignItems="center" $h="24px">
+              <Typography $size="h6" $color="secondary">
                 {date}
               </Typography>
               <Dot />

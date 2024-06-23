@@ -20,20 +20,20 @@ interface ByHyeminProps {
  */
 export const ByHyemin = ({ variant = "default" }: ByHyeminProps) => {
   return (
-    <Row gap="4px" pb="4px" alignItems="end">
-      <Typography size="h6" color="disabled">
+    <Row $gap="4px" $pb="4px" $alignItems="end">
+      <Typography $size="h6" $color="disabled">
         by
       </Typography>
       {variant === "default" && (
         <StyledLink href="/">
-          <Typography size="h6" color="secondary">
+          <Typography $size="h6" $color="secondary">
             hyemin
           </Typography>
         </StyledLink>
       )}
       {variant === "blog" && (
         <StyledLink href="/posts">
-          <Typography size="h6" color="secondary">
+          <Typography $size="h6" $color="secondary">
             hyemin's blog
           </Typography>
         </StyledLink>

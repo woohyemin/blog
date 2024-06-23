@@ -14,6 +14,5 @@ export const Primary: Story = {
   args: {
     title: "Title",
     content: "Content",
-    size: "medium",
   },
 };

@@ -152,11 +152,11 @@ declare module "styled-components" {
  */
 
 export interface PaddingProps {
-  p?: CSSProperties["padding"];
-  pt?: CSSProperties["paddingTop"];
-  pr?: CSSProperties["paddingRight"];
-  pb?: CSSProperties["paddingBottom"];
-  pl?: CSSProperties["paddingLeft"];
+  $p?: CSSProperties["padding"];
+  $pt?: CSSProperties["paddingTop"];
+  $pr?: CSSProperties["paddingRight"];
+  $pb?: CSSProperties["paddingBottom"];
+  $pl?: CSSProperties["paddingLeft"];
 }
 
 /**
@@ -164,16 +164,16 @@ export interface PaddingProps {
  */
 
 export interface MarginProps {
-  m?: CSSProperties["margin"];
-  mt?: CSSProperties["marginTop"];
-  mr?: CSSProperties["marginRight"];
-  mb?: CSSProperties["marginBottom"];
-  ml?: CSSProperties["marginLeft"];
+  $m?: CSSProperties["margin"];
+  $mt?: CSSProperties["marginTop"];
+  $mr?: CSSProperties["marginRight"];
+  $mb?: CSSProperties["marginBottom"];
+  $ml?: CSSProperties["marginLeft"];
 }
 
 export interface SizeProps {
-  w?: CSSProperties["width"];
-  h?: CSSProperties["height"];
+  $w?: CSSProperties["width"];
+  $h?: CSSProperties["height"];
 }
 
 export type CommonStyleProps = PaddingProps & MarginProps & SizeProps;

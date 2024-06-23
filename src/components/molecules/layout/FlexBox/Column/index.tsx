@@ -6,15 +6,15 @@ import { FlexBox, FlexBoxProps } from "..";
 /**
  * Column component props
  */
-export interface ColumnProps extends Omit<FlexBoxProps, "direction"> {
-  reverse?: boolean;
+export interface ColumnProps extends Omit<FlexBoxProps, "$direction"> {
+  $reverse?: boolean;
 }
 
 /**
  * Column component
  */
-export const Column = ({ reverse, ...props }: ColumnProps) => {
+export const Column = ({ $reverse, ...props }: ColumnProps) => {
   return (
-    <FlexBox direction={reverse ? "column-reverse" : "column"} {...props} />
+    <FlexBox $direction={$reverse ? "column-reverse" : "column"} {...props} />
   );
 };

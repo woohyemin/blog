@@ -55,18 +55,18 @@ export const Footer = ({ size, ...props }: FooterProps) => {
 
   return (
     <StyledFooterWrapper
-      w="100%"
-      justifyContent="space-between"
-      alignItems="center"
+      $w="100%"
+      $justifyContent="space-between"
+      $alignItems="center"
       size={size}
       {...props}
     >
-      <Typography size="caption" color="disabled">
+      <Typography $size="caption" color="disabled">
         ⓒ Hyemin Woo. All rights reserved.
       </Typography>
-      <Row gap="16px">
-        <Box w="32px" h="32px" bgColor="gray" />
-        <Box w="32px" h="32px" bgColor="gray" />
+      <Row $gap="16px">
+        <Box $w="32px" $h="32px" $bgColor="gray" />
+        <Box $w="32px" $h="32px" $bgColor="gray" />
       </Row>
     </StyledFooterWrapper>
   );
