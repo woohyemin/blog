@@ -15,6 +15,9 @@ export interface ColumnProps extends Omit<FlexBoxProps, "$direction"> {
  */
 export const Column = ({ $reverse, ...props }: ColumnProps) => {
   return (
-    <FlexBox $direction={$reverse ? "column-reverse" : "column"} {...props} />
+    <FlexBox
+      $flexDirection={$reverse ? "column-reverse" : "column"}
+      {...props}
+    />
   );
 };

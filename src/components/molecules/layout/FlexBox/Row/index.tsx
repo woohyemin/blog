@@ -14,5 +14,7 @@ export interface RowProps extends Omit<FlexBoxProps, "$direction"> {
  * Row component
  */
 export const Row = ({ $reverse, ...props }: RowProps) => {
-  return <FlexBox $direction={$reverse ? "row-reverse" : "row"} {...props} />;
+  return (
+    <FlexBox $flexDirection={$reverse ? "row-reverse" : "row"} {...props} />
+  );
 };
