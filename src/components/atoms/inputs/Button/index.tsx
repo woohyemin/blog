@@ -33,11 +33,11 @@ export const Button = ({
 }: PropsWithChildren<ButtonProps>) => {
   const getClassNameBySize = () => {
     if (size === "sm") {
-      return "h-7 py-[2px] px-4 rounded-3xl gap-1 text-body1";
+      return "h-7 py-1 px-4 rounded-3xl gap-1 text-body2";
     } else if (size === "md") {
-      return "h-7 py-[2px] px-4 rounded-3xl gap-2 text-h6";
+      return "h-8 py-1 px-4 rounded-3xl gap-2 text-body1";
     }
-    return "h-7 py-[2px] px-4 rounded-3xl gap-2 text-h6";
+    return "h-8 py-1 px-4 rounded-3xl gap-2 text-body1";
   };
 
   const getClassNameByColor = () => {
