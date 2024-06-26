@@ -71,12 +71,7 @@ const PostBody = ({ children, ...props }: any) => {
       );
     },
     p({ ...props }) {
-      return (
-        <p
-          className="text-secondary text-body1 mt-1 sm:text-h6 sm:mt-0.5"
-          {...props}
-        />
-      );
+      return <p className="text-secondary text-h6 mt-1 sm:mt-0.5" {...props} />;
     },
     ul({ ...props }) {
       return <ul {...props} />;
@@ -106,7 +101,7 @@ const PostBody = ({ children, ...props }: any) => {
 
       if (!match) {
         return (
-          <code className="bg-code py-[1px] px-[4px] my-[6px] text-inherit rounded-[3px] text-body2 font-medium sm:text-body1 sm:py-[2px] sm:px-[6px] sm:rounded-[4px]">
+          <code className="bg-code py-[2px] px-[4px] my-[6px] text-inherit rounded-[3px] text-body1 font-medium sm: sm:px-[6px] sm:rounded-[4px]">
             {props.children}
           </code>
         );
