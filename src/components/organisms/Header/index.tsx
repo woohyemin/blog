@@ -1,10 +1,7 @@
 "use client";
 
 import ThemeToggle from "@/components/atoms/ThemeToggle";
-import { Column } from "@/components/molecules/layout/FlexBox/Column";
-import { Row } from "@/components/molecules/layout/FlexBox/Row";
 import React, { ReactNode } from "react";
-import styled from "styled-components";
 
 /**
  * header component props
@@ -21,26 +18,17 @@ interface HeaderProps {
   content: ReactNode;
 }
 
-const StyledHeaderWrapper = styled(Column)`
-  gap: 4px;
-  padding-bottom: 24px;
-
-  @media only screen and (max-width: 600px) {
-    padding-bottom: 20px;
-  }
-`;
-
 /**
  * header component
  */
 export const Header = ({ title, content }: HeaderProps) => {
   return (
-    <StyledHeaderWrapper>
-      <Row $justifyContent="space-between" $alignItems="center">
+    <div className="flex flex-col gap-1 pb-5 sm:pb-6 sm:gap-2">
+      <div className="flex gap-4 items-center justify-between">
         {title}
         <ThemeToggle />
-      </Row>
+      </div>
       {content}
-    </StyledHeaderWrapper>
+    </div>
   );
 };

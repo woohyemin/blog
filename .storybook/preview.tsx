@@ -1,10 +1,9 @@
 import type { Preview } from "@storybook/react";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
-import GlobalStyles from "../src/styles/GlobalStyles";
 import { darkTheme, lightTheme } from "../src/styles/themeStyles";
-import { ThemeProvider } from "styled-components";
 import { RecoilRoot } from "recoil";
 import React from "react";
+import { ThemeProvider } from "next-themes";
 
 const preview: Preview = {
   parameters: {
@@ -25,7 +24,6 @@ export const decorators = [
     },
     defaultTheme: "light",
     Provider: ThemeProvider,
-    GlobalStyles,
   }),
   (Story) => (
     <RecoilRoot>

@@ -1,9 +1,5 @@
 import { Dot } from "@/components/atoms/data-display/Dot";
-import { Typography } from "@/components/atoms/data-display/Typography";
-import { Box } from "@/components/atoms/layout/Box";
 import { ByHyemin } from "@/components/molecules/ByHyemin";
-import { Column } from "@/components/molecules/layout/FlexBox/Column";
-import { Row } from "@/components/molecules/layout/FlexBox/Row";
 import { Header } from "@/components/organisms/Header";
 import { PostLayout } from "@/components/templates/layout/PostLayout.tsx";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
@@ -34,46 +30,35 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
   const { title, date, content, thumbnail } = post;
 
   if (!post) {
-    return (
-      <Column $justifyContent="center">
-        <Box $bgColor="red" $w="40px" $h="40px" />
-      </Column>
-    );
+    return <div className="bg-red-50 w-5 h-5" />;
   }
 
   return (
-    <TemplateLayout size="medium">
-      <Column $mb="16px">
+    <TemplateLayout>
+      <div className="mb-4">
         <Header
           title={
-            <Typography $size="h2" $color="primary" $weight="medium">
+            <h1 className="text-primary text-h3 font-medium inline sm:text-h2">
               {title}
-            </Typography>
+            </h1>
           }
           content={
-            <Row $gap="8px" $alignItems="center" $h="24px">
-              <Typography $size="h6" $color="secondary">
-                {date}
-              </Typography>
+            <div className="flex gap-2 items-center h-6">
+              <span className="text-secondary text-body1">{date}</span>
               <Dot />
               <ByHyemin variant="blog" />
-            </Row>
+            </div>
           }
         />
 
         <Image
+          className="w-full h-auto rounded-lg object-cover"
           src={`/images/posts/${thumbnail}`}
           alt=""
           width={640}
           height={320}
-          style={{
-            width: "100%",
-            height: "auto",
-            objectFit: "cover",
-            borderRadius: "8px",
-          }}
         />
-      </Column>
+      </div>
 
       <PostLayout size="medium">{content}</PostLayout>
     </TemplateLayout>

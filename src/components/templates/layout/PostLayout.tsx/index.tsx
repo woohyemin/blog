@@ -1,188 +1,118 @@
 "use client";
 
-import { Typography } from "@/components/atoms/data-display/Typography";
-import {
-  Column,
-  ColumnProps,
-} from "@/components/molecules/layout/FlexBox/Column";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import styled, { useTheme } from "styled-components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import Image from "next/image";
 
 /**
  * PostLayout component props
  */
-export interface PostLayoutProps extends ColumnProps {
-  size?: "small" | "medium" | "large";
-}
+export interface PostLayoutProps {}
 
-const Layout = styled(Column)<PostLayoutProps>`
-  margin: 0 auto;
-  width: 100%;
-  min-height: calc(100vh - 144px);
-`;
+// const StyledUl = styled.ul`
+//   list-style: initial;
+//   margin-left: 16px;
 
-const StyledUl = styled.ul`
-  list-style: initial;
-  margin-left: 16px;
-
-  ::marker {
-    color: ${({ theme }) => theme.palette.dot.basic};
-  }
-
- 
-  }
-`;
-
-const StyledStrong = styled.strong`
-  font-weight: 600;
-`;
-
-const StyledImage = styled.img`
-  width: 100%;
-  height: auto;
-  margin: 6px 0;
-  border-radius: 8px;
-`;
+//   ::marker {
+//     color: ${({ theme }) => theme.palette.dot.basic};
+//   }
+// `;
 
 const PostBody = ({ children, ...props }: any) => {
-  const theme = useTheme();
-
   const CustomComponents: any = {
     h1({ ...props }) {
       return (
-        <Typography
-          $size="h3"
-          $component="h2"
-          $weight="medium"
-          $mt="20px"
-          $mb="2px"
+        <h2
+          className="text-primary text-h4 font-medium mt-4 mb-1 sm:text-h3 sm:mt-5"
           {...props}
         />
       );
     },
     h2({ ...props }) {
       return (
-        <Typography
-          $size="h4"
-          $component="h3"
-          $weight="medium"
-          $mt="10px"
-          $mb="2px"
+        <h3
+          className="text-primary text-h5 font-medium mt-2 mb-1 sm:text-h4 sm:mt-2.5"
           {...props}
         />
       );
     },
     h3({ ...props }) {
       return (
-        <Typography
-          $size="h5"
-          $component="h4"
-          $weight="medium"
-          $mt="8px"
-          $mb="2px"
+        <h4
+          className="text-primary text-h6 font-medium mt-2 mb-1 sm:text-h5 sm:mt-2.5"
           {...props}
         />
       );
     },
     h4({ ...props }) {
       return (
-        <Typography
-          $size="h6"
-          $component="h5"
-          $weight="medium"
-          $mt="4px"
-          $mb="2px"
+        <h5
+          className="text-primary text-body1 font-medium mt-1.5 mb-0.5 sm:text-h6"
           {...props}
         />
       );
     },
     h5({ ...props }) {
       return (
-        <Typography
-          $size="body1"
-          $component="h6"
-          $weight="medium"
-          $mt="3px"
-          $mb="2px"
+        <h6
+          className="text-primary text-body1 font-medium mt-1.5 mb-0.5 sm:text-h6"
           {...props}
         />
       );
     },
     h6({ ...props }) {
       return (
-        <Typography
-          $size="body1"
-          $component="p"
-          $mt="3px"
-          $mb="2px"
+        <p
+          className="text-primary text-body1 font-medium mt-1.5 mb-0.5 sm:text-h6"
           {...props}
         />
       );
     },
     p({ ...props }) {
       return (
-        <Typography
-          $size="body1"
-          $component="p"
-          $color="secondary"
+        <p
+          className="text-secondary text-body1 mt-1 sm:text-h6 sm:mt-0.5"
           {...props}
         />
       );
     },
     ul({ ...props }) {
-      return <StyledUl {...props} />;
+      return <ul {...props} />;
     },
     ol({ ...props }) {
       return (
-        <ul style={{ listStyle: "decimal", marginLeft: "16px" }} {...props} />
+        <ol style={{ listStyle: "decimal", marginLeft: "16px" }} {...props} />
       );
     },
     li({ ...props }) {
-      return (
-        <Typography
-          $size="body1"
-          $component="li"
-          $color="secondary"
-          {...props}
-        />
-      );
+      return <li className="text-secondary text-h6 sm:text-body1" {...props} />;
     },
     strong({ ...props }) {
-      return <StyledStrong {...props} />;
+      return <strong {...props} />;
     },
     img({ ...props }) {
-      return <StyledImage src={props.src} alt={props.alt} />;
+      return (
+        <img
+          className="w-full h-auto my-3 rounded-lg sm:my-1.5"
+          src={props.src}
+          alt={props.alt}
+        />
+      );
     },
     code({ ...props }) {
       const match = /language-(\w+)/.exec(props.className!);
 
       if (!match) {
         return (
-          <code
-            style={{
-              padding: "1px 6px",
-              margin: "6px 0",
-              color: "inherit",
-              backgroundColor: theme.palette.background.paper,
-              borderRadius: "4px",
-              fontSize: "13px",
-              fontWeight: 500,
-            }}
-          >
+          <code className="bg-code py-[1px] px-[4px] my-[6px] text-inherit rounded-[3px] text-body2 font-medium sm:text-body1 sm:py-[2px] sm:px-[6px] sm:rounded-[4px]">
             {props.children}
           </code>
         );
       }
 
       const [, language] = match;
-
-      console.log("vscDarkPlus");
-      console.log(vscDarkPlus);
 
       return (
         <SyntaxHighlighter
@@ -193,7 +123,7 @@ const PostBody = ({ children, ...props }: any) => {
           language={language}
           customStyle={{
             borderRadius: "8px",
-            margin: "6px 0",
+            margin: "8px 0",
           }}
         >
           {String(props.children)}
@@ -203,11 +133,11 @@ const PostBody = ({ children, ...props }: any) => {
   };
 
   return (
-    <Layout>
+    <div className="w-full h-[calc(100vh - 144px)] my-0 mx-auto">
       <ReactMarkdown components={CustomComponents} remarkPlugins={[remarkGfm]}>
         {children}
       </ReactMarkdown>
-    </Layout>
+    </div>
   );
 };
 

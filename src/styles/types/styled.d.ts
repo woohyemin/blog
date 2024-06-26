@@ -1,4 +1,3 @@
-import "styled-components";
 import { CSSProperties } from "react";
 
 /**
@@ -143,9 +142,9 @@ export interface ThemeStyleType {
   typography: TypographyType;
 }
 
-declare module "styled-components" {
-  export interface DefaultTheme extends ThemeStyleType {}
-}
+// declare module "styled-components" {
+//   export interface DefaultTheme extends ThemeStyleType {}
+// }
 
 /**
  * padding props

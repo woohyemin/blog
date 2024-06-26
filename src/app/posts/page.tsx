@@ -1,8 +1,4 @@
-import { Typography } from "@/components/atoms/data-display/Typography";
-import { Box } from "@/components/atoms/layout/Box";
 import { ByHyemin } from "@/components/molecules/ByHyemin";
-import { Column } from "@/components/molecules/layout/FlexBox/Column";
-import { Row } from "@/components/molecules/layout/FlexBox/Row";
 import { Header } from "@/components/organisms/Header";
 import { Posts } from "@/components/organisms/Posts";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
@@ -12,28 +8,24 @@ export default async function Projects() {
   const allPosts = await getAllPosts();
 
   if (!allPosts) {
-    return (
-      <Column $justifyContent="center">
-        <Box $bgColor="red" $w="40px" $h="40px" />
-      </Column>
-    );
+    return <div className="bg-red-50 w-5 h-5" />;
   }
 
   return (
-    <TemplateLayout size="medium">
+    <TemplateLayout>
       <Header
         title={
-          <Row $gap="12px" $alignItems="end">
-            <Typography $size="h2" $component="h1" $weight="medium">
+          <div className="flex gap-3 items-end">
+            <h1 className="text-primary text-h3 font-medium inline sm:text-h2">
               포스트
-            </Typography>
+            </h1>
             <ByHyemin />
-          </Row>
+          </div>
         }
         content={
-          <Typography $size="body1" $color="secondary">
+          <p className="text-body1 text-secondary sm:text-h6">
             개발하고 공부한 내용들을 기록하고 있습니다.
-          </Typography>
+          </p>
         }
       />
 

@@ -1,41 +1,22 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "./themeStyles";
-import StyledComponentsRegistry from "./StyledComponentsRegistry";
-import { RecoilRoot, useRecoilState } from "recoil";
-import { ThemeFlag, currentThemeState } from "@/store/themeState";
+import { ThemeProvider } from "next-themes";
+import { useEffect, useState } from "react";
 
-export function Registry({ children }: { children: React.ReactNode }) {
-  const [currentTheme, setCurrentTheme] = useRecoilState(currentThemeState);
-
-  useEffect(() => {
-    if (localStorage.getItem("dark_mode") !== undefined) {
-      const localTheme = Number(localStorage.getItem("dark_mode"));
-      setCurrentTheme(localTheme);
-    }
-  }, [setCurrentTheme]);
-
-  useEffect(() => {
-    console.log("currentTheme", currentTheme);
-  }, [currentTheme]);
-
-  return (
-    <StyledComponentsRegistry>
-      <ThemeProvider
-        theme={currentTheme === ThemeFlag.dark ? darkTheme : lightTheme}
-      >
-        {children}
-      </ThemeProvider>
-    </StyledComponentsRegistry>
-  );
+interface ThemePropsInterface {
+  children?: JSX.Element | Array<JSX.Element> | React.ReactNode;
 }
 
-export default function Providers({ children }: { children: React.ReactNode }) {
-  return (
-    <RecoilRoot>
-      <Registry>{children}</Registry>
-    </RecoilRoot>
-  );
+export default function Providers({ children }: ThemePropsInterface) {
+  const [isMount, setMount] = useState(false);
+
+  useEffect(() => {
+    setMount(true);
+  }, []);
+
+  if (!isMount) {
+    return null;
+  }
+
+  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { HTMLAttributes, PropsWithChildren } from "react";
-import styled from "styled-components";
 import { IconType } from "../../data-display/Icon/icons";
 import { Icon } from "../../data-display/Icon";
 
@@ -9,7 +8,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   /**
    * Button size
    */
-  size?: "medium";
+  size?: "sm" | "md";
 
   /**
    * Button color
@@ -22,48 +21,39 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   startIcon?: IconType;
 }
 
-const StyledButton = styled.button<ButtonProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: ${({ theme }) => theme.typography.weight.regular};
-
-  ${(props) => {
-    if (props.size === "medium") {
-      return {
-        height: "28px",
-        padding: "2px 16px",
-        borderRadius: "28px",
-        fontSize: "12px",
-        gap: "8px",
-      };
-    }
-  }};
-
-  ${(props) => {
-    if (props.color === "basic") {
-      return {
-        backgroundColor: props.theme.palette.button.background.default,
-        color: props.theme.palette.button.text.default,
-      };
-    }
-  }};
-`;
-
 /**
  * Button component
  */
 export const Button = ({
-  size = "medium",
+  size = "md",
   color = "basic",
   startIcon,
   children,
   ...props
 }: PropsWithChildren<ButtonProps>) => {
+  const getClassNameBySize = () => {
+    if (size === "sm") {
+      return "h-7 py-[2px] px-4 rounded-3xl gap-1 text-body1";
+    } else if (size === "md") {
+      return "h-7 py-[2px] px-4 rounded-3xl gap-2 text-h6";
+    }
+    return "h-7 py-[2px] px-4 rounded-3xl gap-2 text-h6";
+  };
+
+  const getClassNameByColor = () => {
+    if (color === "basic") {
+      return "text-primary bg-basicBtnBg";
+    }
+    return "text-primary bg-basicBtnBg";
+  };
+
   return (
-    <StyledButton size={size} color={color} {...props}>
-      {startIcon && <Icon icon={startIcon} size="small" color="secondary" />}
+    <button
+      className={`flex justify-center items-center font-medium ${getClassNameBySize()} ${getClassNameByColor()}`}
+      {...props}
+    >
+      {startIcon && <Icon icon={startIcon} size="sm" color="secondary" />}
       {children}
-    </StyledButton>
+    </button>
   );
 };
