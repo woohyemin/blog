@@ -22,11 +22,10 @@ interface HeaderProps {
 }
 
 const StyledHeaderWrapper = styled(Column)`
-  gap: 8px;
-  padding-bottom: 32px;
+  gap: 4px;
+  padding-bottom: 24px;
 
   @media only screen and (max-width: 600px) {
-    gap: 4px;
     padding-bottom: 20px;
   }
 `;

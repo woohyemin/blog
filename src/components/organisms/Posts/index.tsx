@@ -50,7 +50,7 @@ export const Posts = ({ posts }: PostsProps) => {
           <Link href={`posts/${el.path}`} style={{ textDecoration: "none" }}>
             <Column $w="100%">
               <StyledImage
-                src={`/images/thumbnails/${el.thumbnail}`}
+                src={`/images/posts/${el.thumbnail}`}
                 alt="포스트 섬네일 이미지"
                 width={640}
                 height={320}

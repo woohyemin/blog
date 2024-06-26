@@ -38,6 +38,17 @@ const StyledUl = styled.ul`
   }
 `;
 
+const StyledStrong = styled.strong`
+  font-weight: 600;
+`;
+
+const StyledImage = styled.img`
+  width: 100%;
+  height: auto;
+  margin: 6px 0;
+  border-radius: 8px;
+`;
+
 const PostBody = ({ children, ...props }: any) => {
   const theme = useTheme();
 
@@ -48,8 +59,8 @@ const PostBody = ({ children, ...props }: any) => {
           $size="h3"
           $component="h2"
           $weight="medium"
-          $mt="14px"
-          $mb="4px"
+          $mt="20px"
+          $mb="2px"
           {...props}
         />
       );
@@ -60,8 +71,8 @@ const PostBody = ({ children, ...props }: any) => {
           $size="h4"
           $component="h3"
           $weight="medium"
-          $mt="14px"
-          $mb="4px"
+          $mt="10px"
+          $mb="2px"
           {...props}
         />
       );
@@ -72,8 +83,8 @@ const PostBody = ({ children, ...props }: any) => {
           $size="h5"
           $component="h4"
           $weight="medium"
-          $mt="14px"
-          $mb="4px"
+          $mt="8px"
+          $mb="2px"
           {...props}
         />
       );
@@ -84,8 +95,8 @@ const PostBody = ({ children, ...props }: any) => {
           $size="h6"
           $component="h5"
           $weight="medium"
-          $mt="14px"
-          $mb="4px"
+          $mt="4px"
+          $mb="2px"
           {...props}
         />
       );
@@ -96,8 +107,8 @@ const PostBody = ({ children, ...props }: any) => {
           $size="body1"
           $component="h6"
           $weight="medium"
-          $mt="14px"
-          $mb="4px"
+          $mt="3px"
+          $mb="2px"
           {...props}
         />
       );
@@ -107,8 +118,8 @@ const PostBody = ({ children, ...props }: any) => {
         <Typography
           $size="body1"
           $component="p"
-          $mt="10px"
-          $mb="3px"
+          $mt="3px"
+          $mb="2px"
           {...props}
         />
       );
@@ -118,8 +129,6 @@ const PostBody = ({ children, ...props }: any) => {
         <Typography
           $size="body1"
           $component="p"
-          $mt="3px"
-          $mb="3px"
           $color="secondary"
           {...props}
         />
@@ -138,27 +147,16 @@ const PostBody = ({ children, ...props }: any) => {
         <Typography
           $size="body1"
           $component="li"
-          $mt="3px"
-          $mb="3px"
           $color="secondary"
           {...props}
         />
       );
     },
+    strong({ ...props }) {
+      return <StyledStrong {...props} />;
+    },
     img({ ...props }) {
-      return (
-        <img
-          src={props.src}
-          alt={props.alt}
-          style={{
-            width: "100%",
-            height: "320px",
-            objectFit: "cover",
-            margin: "6px 0",
-            borderRadius: "8px",
-          }}
-        />
-      );
+      return <StyledImage src={props.src} alt={props.alt} />;
     },
     code({ ...props }) {
       const match = /language-(\w+)/.exec(props.className!);
@@ -173,6 +171,7 @@ const PostBody = ({ children, ...props }: any) => {
               backgroundColor: theme.palette.background.paper,
               borderRadius: "4px",
               fontSize: "13px",
+              fontWeight: 500,
             }}
           >
             {props.children}
@@ -182,14 +181,19 @@ const PostBody = ({ children, ...props }: any) => {
 
       const [, language] = match;
 
+      console.log("vscDarkPlus");
+      console.log(vscDarkPlus);
+
       return (
         <SyntaxHighlighter
-          style={vscDarkPlus}
+          style={{
+            ...vscDarkPlus,
+            'code[class*="language-"]': { fontSize: "12px" },
+          }}
           language={language}
           customStyle={{
             borderRadius: "8px",
-            fontSize: "14px",
-            margin: "10px 0",
+            margin: "6px 0",
           }}
         >
           {String(props.children)}

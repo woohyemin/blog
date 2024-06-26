@@ -43,7 +43,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
   return (
     <TemplateLayout size="medium">
-      <Column $mb="8px">
+      <Column $mb="16px">
         <Header
           title={
             <Typography $size="h2" $color="primary" $weight="medium">
@@ -62,7 +62,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
         />
 
         <Image
-          src={`/images/thumbnails/${thumbnail}`}
+          src={`/images/posts/${thumbnail}`}
           alt=""
           width={640}
           height={320}

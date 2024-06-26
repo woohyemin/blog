@@ -28,8 +28,8 @@ const typography: TypographyType = {
   },
   defaultStyles: {
     wordBreak: "keep-all",
-    lineHeight: "160%",
-    letterSpacing: "-0.05em",
+    lineHeight: "150%",
+    letterSpacing: "-0.02em",
   },
 };
 
