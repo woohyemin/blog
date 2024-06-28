@@ -1,33 +1,46 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export const Comments = () => {
+  const ref = useRef(null);
   const { theme } = useTheme();
 
-  return (
-    <section
-      ref={(elem) => {
-        if (!elem) return;
-        const scriptElement = document.createElement("script");
-        scriptElement.src = "https://utteranc.es/client.js";
-        scriptElement.async = true;
-        scriptElement.setAttribute("repo", "woohyemin/blog");
-        scriptElement.setAttribute("issue-term", "title");
+  const makeComments = () => {
+    if (ref.current) {
+      const script = document.createElement("script");
 
-        if (theme === "dark") {
-          scriptElement.setAttribute("theme", "github-dark");
-        } else {
-          scriptElement.setAttribute("theme", "github-light");
-        }
+      script.src = "https://utteranc.es/client.js";
+      script.async = false;
+      script.setAttribute("repo", "woohyemin/blog");
+      script.setAttribute("issue-term", "pathname");
 
-        scriptElement.setAttribute("label", "blog-comment");
-        scriptElement.setAttribute("crossorigin", "anonymous");
-        elem.appendChild(scriptElement);
-      }}
-    />
-  );
+      if (theme === "dark") {
+        script.setAttribute("theme", "photon-dark");
+      } else {
+        script.setAttribute("theme", "github-light");
+      }
+      script.setAttribute("label", "blog-comment");
+      ref.current.appendChild(script);
+    }
+  };
+
+  const removeComments = () => {
+    if (ref.current) {
+      const existingScript = ref.current.querySelector(".utterances");
+      if (existingScript) {
+        existingScript.remove();
+      }
+    }
+  };
+
+  useEffect(() => {
+    makeComments();
+    removeComments();
+  }, [theme]);
+
+  return <section className="pt-10" ref={ref} />;
 };
 
 export default Comments;
