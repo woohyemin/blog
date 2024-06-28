@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import React, { useEffect, useRef } from "react";
 
 export const Comments = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const { theme } = useTheme();
 
   const makeComments = () => {
@@ -40,7 +40,7 @@ export const Comments = () => {
     removeComments();
   }, [theme]);
 
-  return <section className="pt-10" ref={ref} />;
+  return <section className="pt-" ref={ref} />;
 };
 
 export default Comments;
