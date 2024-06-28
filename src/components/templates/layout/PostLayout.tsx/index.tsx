@@ -11,21 +11,12 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
  */
 export interface PostLayoutProps {}
 
-// const StyledUl = styled.ul`
-//   list-style: initial;
-//   margin-left: 16px;
-
-//   ::marker {
-//     color: ${({ theme }) => theme.palette.dot.basic};
-//   }
-// `;
-
 const PostBody = ({ children, ...props }: any) => {
   const CustomComponents: any = {
     h1({ ...props }) {
       return (
         <h2
-          className="text-primary text-h4 font-medium mt-5 mb-1 sm:text-h3 sm:mt-5"
+          className="text-primary text-h4 font-medium mt-8 mb-2 sm:text-h3 sm:mt-10 sm:mb-3"
           {...props}
         />
       );
@@ -33,7 +24,7 @@ const PostBody = ({ children, ...props }: any) => {
     h2({ ...props }) {
       return (
         <h3
-          className="text-primary text-h5 font-medium mt-2.5 mb-1 sm:text-h4 sm:mt-2.5"
+          className="text-primary text-h5 font-medium mt-3 mb-1.5 sm:text-h4 sm:mt-4 sm:mb-3"
           {...props}
         />
       );
@@ -41,7 +32,7 @@ const PostBody = ({ children, ...props }: any) => {
     h3({ ...props }) {
       return (
         <h4
-          className="text-primary text-h6 font-medium mt-2.5 mb-1 sm:text-h5 sm:mt-2.5"
+          className="text-primary text-h6 font-medium mt-2.5 mb-1.5 sm:text-h5 sm:mt-3.5 sm:mb-3"
           {...props}
         />
       );
@@ -71,26 +62,34 @@ const PostBody = ({ children, ...props }: any) => {
       );
     },
     p({ ...props }) {
-      return <p className="text-secondary text-h6 mt-1 sm:mt-0.5" {...props} />;
-    },
-    ul({ ...props }) {
-      return <ul {...props} />;
-    },
-    ol({ ...props }) {
       return (
-        <ol style={{ listStyle: "decimal", marginLeft: "16px" }} {...props} />
+        <p
+          className="text-secondary text-body2 my-0.5 sm:my-1 sm:text-body1"
+          {...props}
+        />
       );
     },
+    ul({ ...props }) {
+      return <ul className="ml-5 list-disc marker:text-bullet" {...props} />;
+    },
+    ol({ ...props }) {
+      return <ol className="list-decimal ml-5" {...props} />;
+    },
     li({ ...props }) {
-      return <li className="text-secondary text-h6 sm:text-body1" {...props} />;
+      return (
+        <li
+          className="text-secondary text-body2 my-0.5 sm:my-1 sm:text-body1"
+          {...props}
+        />
+      );
     },
     strong({ ...props }) {
-      return <strong {...props} />;
+      return <strong className="font-semibold" {...props} />;
     },
     img({ ...props }) {
       return (
         <img
-          className="w-full h-auto my-3 rounded-lg sm:my-1.5"
+          className="w-full h-auto my-3 rounded-lg sm:my-4"
           src={props.src}
           alt={props.alt}
         />
@@ -101,7 +100,7 @@ const PostBody = ({ children, ...props }: any) => {
 
       if (!match) {
         return (
-          <code className="bg-code py-[2px] px-[4px] my-[6px] text-inherit rounded-[3px] text-body1 font-medium sm: sm:px-[6px] sm:rounded-[4px]">
+          <code className="bg-code py-[2px] px-[4px] my-[6px] text-inherit rounded-[3px] text-caption font-medium sm: sm:px-[6px] sm:rounded-[4px] sm:text-body2">
             {props.children}
           </code>
         );
@@ -113,12 +112,12 @@ const PostBody = ({ children, ...props }: any) => {
         <SyntaxHighlighter
           style={{
             ...vscDarkPlus,
-            'code[class*="language-"]': { fontSize: "12px" },
+            'code[class*="language-"]': { fontSize: "13px" },
           }}
           language={language}
           customStyle={{
             borderRadius: "8px",
-            margin: "8px 0",
+            margin: "12px 0",
           }}
         >
           {String(props.children)}

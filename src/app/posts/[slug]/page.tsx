@@ -35,7 +35,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
   return (
     <TemplateLayout>
-      <div className="mb-4">
+      <div className="mb-5 sm:mb-7">
         <Header
           title={
             <h1 className="text-primary text-h3 font-medium inline sm:text-h2">
@@ -44,7 +44,9 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
           }
           content={
             <div className="flex gap-2 items-center h-6">
-              <span className="text-secondary text-body1">{date}</span>
+              <span className="text-secondary text-caption sm:text-body2">
+                {date}
+              </span>
               <Dot />
               <ByHyemin variant="blog" />
             </div>

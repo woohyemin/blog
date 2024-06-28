@@ -23,7 +23,7 @@ export default async function Projects() {
           </div>
         }
         content={
-          <p className="text-body1 text-secondary sm:text-h6">
+          <p className="text-body2 text-secondary sm:text-body2">
             개발하고 공부한 내용들을 기록하고 있습니다.
           </p>
         }

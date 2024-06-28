@@ -17,7 +17,7 @@ export const TemplateLayout = ({
 }: PropsWithChildren<TemplateLayoutProps>) => {
   return (
     <div
-      className="my-0 mx-auto px-4 pb-20 min-h-[100vh] max-w-[640px] py-4 sm:py-10 sm:px-6"
+      className="my-0 mx-auto px-4 pb-20 max-w-[720px] py-16 sm:py-24 sm:px-6"
       {...props}
     />
   );

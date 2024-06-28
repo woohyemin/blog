@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Providers from "@/styles/Providers";
 import "./globals.css";
 import { noto_sans_kr } from "./fonts";
+import { Footer } from "@/components/organisms/Footer";
 
 const metadata: Metadata = {
   title: "Hem Lab Blog",
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body className="transition duration-300 bg-background">
         <Providers>
           {children}
-          {/* <Footer size="medium" /> */}
+          <Footer />
         </Providers>
       </body>
     </html>

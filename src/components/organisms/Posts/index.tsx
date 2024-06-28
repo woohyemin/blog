@@ -31,10 +31,10 @@ export const Posts = ({ posts }: PostsProps) => {
                 height={320}
               />
 
-              <h3 className="text-h5 text-primary font-medium pt-3 sm:text-h4">
+              <h3 className="text-h4 text-primary font-medium pt-3 sm:text-h3">
                 {el.title}
               </h3>
-              <p className="text-h6 text-secondary pt-1 sm:text-h5">
+              <p className="text-h5 text-secondary pt-1 sm:text-h4">
                 {el.description}
               </p>
 
@@ -50,7 +50,9 @@ export const Posts = ({ posts }: PostsProps) => {
             </Row>
           </Row> */}
 
-              <p className="text-body1 text-disabled pt-3">{el.date}</p>
+              <p className="text-caption text-disabled pt-3 sm:text-body2">
+                {el.date}
+              </p>
             </div>
           </Link>
           {index < posts.length - 1 && <Divider />}

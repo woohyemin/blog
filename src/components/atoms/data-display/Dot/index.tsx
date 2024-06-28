@@ -6,5 +6,5 @@ import React from "react";
  * Dot component
  */
 export const Dot = () => (
-  <div className="bg-gray-300 dark:bg-gray-700 w-[3px] h-[3px] rounded-[3px]" />
+  <div className="bg-bullet dark:bg-gray-700 w-[4px] h-[4px] rounded-[4px]" />
 );

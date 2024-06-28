@@ -12,7 +12,7 @@ interface IconProps {
   /**
    * Icon size
    */
-  size?: "sm" | "md";
+  size?: "xs" | "sm" | "md" | string;
 
   /**
    * Icon color
@@ -30,12 +30,23 @@ export const Icon = ({
   ...props
 }: PropsWithChildren<IconProps>) => {
   const getSize = () => {
-    if (size === "sm") {
-      return "14px";
+    if (size === "xs") {
+      return "8px";
+    } else if (size === "sm") {
+      return "12px";
     } else if (size === "md") {
-      return "18px";
+      return "16px";
     }
-    return "18px";
+    return size;
+  };
+
+  const getColor = () => {
+    if (color === "primary") {
+      return "text-primary";
+    } else if (color === "secondary") {
+      return "text-secondary";
+    }
+    return "text-primary";
   };
 
   return (
@@ -43,7 +54,7 @@ export const Icon = ({
       viewBox="0 0 120 120"
       width={getSize()}
       height={getSize()}
-      color={color}
+      className={getColor()}
       {...props}
     >
       {icons[icon]}
