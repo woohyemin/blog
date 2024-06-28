@@ -1,5 +1,6 @@
 import { Dot } from "@/components/atoms/data-display/Dot";
 import { ByHyemin } from "@/components/molecules/ByHyemin";
+import Comments from "@/components/organisms/Comments";
 import { Header } from "@/components/organisms/Header";
 import { PostLayout } from "@/components/templates/layout/PostLayout.tsx";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
@@ -63,6 +64,8 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
       </div>
 
       <PostLayout size="medium">{content}</PostLayout>
+
+      <Comments />
     </TemplateLayout>
   );
 }
