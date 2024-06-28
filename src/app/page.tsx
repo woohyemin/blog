@@ -68,7 +68,7 @@ export default function Home() {
           <Icon icon="filledMail" size="md" color="primary" />
           <span className="text-body2 text-secondary underline underline-offset-2 decoration-[#b3b3b3]">
             <span className="text-primary font-medium">연락</span>은 이메일로
-            부탁드려요
+            부탁드려요 <span className="text-caption tracking-wider">:)</span>
           </span>
         </Link>
       </div>
