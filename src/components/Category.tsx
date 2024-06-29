@@ -13,7 +13,7 @@ export default function Category({
 }: Props) {
   return (
     <div
-      className={`flex items-center gap-1 py-1 px-3 -mb-px rounded-full text-h6 ${
+      className={`flex items-center gap-0.5 py-1 px-3 -mb-px rounded-full text-h6 sm:text-h5 sm:px-3.5 sm:gap-1 ${
         selected ? "bg-tabActiveBg text-tabActiveText" : "bg-tabBg text-tabText"
       }`}
     >

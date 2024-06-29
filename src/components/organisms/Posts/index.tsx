@@ -31,7 +31,7 @@ export const Posts = ({ posts }: PostsProps) => {
   }, [currCategory]);
 
   return (
-    <div className="flex flex-col mt-2 gap-3 sm:gap-4">
+    <div className="flex flex-col mt-2 gap-3 sm:gap-5">
       <Categories
         currCategory={currCategory}
         setCurrCategory={setCurrCategory}
