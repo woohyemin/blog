@@ -59,7 +59,10 @@ export const Posts = ({ posts }: PostsProps) => {
 
                 <div className="flex gap-1.5 pt-3 sm:pt-5 sm:gap-2">
                   {el.categories.map((category) => (
-                    <span className="text-caption py-0.5 px-2.5 rounded-md bg-chip text-secondary sm:text-body2">
+                    <span
+                      key={category}
+                      className="text-caption py-0.5 px-2.5 rounded-md bg-chip text-secondary sm:text-body2"
+                    >
                       {category}
                     </span>
                   ))}
