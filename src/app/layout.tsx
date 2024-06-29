@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className={`${noto_sans_kr.className}`}>
-      <body className="transition duration-300 bg-background">
+      <body className="transition duration-300 bg-background min-h-screen">
         <Providers>
           {children}
           <Footer />

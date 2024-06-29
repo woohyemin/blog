@@ -127,7 +127,7 @@ const PostBody = ({ children, ...props }: any) => {
   };
 
   return (
-    <div className="w-full h-[calc(100vh - 144px)] my-0 mx-auto">
+    <div className="w-full my-0 mx-auto">
       <ReactMarkdown components={CustomComponents} remarkPlugins={[remarkGfm]}>
         {children}
       </ReactMarkdown>

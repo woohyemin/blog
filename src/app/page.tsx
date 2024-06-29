@@ -3,14 +3,9 @@
 import { Dot } from "@/components/atoms/data-display/Dot";
 import { Header } from "@/components/organisms/Header";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
-import Link, { LinkProps } from "next/link";
-import { PropsWithChildren } from "react";
+import Link from "next/link";
 import { montserrat } from "./fonts";
 import { Icon } from "@/components/atoms/data-display/Icon";
-
-// const MenuLink = (props: PropsWithChildren<LinkProps>) => (
-//   <Link className="no-underline flex gap-2 items-center" {...props} />
-// );
 
 export default function Home() {
   return (
