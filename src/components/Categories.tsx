@@ -1,27 +1,25 @@
+"use client";
+
 import { Post } from "@/lib/api";
 import Category from "./Category";
 
 export type Category =
   | "All"
-  | "next.js"
-  | "react"
-  | "typescript"
-  | "javascript"
+  | "Blog"
+  | "Next.js"
+  | "React"
+  | "Typescript"
   | "tailwindcss"
-  | "developments"
-  | "side-projects"
-  | "library";
+  | "Github";
 
 const categoryList: Category[] = [
   "All",
-  "next.js",
-  "react",
-  "typescript",
-  "javascript",
+  "Blog",
+  "Next.js",
+  "React",
+  "Typescript",
   "tailwindcss",
-  "developments",
-  "side-projects",
-  "library",
+  "Github",
 ];
 
 interface Props {
@@ -39,11 +37,12 @@ export default function Categories({
 
   const numOfCategoryPosts = (currCategory: Category) => {
     if (currCategory === "All") return allPosts.length;
-    return allPosts.filter((post) => post.category === currCategory).length;
+    return allPosts.filter((post) => post.categories.includes(currCategory))
+      .length;
   };
 
   return (
-    <ul>
+    <ul className="flex gap-2 h-9 max-w-full overflow-x-auto overflow-y-hidden">
       {categoryList.map((category) => (
         <li key={category}>
           <button onClick={() => onCategoryClick(category)}>

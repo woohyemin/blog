@@ -11,6 +11,12 @@ module.exports = {
       colors: {
         background: "var(--background)",
         basicBtnBg: "var(--basic-button-background)",
+        tabBg: "var(--tab-background)",
+        tabText: "var(--tab-text)",
+        tabNum: "var(--tab-num)",
+        tabActiveBg: "var(--tab-active-background)",
+        tabActiveText: "var(--tab-active-text)",
+        tabActiveNum: "var(--tab-active-num)",
         underlineSecondary: "var(--text-secondary)",
         divider: "var(--divider)",
         bullet: "var(--bullet)",

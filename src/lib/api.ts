@@ -9,7 +9,8 @@ export interface Post {
   title: string;
   date: string;
   description: string;
-  category: Category;
+  series: string;
+  categories: Category[];
   path: string;
   featured: boolean;
   content: string;
@@ -33,7 +34,7 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
       const filePath = path.join(
         process.cwd(),
         "_posts",
-        `${post.category}`,
+        `${post.series}`,
         `${post.path}.md`
       );
       const content = await readFile(filePath, "utf-8");

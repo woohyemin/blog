@@ -8,7 +8,13 @@
   --text-primary: #363636;
   --text-secondary: #757575;
   --text-disabled: #9e9e9e;
-  --basic-button-background: #ececec;
+  --basic-button-background: #e6e6e6;
+  --tab-background: #e6e6e6;
+  --tab-text: #757575;
+  --tab-num: #9e9e9e;
+  --tab-active-background: #363636;
+  --tab-active-text: #f3f3f3;
+  --tab-active-num: #b3b3b3;
   --divider: #e3e3e3;
   --bullet: #b3b3b3;
   --code: #e3e3e3;
@@ -20,6 +26,12 @@
   --text-secondary: #b3b3b3;
   --text-disabled: #757575;
   --basic-button-background: #262626;
+  --tab-background: #262626;
+  --tab-text: #b3b3b3;
+  --tab-num: #757575;
+  --tab-active-background: #f3f3f3;
+  --tab-active-text: #363636;
+  --tab-active-num: #616161;
   --divider: #363636;
   --bullet: #616161;
   --code: #262626;
