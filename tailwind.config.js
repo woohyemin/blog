@@ -21,6 +21,7 @@ module.exports = {
         divider: "var(--divider)",
         bullet: "var(--bullet)",
         code: "var(--code)",
+        chip: "var(--chip)",
       },
       textColor: {
         primary: "var(--text-primary)",
