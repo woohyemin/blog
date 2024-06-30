@@ -10,7 +10,7 @@ interface ChipProps extends HTMLAttributes<HTMLSpanElement> {}
 export const Chip = ({ children, ...props }: PropsWithChildren<ChipProps>) => {
   return (
     <span
-      className="text-caption py-0.5 px-2.5 rounded-md bg-chip text-secondary sm:text-body2"
+      className="text-caption py-0.5 px-2.5 rounded-md bg-chip text-secondary"
       {...props}
     >
       {children}

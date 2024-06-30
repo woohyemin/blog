@@ -16,7 +16,7 @@ const PostBody = ({ children, ...props }: any) => {
     h1({ ...props }) {
       return (
         <h2
-          className="text-primary text-h4 font-medium mt-8 mb-2 sm:text-h3 sm:mt-10 sm:mb-3"
+          className="text-primary text-h4 font-medium mt-[64px] mb-3 sm:text-h3 sm:mt-[80px] sm:mb-4"
           {...props}
         />
       );
@@ -24,7 +24,7 @@ const PostBody = ({ children, ...props }: any) => {
     h2({ ...props }) {
       return (
         <h3
-          className="text-primary text-h5 font-medium mt-3 mb-1.5 sm:text-h4 sm:mt-4 sm:mb-3"
+          className="text-primary text-h5 font-medium mt-[28px] mb-2 sm:text-h4 sm:mt-[36px] sm:mb-3"
           {...props}
         />
       );
@@ -32,7 +32,7 @@ const PostBody = ({ children, ...props }: any) => {
     h3({ ...props }) {
       return (
         <h4
-          className="text-primary text-h6 font-medium mt-2.5 mb-1.5 sm:text-h5 sm:mt-3.5 sm:mb-3"
+          className="text-primary text-h6 font-medium mt-3 mb-1.5 sm:text-h5 sm:mt-8 sm:mb-2"
           {...props}
         />
       );
@@ -64,7 +64,7 @@ const PostBody = ({ children, ...props }: any) => {
     p({ ...props }) {
       return (
         <p
-          className="text-secondary text-body2 my-0.5 sm:my-1 sm:text-body1"
+          className="text-secondary text-body2 mb-1 sm:mb-1.5 sm:text-body1"
           {...props}
         />
       );
@@ -78,7 +78,7 @@ const PostBody = ({ children, ...props }: any) => {
     li({ ...props }) {
       return (
         <li
-          className="text-secondary text-body2 my-0.5 sm:my-1 sm:text-body1"
+          className="text-secondary text-body2 mb-1 sm:mb-1.5 sm:text-body1"
           {...props}
         />
       );

@@ -18,7 +18,7 @@
   --divider: #e3e3e3;
   --bullet: #b3b3b3;
   --code: #e3e3e3;
-  --chip: #e3e3e3;
+  --chip: #ebebeb;
 }
 
 :root.dark {
@@ -36,7 +36,7 @@
   --divider: #363636;
   --bullet: #616161;
   --code: #262626;
-  --chip: #262626;
+  --chip: #1c1c1c;
 }
 
 html {

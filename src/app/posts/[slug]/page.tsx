@@ -40,7 +40,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
   return (
     <TemplateLayout>
-      <div className="mb-5 sm:mb-7">
+      <div className="mb-8 sm:mb-10">
         <Header
           title={
             <h1 className="text-primary text-h3 font-medium inline sm:text-h2">

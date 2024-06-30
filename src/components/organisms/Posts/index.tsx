@@ -32,41 +32,27 @@ export const Posts = ({ posts }: PostsProps) => {
   }, [currCategory]);
 
   return (
-    <div className="flex flex-col mt-2 gap-3 sm:gap-5">
+    <div className="flex flex-col mt-2 gap-3 sm:gap-5 sm:mt-3">
       <Categories
         currCategory={currCategory}
         setCurrCategory={setCurrCategory}
         allPosts={posts}
       />
-      <div className="flex flex-col gap-5 sm:gap-8">
+      <div className="flex flex-col gap-4 sm:gap-6">
         {filteredPosts.map((el, index) => (
           <Fragment key={el.description}>
-            <Link className="no-underline" href={`posts/${el.path}`}>
-              <div className="w-full">
-                <Image
-                  className="w-full h-auto rounded-lg object-cover"
-                  src={`/images/posts/${el.thumbnail}`}
-                  alt="포스트 섬네일 이미지"
-                  width={640}
-                  height={320}
-                />
-
-                <h3 className="text-h4 text-primary font-medium pt-3 sm:text-h3">
-                  {el.title}
-                </h3>
-                <p className="text-h5 text-secondary pt-1 sm:text-h4">
-                  {el.description}
-                </p>
-
-                <div className="flex gap-1.5 pt-3 sm:pt-5 sm:gap-2">
-                  {el.categories.map((category) => (
-                    <Chip key={category}>{category}</Chip>
-                  ))}
-                </div>
-
-                <p className="text-caption text-disabled pt-5 sm:text-body2 sm:pt-8">
-                  {el.date}
-                </p>
+            <Link href={`posts/${el.path}`} className="w-full">
+              <p className="text-caption text-disabled">{el.date}</p>
+              <h3 className="text-h5 text-primary font-medium pt-1.5 overflow-hidden whitespace-nowrap text-ellipsis sm:text-h4 sm:pt-2">
+                {el.title}
+              </h3>
+              <p className="text-caption text-secondary pt-0.5 overflow-hidden whitespace-nowrap text-ellipsis sm:text-body2">
+                {el.description}
+              </p>
+              <div className="flex gap-1.5 pt-2 sm:pt-3.5 sm:gap-2">
+                {el.categories.map((category) => (
+                  <Chip key={category}>{category}</Chip>
+                ))}
               </div>
             </Link>
             {index < filteredPosts.length - 1 && <Divider />}
