@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 
 interface ByHyeminProps {
-  variant?: "default" | "blog";
+  variant?: "default" | "posts";
 }
 
 /**
@@ -22,12 +22,12 @@ export const ByHyemin = ({ variant = "default" }: ByHyeminProps) => {
           <span className="text-secondary">hyemin</span>
         </Link>
       )}
-      {variant === "blog" && (
+      {variant === "posts" && (
         <Link
           className="underline decoration-underlineSecondary decoration-1 underline-offset-2"
           href="/posts"
         >
-          <span className="text-secondary">hyemin's blog</span>
+          <span className="text-secondary">hyemin's posts</span>
         </Link>
       )}
     </div>

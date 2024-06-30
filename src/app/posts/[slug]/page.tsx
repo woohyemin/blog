@@ -49,7 +49,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
                 {date}
               </span>
               <Dot />
-              <ByHyemin variant="blog" />
+              <ByHyemin variant="posts" />
             </div>
           }
         />
