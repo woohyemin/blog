@@ -9,6 +9,7 @@ import { getPost } from "@/lib/api";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Chip } from "@/components/atoms/data-display/Chip";
 
 interface Props {
   params: {
@@ -47,12 +48,19 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
             </h1>
           }
           content={
-            <div className="flex gap-2 items-center h-6">
-              <span className="text-secondary text-caption sm:text-body2">
-                {post.date}
-              </span>
-              <Dot />
-              <ByHyemin variant="posts" />
+            <div className="flex flex-col gap-1">
+              <div className="flex gap-2 items-center h-6">
+                <span className="text-secondary text-caption sm:text-body2">
+                  {post.date}
+                </span>
+                <Dot />
+                <ByHyemin variant="posts" />
+              </div>
+              <div className="flex gap-1.5 pt-2.5 pb-1.5 sm:py-3.5 sm:pb-2.5 sm:gap-2">
+                {post.categories.map((category) => (
+                  <Chip key={category}>{category}</Chip>
+                ))}
+              </div>
             </div>
           }
         />
