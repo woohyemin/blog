@@ -42,7 +42,7 @@ export default function Categories({
   };
 
   return (
-    <ul className="flex gap-2 h-9 max-w-full overflow-x-auto overflow-y-hidden">
+    <ul className="flex gap-2 h-9 max-w-full overflow-x-auto overflow-y-hidden scrollbar-hide">
       {categoryList.map((category) => (
         <li key={category}>
           <button onClick={() => onCategoryClick(category)}>
