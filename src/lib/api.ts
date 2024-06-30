@@ -16,6 +16,8 @@ export interface Post {
   content: string;
   readingTime: number;
   related: string[];
+  prevPost?: string;
+  nextPost?: string;
   thumbnail?: string;
 }
 
