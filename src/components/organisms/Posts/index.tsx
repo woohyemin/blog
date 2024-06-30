@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Post } from "@/lib/api";
 import Categories, { Category } from "@/components/Categories";
+import { Chip } from "@/components/atoms/data-display/Chip";
 
 /**
  * Posts component props
@@ -59,12 +60,7 @@ export const Posts = ({ posts }: PostsProps) => {
 
                 <div className="flex gap-1.5 pt-3 sm:pt-5 sm:gap-2">
                   {el.categories.map((category) => (
-                    <span
-                      key={category}
-                      className="text-caption py-0.5 px-2.5 rounded-md bg-chip text-secondary sm:text-body2"
-                    >
-                      {category}
-                    </span>
+                    <Chip key={category}>{category}</Chip>
                   ))}
                 </div>
 

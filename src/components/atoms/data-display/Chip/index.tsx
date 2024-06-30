@@ -1,32 +1,19 @@
 "use client";
 
-import React from "react";
+import { PropsWithChildren, HTMLAttributes } from "react";
 
-interface ChipProps {
-  /**
-   * chip label
-   */
-  label: string;
-
-  /**
-   * chip size
-   */
-  size?: "small" | "medium" | "large";
-
-  /**
-   * chip color
-   */
-  color?: "basic" | "primary";
-}
+interface ChipProps extends HTMLAttributes<HTMLSpanElement> {}
 
 /**
  * Chip component
  */
-export const Chip = ({
-  label,
-  size = "medium",
-  color = "basic",
-  ...props
-}: ChipProps) => {
-  return <div {...props}>{label}</div>;
+export const Chip = ({ children, ...props }: PropsWithChildren<ChipProps>) => {
+  return (
+    <span
+      className="text-caption py-0.5 px-2.5 rounded-md bg-chip text-secondary sm:text-body2"
+      {...props}
+    >
+      {children}
+    </span>
+  );
 };
