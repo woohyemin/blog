@@ -12,7 +12,7 @@ interface IconProps {
   /**
    * Icon size
    */
-  size?: "xs" | "sm" | "md" | string;
+  size?: "xs" | "sm" | "md" | "lg" | string;
 
   /**
    * Icon color
@@ -36,6 +36,10 @@ export const Icon = ({
       return "12px";
     } else if (size === "md") {
       return "16px";
+    } else if (size === "lg") {
+      return "20px";
+    } else if (size === "xl") {
+      return "24px";
     }
     return size;
   };
@@ -54,7 +58,7 @@ export const Icon = ({
       viewBox="0 0 120 120"
       width={getSize()}
       height={getSize()}
-      className={getColor()}
+      className={`${getColor()} min-w-fit min-h-fit`}
       {...props}
     >
       {icons[icon]}
