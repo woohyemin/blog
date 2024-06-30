@@ -9,7 +9,6 @@
         "date": "2023년 06월 26일",
         "path": "blog-part-1",
         "thumbnail": "blog/part1/blog_part_1_thumbnail.jpg",
-        "featured": false,
         "description": "Next.js를 활용하여 블로그 프로젝트 생성하기",
         "related": ["Blog", "Next.js"],
         "nextPost": "blog-part-1"
@@ -26,7 +25,6 @@
         "date": "2023년 06월 26일",
         "path": "blog-part-2",
         "thumbnail": "blog/part2/blog_part_2_thumbnail.jpg",
-        "featured": false,
         "description": "블로그 프로젝트 Github에 연동하기",
         "related": ["Blog", "Github"],
         "prevPost": "blog-part-1",

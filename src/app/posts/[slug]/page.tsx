@@ -4,7 +4,7 @@ import Comments from "@/components/organisms/Comments";
 import { Header } from "@/components/organisms/Header";
 import { PostLayout } from "@/components/templates/layout/PostLayout.tsx";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
-import { getFeaturedPosts, getPost } from "@/lib/api";
+import { getPost } from "@/lib/api";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -68,12 +68,4 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
       <Comments />
     </TemplateLayout>
   );
-}
-
-export async function generateStaticParams() {
-  const posts = await getFeaturedPosts();
-
-  return posts.map((post) => ({
-    slug: post.path,
-  }));
 }

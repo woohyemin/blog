@@ -12,7 +12,6 @@ export interface Post {
   series: string;
   categories: Category[];
   path: string;
-  featured: boolean;
   content: string;
   readingTime: number;
   related: string[];
@@ -45,14 +44,6 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
   );
   return allPosts;
 });
-
-export async function getFeaturedPosts(): Promise<Post[]> {
-  const allPosts = await getAllPosts();
-  const featuredPost = allPosts
-    .filter((post: Post) => post.featured === true)
-    .reverse();
-  return featuredPost;
-}
 
 export async function getPost(fileName: string): Promise<Post> {
   const allPosts = await getAllPosts();
