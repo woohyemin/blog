@@ -26,7 +26,7 @@ export default function Home() {
         }
         content={
           <div className="mt-2 sm:mt-4">
-            <p className="text-secondary text-body1">
+            <p className="text-secondary text-body2 sm:text-body1">
               더 나은 UI/UX를 고민하며 개발하는 웹 프론트엔드 개발자
               우혜민입니다.
               <br />
@@ -51,12 +51,12 @@ export default function Home() {
           target="_blank"
         >
           <Icon icon="GitHub" size="md" color="secondary" />
-          <span className="flex gap-1 items-center">
+          <span className="flex gap-0.5 items-center">
             <span className="text-body2 text-secondary underline underline-offset-2 decoration-[#b3b3b3]">
               <span className="text-primary font-medium">코드</span>는 Github로
               관리하고 있어요
             </span>
-            <Icon icon="externalLink" size="xs" color="secondary" />
+            <Icon icon="externalLink" size="sm" color="secondary" />
           </span>
         </Link>
         <Link
