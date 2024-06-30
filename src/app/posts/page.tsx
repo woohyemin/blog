@@ -3,6 +3,12 @@ import { Header } from "@/components/organisms/Header";
 import { Posts } from "@/components/organisms/Posts";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
 import { getAllPosts } from "@/lib/api";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hyemin's posts",
+  description: "I'm recording my experiences.",
+};
 
 export default async function Projects() {
   const allPosts = await getAllPosts();
