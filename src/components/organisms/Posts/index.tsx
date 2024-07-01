@@ -40,7 +40,7 @@ export const Posts = ({ posts }: PostsProps) => {
       />
       <div className="flex flex-col gap-4 sm:gap-6">
         {filteredPosts.map((el, index) => (
-          <Fragment key={el.description}>
+          <Fragment key={`${el.id}-${el.title}`}>
             <Link href={`posts/${el.path}`} className="w-full">
               <p className="text-caption text-disabled">{el.date}</p>
               <h3 className="text-h5 text-primary font-medium pt-1.5 overflow-hidden whitespace-nowrap text-ellipsis sm:text-h4 sm:pt-2">
