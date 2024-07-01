@@ -1,6 +1,6 @@
 import { Dot } from "@/components/atoms/data-display/Dot";
 import { Icon } from "@/components/atoms/data-display/Icon";
-import { ByHyemin } from "@/components/molecules/ByHyemin";
+import { ByHem } from "@/components/molecules/ByHem";
 import Comments from "@/components/organisms/Comments";
 import { Header } from "@/components/organisms/Header";
 import { PostLayout } from "@/components/templates/layout/PostLayout.tsx";
@@ -54,7 +54,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
                   {post.date}
                 </span>
                 <Dot />
-                <ByHyemin variant="posts" />
+                <ByHem variant="posts" />
               </div>
               <div className="flex gap-1.5 pt-2.5 pb-1.5 sm:py-3.5 sm:pb-2.5 sm:gap-2">
                 {post.categories.map((category) => (

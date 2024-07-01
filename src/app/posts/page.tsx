@@ -1,4 +1,4 @@
-import { ByHyemin } from "@/components/molecules/ByHyemin";
+import { ByHem } from "@/components/molecules/ByHem";
 import { Header } from "@/components/organisms/Header";
 import { Posts } from "@/components/organisms/Posts";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
@@ -25,7 +25,7 @@ export default async function Projects() {
             <h1 className="text-primary text-h3 font-medium inline sm:text-h2">
               포스트
             </h1>
-            <ByHyemin />
+            <ByHem />
           </div>
         }
         content={
