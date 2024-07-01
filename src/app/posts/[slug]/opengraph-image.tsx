@@ -19,7 +19,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
       <div
         style={{
           fontSize: 48,
-          background: "white",
+          background: "blue",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -28,6 +28,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
         }}
       >
         {post.title}
+        og image
       </div>
     ),
     {
