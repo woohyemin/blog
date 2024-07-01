@@ -5,14 +5,14 @@ import { noto_sans_kr } from "./fonts";
 import { Footer } from "@/components/organisms/Footer";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 
-const metadata: Metadata = {
-  title: "Hyemin's blog",
-  description: "우혜민의 블로그에 오신 걸 환영합니다!",
-  viewport: {
-    width: "device-width",
-    initialScale: 1.0,
-  },
-};
+// export const metadata: Metadata = {
+//   title: "hem's blog",
+//   description: "",
+//   viewport: {
+//     width: "device-width",
+//     initialScale: 1.0,
+//   },
+// };
 
 export default function RootLayout({
   children,

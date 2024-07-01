@@ -6,8 +6,17 @@ import { Icon } from "@/components/atoms/data-display/Icon";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
   title: "hem's blog",
   description: "I'm recording my development experiences.",
+  openGraph: {
+    images: [
+      {
+        url: "/opengraph-image.png",
+        alt: "hem's blog",
+      },
+    ],
+  },
 };
 
 export default function Home() {
