@@ -1,4 +1,3 @@
-import { Dot } from "@/components/atoms/data-display/Dot";
 import { Header } from "@/components/organisms/Header";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
 import Link from "next/link";
@@ -8,7 +7,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "hem's blog",
-  description: "I'm a front-end developer.",
+  description: "I'm recording my development experiences.",
 };
 
 export default function Home() {
