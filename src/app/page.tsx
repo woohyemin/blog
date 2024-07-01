@@ -7,7 +7,7 @@ import { Icon } from "@/components/atoms/data-display/Icon";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hyemin's blog",
+  title: "hem's blog",
   description: "I'm a front-end developer.",
 };
 

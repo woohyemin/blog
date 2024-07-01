@@ -6,7 +6,7 @@ import { getAllPosts } from "@/lib/api";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hyemin's posts",
+  title: "hem's posts",
   description: "I'm recording my experiences.",
 };
 
