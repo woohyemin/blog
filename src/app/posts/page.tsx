@@ -6,6 +6,7 @@ import { getAllPosts } from "@/lib/api";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
   title: "hem's posts",
   description: "I'm recording my development experiences.",
   openGraph: {
