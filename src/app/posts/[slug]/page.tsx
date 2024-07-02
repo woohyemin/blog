@@ -23,8 +23,21 @@ export async function generateMetadata({
   const { title, description } = await getPost(slug);
 
   return {
+    metadataBase: new URL(
+      `https://blog-woohyemins-projects.vercel.app/posts/${slug}`
+    ),
     title,
     description,
+    openGraph: {
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
   };
 }
 
