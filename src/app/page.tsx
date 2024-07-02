@@ -17,6 +17,14 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    images: [
+      {
+        url: "/opengraph-image.png",
+        alt: "hem's blog",
+      },
+    ],
+  },
 };
 
 export default function Home() {

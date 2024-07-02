@@ -21,8 +21,7 @@ export async function generateMetadata({
   params: { slug },
 }: Props): Promise<Metadata> {
   const { title, description, path } = await getPost(slug);
-
-  const imagePath = path.split("-");
+  const imagePaths = path.split("-");
 
   return {
     metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
@@ -31,7 +30,17 @@ export async function generateMetadata({
     openGraph: {
       images: [
         {
-          url: `/images/posts/${imagePath.join("/")}/${imagePath.join("_")}_thumbnail.jpg`,
+          url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join("_")}_thumbnail.jpg`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      images: [
+        {
+          url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join("_")}_thumbnail.jpg`,
           width: 1200,
           height: 630,
           alt: title,
