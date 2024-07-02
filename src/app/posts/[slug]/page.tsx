@@ -31,7 +31,7 @@ export async function generateMetadata({
     openGraph: {
       images: [
         {
-          url: `/images/posts${imagePath.join("/")}/${imagePath.join("_")}_thumbnail.jpg`,
+          url: `/images/posts/${imagePath.join("/")}/${imagePath.join("_")}_thumbnail.jpg`,
           width: 1200,
           height: 630,
           alt: title,
