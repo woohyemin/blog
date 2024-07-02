@@ -20,18 +20,18 @@ interface Props {
 export async function generateMetadata({
   params: { slug },
 }: Props): Promise<Metadata> {
-  const { title, description } = await getPost(slug);
+  const { title, description, path } = await getPost(slug);
+
+  const imagePath = path.split("-");
 
   return {
-    metadataBase: new URL(
-      `https://blog-woohyemins-projects.vercel.app/posts/${slug}`
-    ),
+    metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
     title,
     description,
     openGraph: {
       images: [
         {
-          url: "/opengraph-image",
+          url: `/images/posts${imagePath.join("/")}/${imagePath.join("_")}_thumbnail.jpg`,
           width: 1200,
           height: 630,
           alt: title,
