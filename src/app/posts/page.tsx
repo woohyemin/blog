@@ -7,7 +7,15 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "hem's posts",
-  description: "I'm recording my experiences.",
+  description: "I'm recording my development experiences.",
+  openGraph: {
+    images: [
+      {
+        url: "/opengraph-image",
+        alt: "hem's posts",
+      },
+    ],
+  },
 };
 
 export default async function Projects() {

@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
   title: "hem's blog",
-  description: "I'm recording my development experiences.",
+  description: "I'm a front-end developer.",
   openGraph: {
     images: [
       {

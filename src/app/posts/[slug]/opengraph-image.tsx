@@ -10,7 +10,9 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image({ params }: { params: { slug: string } }) {
-  const post = await fetch(`/posts/${params.slug}`).then((res) => res.json());
+  const post = await fetch(
+    `https://blog-woohyemins-projects.vercel.app/posts/${params.slug}`
+  ).then((res) => res.json());
 
   return new ImageResponse(
     (
