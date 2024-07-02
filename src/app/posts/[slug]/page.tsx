@@ -99,7 +99,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
       <PostLayout size="medium">{post.content}</PostLayout>
 
       <div
-        className={`flex flex-col gap-4 pt-8 sm:pt-12 sm:flex-row ${!prevPost && "justify-end"}`}
+        className={`flex flex-col gap-2 sm:gap-4 pt-8 sm:pt-12 sm:flex-row ${!prevPost && "justify-end"}`}
       >
         {prevPost && (
           <Link
