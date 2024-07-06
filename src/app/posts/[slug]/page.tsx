@@ -1,5 +1,4 @@
 import { Dot } from "@/components/atoms/data-display/Dot";
-import { Icon } from "@/components/atoms/data-display/Icon";
 import { ByHem } from "@/components/molecules/ByHem";
 import Comments from "@/components/organisms/Comments";
 import { Header } from "@/components/organisms/Header";
@@ -8,8 +7,8 @@ import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
 import { getPost } from "@/lib/api";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Chip } from "@/components/atoms/data-display/Chip";
+import { RelatedPost } from "@/components/organisms/RelatedPosts";
 
 interface Props {
   params: {
@@ -53,8 +52,8 @@ export async function generateMetadata({
 export default async function PostDetailPage({ params: { slug } }: Props) {
   const post = await getPost(slug);
 
-  const prevPost = post.prevPost ? await getPost(post.prevPost) : null;
-  const nextPost = post.nextPost ? await getPost(post.nextPost) : null;
+  const prevPost = post.prevPost ? await getPost(post.prevPost) : undefined;
+  const nextPost = post.nextPost ? await getPost(post.nextPost) : undefined;
 
   if (!post) {
     return <div className="bg-red-50 w-5 h-5" />;
@@ -96,44 +95,9 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
         />
       </div>
 
-      <PostLayout size="medium">{post.content}</PostLayout>
+      <PostLayout>{post.content}</PostLayout>
 
-      <div
-        className={`flex flex-col gap-2 sm:gap-4 pt-8 sm:pt-12 sm:flex-row ${!prevPost && "justify-end"}`}
-      >
-        {prevPost && (
-          <Link
-            className="flex gap-4 items-center rounded-lg py-4 px-5 bg-basicBtnBg sm:w-[calc(50%-8px)]"
-            href={`/posts/${prevPost.path}`}
-          >
-            <Icon icon="arrowLeft" size="sm" />
-            <div className="flex flex-col gap-1 overflow-hidden">
-              <span className="text-caption font-medium text-secondary">
-                이전 포스트
-              </span>
-              <span className="text-body2 overflow-hidden whitespace-nowrap text-ellipsis">
-                {prevPost.title}
-              </span>
-            </div>
-          </Link>
-        )}
-        {nextPost && (
-          <Link
-            className="flex gap-4 items-center rounded-lg py-4 px-5 bg-basicBtnBg justify-end sm:w-[calc(50%-8px)]"
-            href={`/posts/${nextPost.path}`}
-          >
-            <div className="flex flex-col gap-1 overflow-hidden">
-              <span className="text-caption font-medium text-secondary text-right">
-                다음 포스트
-              </span>
-              <span className="text-body2 overflow-hidden whitespace-nowrap text-ellipsis">
-                {nextPost.title}
-              </span>
-            </div>
-            <Icon icon="arrowRight" size="sm" />
-          </Link>
-        )}
-      </div>
+      <RelatedPost prevPost={prevPost} nextPost={nextPost} />
 
       <Comments />
     </TemplateLayout>

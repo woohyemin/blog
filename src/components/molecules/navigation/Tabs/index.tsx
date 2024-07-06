@@ -1,56 +1,18 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
+import Tab, { TabProps } from "@/components/atoms/navigation/Tab";
+import React, { HTMLAttributes } from "react";
 
-type TabProps = {
-  label: string | ReactNode;
-  children: React.ReactNode;
-};
+export interface TabsProps extends HTMLAttributes<HTMLDivElement> {
+  tabs: TabProps[];
+}
 
-type TabsProps = {
-  children: React.ReactElement<TabProps>[];
-};
-
-const Tabs: React.FC<TabsProps> = ({ children }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleTabClick = (index: number) => {
-    setActiveIndex(index);
-  };
-
+export const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   return (
-    <div>
-      <div className="flex gap-3">
-        {children.map((child, index) => (
-          <button
-            key={index}
-            className={`py-1.5 px-4 -mb-px rounded-full text-h5 ${
-              index === activeIndex
-                ? "bg-tabActiveBg text-tabActiveText"
-                : "bg-tabBg text-tabText"
-            }`}
-            onClick={() => handleTabClick(index)}
-          >
-            {child.props.label}
-          </button>
-        ))}
-      </div>
-      <div className="p-4">
-        {children.map((child, index) => (
-          <div
-            key={index}
-            className={index === activeIndex ? "block" : "hidden"}
-          >
-            {child.props.children}
-          </div>
-        ))}
-      </div>
+    <div className="flex gap-2 max-w-full overflow-x-auto overflow-y-hidden scrollbar-hide">
+      {tabs.map((tab) => (
+        <Tab key={tab.value} {...tab} />
+      ))}
     </div>
   );
 };
-
-const Tab: React.FC<TabProps> = ({ children }) => {
-  return <>{children}</>;
-};
-
-export { Tabs, Tab };

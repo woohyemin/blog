@@ -1,54 +1,25 @@
-"use client";
+import { HTMLAttributes, ReactNode } from "react";
 
-import React from "react";
-
-interface TabProps {
-  /**
-   * tab label
-   */
-  label: string;
-
-  /**
-   * tab style type
-   */
-  variant?: "button";
-
-  /**
-   * tab size
-   */
-  size?: "small" | "medium" | "large";
-
-  /**
-   * tab color
-   */
-  color?: "basic";
-
-  /**
-   * tab active
-   */
-  isActivated?: boolean;
-
-  /**
-   * tab click handler
-   */
-  onClick?: () => void;
+export interface TabProps extends HTMLAttributes<HTMLButtonElement> {
+  label: string | ReactNode;
+  value: string;
+  selected?: boolean;
 }
 
-/**
- * tab component
- */
-export const Tab = ({
+export default function Tab({
   label,
-  variant = "button",
-  size = "medium",
-  color = "basic",
-  isActivated,
-  onClick,
+  value,
+  selected = false,
   ...props
-}: TabProps) => {
+}: TabProps) {
   return (
-    <button type="button" {...props}>
+    <button
+      className={`transition-all flex items-center gap-0.5 py-1 px-3 mb-px rounded-full text-h6 h-7 sm:h-8 sm:text-h5 sm:px-3.5 sm:gap-1 ${
+        selected ? "bg-tabActiveBg text-tabActiveText" : "bg-tabBg text-tabText"
+      }`}
+      {...props}
+    >
       {label}
     </button>
   );
-};
+}

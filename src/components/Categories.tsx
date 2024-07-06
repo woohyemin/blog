@@ -2,6 +2,8 @@
 
 import { Post } from "@/lib/api";
 import Category from "./Category";
+import { Tabs } from "./molecules/navigation/Tabs";
+import { TabProps } from "@/components/atoms/navigation/Tab/index";
 
 export type Category =
   | "All"
@@ -41,17 +43,23 @@ export default function Categories({
       .length;
   };
 
-  return (
-    <ul className="flex gap-2 h-9 max-w-full overflow-x-auto overflow-y-hidden scrollbar-hide">
-      {categoryList.map((category) => (
-        <li key={category}>
-          <button onClick={() => onCategoryClick(category)}>
-            <Category selected={currCategory === category} category={category}>
-              <span>{numOfCategoryPosts(category)}</span>
-            </Category>
-          </button>
-        </li>
-      ))}
-    </ul>
-  );
+  const tabs: TabProps[] = categoryList.map((category) => {
+    return {
+      label: (
+        <div className="flex gap-1">
+          <span>{category}</span>
+          <span
+            className={`tracking-wider ${currCategory === category ? "text-tabActiveNum" : "text-tabNum"}`}
+          >
+            ({numOfCategoryPosts(category)})
+          </span>
+        </div>
+      ),
+      value: category,
+      selected: currCategory === category,
+      onClick: () => onCategoryClick(category),
+    };
+  });
+
+  return <Tabs tabs={tabs} />;
 }
