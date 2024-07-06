@@ -17,7 +17,7 @@ export const TemplateLayout = ({
 }: PropsWithChildren<TemplateLayoutProps>) => {
   return (
     <div
-      className="my-0 mx-auto px-4 py-16 max-w-[720px] min-h-[calc(100vh-96px)] sm:py-24 sm:px-6"
+      className="my-0 mx-auto px-4 py-16 max-w-[720px] min-h-[calc(100vh-96px)] sm:py-24 sm:px-6 animate-fade-up"
       {...props}
     />
   );

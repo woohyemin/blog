@@ -44,6 +44,15 @@ module.exports = {
         regular: 400,
         medium: 500,
       },
+      animation: {
+        "fade-up": "fadeUp 0.5s ease-in-out",
+      },
+      keyframes: {
+        fadeUp: {
+          from: { opacity: 0, transform: "translateY(10px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
+      },
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],
