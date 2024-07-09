@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Icon } from "@/components/atoms/data-display/Icon";
 
 /**
  * PostLayout component props
@@ -16,7 +17,7 @@ const PostBody = ({ children, ...props }: any) => {
     h1({ ...props }) {
       return (
         <h2
-          className="text-primary text-h4 font-medium mt-[44px] mb-2 sm:text-h3 sm:mt-[64px] sm:mb-4"
+          className="text-primary text-h4 font-medium mt-[44px] mb-2 sm:text-h3 sm:mt-20 sm:mb-6"
           {...props}
         />
       );
@@ -24,7 +25,7 @@ const PostBody = ({ children, ...props }: any) => {
     h2({ ...props }) {
       return (
         <h3
-          className="text-primary text-h5 font-medium mt-[20px] mb-1.5 sm:text-h4 sm:mt-[28px] sm:mb-2"
+          className="text-primary text-h5 font-medium mt-[20px] mb-1.5 sm:text-h4 sm:mt-7 sm:mb-2"
           {...props}
         />
       );
@@ -32,7 +33,7 @@ const PostBody = ({ children, ...props }: any) => {
     h3({ ...props }) {
       return (
         <h4
-          className="text-primary text-h6 font-medium mt-3 mb-1.5 sm:text-h5 sm:mt-8 sm:mb-2"
+          className="text-primary text-h6 font-medium mt-4 mb-1.5 sm:text-h5 sm:mt-5 sm:mb-1.5"
           {...props}
         />
       );
@@ -40,7 +41,7 @@ const PostBody = ({ children, ...props }: any) => {
     h4({ ...props }) {
       return (
         <h5
-          className="text-primary text-body1 font-medium mt-1.5 mb-0.5 sm:text-h6"
+          className="text-primary text-body1 font-medium mt-5 mb-1.5 sm:text-h6"
           {...props}
         />
       );
@@ -48,7 +49,7 @@ const PostBody = ({ children, ...props }: any) => {
     h5({ ...props }) {
       return (
         <h6
-          className="text-primary text-body1 font-medium mt-1.5 mb-0.5 sm:text-h6"
+          className="text-primary text-body1 font-medium mt-2.5 mb-1 sm:text-h6"
           {...props}
         />
       );
@@ -56,7 +57,7 @@ const PostBody = ({ children, ...props }: any) => {
     h6({ ...props }) {
       return (
         <p
-          className="text-primary text-body1 font-medium mt-1.5 mb-0.5 sm:text-h6"
+          className="text-primary text-body1 font-medium mt-2 mb-1 sm:text-h6"
           {...props}
         />
       );
@@ -64,7 +65,7 @@ const PostBody = ({ children, ...props }: any) => {
     p({ ...props }) {
       return (
         <p
-          className="text-secondary text-body2 mb-1 sm:mb-1.5 sm:text-body1"
+          className="text-secondary text-body2 mb-0.5 sm:text-body1"
           {...props}
         />
       );
@@ -84,7 +85,18 @@ const PostBody = ({ children, ...props }: any) => {
       );
     },
     strong({ ...props }) {
-      return <strong className="font-semibold" {...props} />;
+      return <strong className="font-medium" {...props} />;
+    },
+    a({ ...props }) {
+      return (
+        <a
+          className="inline-flex flex-row items-center underline underline-offset-2 decoration-[#b3b3b3]"
+          {...props}
+        >
+          {props.children}
+          <Icon icon="externalLink" size="sm" color="secondary" />
+        </a>
+      );
     },
     img({ ...props }) {
       return (
@@ -117,7 +129,7 @@ const PostBody = ({ children, ...props }: any) => {
           language={language}
           customStyle={{
             borderRadius: "8px",
-            margin: "12px 0",
+            margin: "16px 0",
           }}
         >
           {String(props.children)}

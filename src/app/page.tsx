@@ -71,7 +71,7 @@ export default function Home() {
               <span className="text-primary font-medium">코드</span>는 Github로
               관리하고 있어요
             </span>
-            <Icon icon="externalLink" size="sm" color="secondary" />
+            <Icon icon="externalLink" size="xs" color="secondary" />
           </span>
         </Link>
         <Link

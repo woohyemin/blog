@@ -31,9 +31,9 @@ export const Icon = ({
 }: PropsWithChildren<IconProps>) => {
   const getSize = () => {
     if (size === "xs") {
-      return "8px";
-    } else if (size === "sm") {
       return "12px";
+    } else if (size === "sm") {
+      return "14px";
     } else if (size === "md") {
       return "16px";
     } else if (size === "lg") {
