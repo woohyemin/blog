@@ -8,13 +8,13 @@ interface ThemePropsInterface {
 }
 
 export default function Providers({ children }: ThemePropsInterface) {
-  const [isMount, setMount] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setMount(true);
+    setIsMounted(true);
   }, []);
 
-  if (!isMount) {
+  if (!isMounted) {
     return null;
   }
 
