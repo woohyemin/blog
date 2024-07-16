@@ -142,10 +142,6 @@ export interface ThemeStyleType {
   typography: TypographyType;
 }
 
-// declare module "styled-components" {
-//   export interface DefaultTheme extends ThemeStyleType {}
-// }
-
 /**
  * padding props
  */
