@@ -124,5 +124,3 @@ const FlexBox = styled.div`
 ```
 
 아무튼 이렇게 아직까진 큰 문제 없이 `Tailwind CSS`를 사용하고 있다.
-
-다음 글에서는 프로젝트를 Github에 연동하는 내용을 다룰 예정이다.

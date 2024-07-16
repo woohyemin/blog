@@ -30,21 +30,5 @@
         "prevPost": "blog-part1"
       }
     ]
-  },
-  {
-    "blog": [
-      {
-        "id": 3,
-        "series": "blog",
-        "categories": ["Blog", "Github"],
-        "title": "[나만의 블로그를 만들어보자 - Part 3] 프로젝트 Github로 연동하기",
-        "date": "2023년 06월 26일",
-        "path": "blog-part2",
-        "thumbnail": "blog/part2/blog_part2_thumbnail.jpg",
-        "description": "블로그 프로젝트 Github에 연동하기",
-        "related": ["Blog", "Github"],
-        "prevPost": "blog-part1"
-      }
-    ]
   }
 ]
