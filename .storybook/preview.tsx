@@ -1,9 +1,7 @@
 import type { Preview } from "@storybook/react";
-import { withThemeFromJSXProvider } from "@storybook/addon-themes";
-import { darkTheme, lightTheme } from "../src/styles/themeStyles";
-import { RecoilRoot } from "recoil";
 import React from "react";
 import { ThemeProvider } from "next-themes";
+import "../src/app/globals.css";
 
 const preview: Preview = {
   parameters: {
@@ -17,18 +15,17 @@ const preview: Preview = {
 };
 
 export const decorators = [
-  withThemeFromJSXProvider({
-    themes: {
-      light: lightTheme,
-      dark: darkTheme,
-    },
-    defaultTheme: "light",
-    Provider: ThemeProvider,
-  }),
+  // withThemeByClassName({
+  //   themes: {
+  //     light: "light",
+  //     dark: "dark",
+  //   },
+  //   defaultTheme: "light",
+  // }),
   (Story) => (
-    <RecoilRoot>
+    <ThemeProvider attribute="class">
       <Story />
-    </RecoilRoot>
+    </ThemeProvider>
   ),
 ];
 
