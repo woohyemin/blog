@@ -34,15 +34,15 @@ export default function Home() {
         title={
           <div className="flex flex-row gap-2 items-center">
             <h1
-              className={`${montserrat.className} text-primary text-h4 font-medium inline sm:text-h3`}
+              className={`${montserrat.className} text-primary text-h3 font-medium inline`}
             >
               hem
             </h1>
           </div>
         }
         content={
-          <div className="mt-3 sm:mt-6">
-            <p className="text-secondary text-body2 sm:text-body1">
+          <div className="mt-4 sm:mt-6">
+            <p className="text-secondary text-body1">
               더 나은 UI/UX를 고민하며 개발하는 웹 프론트엔드 개발자 hem입니다.
               <br />
               떠오른 아이디어를 가지고 스스로 구상하고 개발하는 것을 좋아하고
