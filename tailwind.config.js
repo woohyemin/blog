@@ -44,6 +44,9 @@ module.exports = {
         regular: 400,
         medium: 500,
       },
+      boxShadow: {
+        highlight: "var(--highlight) 0px -10px 0px inset",
+      },
       animation: {
         "fade-up": "fadeUp 0.5s ease-in-out",
       },

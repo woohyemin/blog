@@ -17,8 +17,9 @@
   --tab-active-num: #b3b3b3;
   --divider: #e3e3e3;
   --bullet: #b3b3b3;
-  --code: #e3e3e3;
-  --chip: #ebebeb;
+  --code: #e6e6e6;
+  --chip: #e6e6e6;
+  --highlight: #e6e6e6;
 }
 
 :root.dark {
@@ -26,8 +27,8 @@
   --text-primary: #f3f3f3;
   --text-secondary: #b3b3b3;
   --text-disabled: #757575;
-  --basic-button-background: #262626;
-  --tab-background: #262626;
+  --basic-button-background: #1f1f1f;
+  --tab-background: #1f1f1f;
   --tab-text: #b3b3b3;
   --tab-num: #757575;
   --tab-active-background: #f3f3f3;
@@ -35,8 +36,9 @@
   --tab-active-num: #616161;
   --divider: #363636;
   --bullet: #616161;
-  --code: #262626;
-  --chip: #1c1c1c;
+  --code: #1f1f1f;
+  --chip: #1f1f1f;
+  --highlight: #1f1f1f;
 }
 
 html {
