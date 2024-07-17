@@ -38,7 +38,7 @@
 pnpm create next-app blog --typescript
 ```
 
-명령어를 입력하면 무언가가 설치되는 듯 하다가 몇가지를 선택하라고 물어본다. 본인이 원하는 것으로 선택하면 된다.
+명령어를 입력하면 무언가가 설치되는 듯하다가 몇 가지를 선택하라고 물어본다. 본인이 원하는 것으로 선택하면 된다.
 
 나는 Tailwind CSS를 제외하고 모두 Yes를 선택하여 프로젝트를 생성했다. (결국 Tailwind CSS 사용하게 됐지만..)
 
@@ -64,7 +64,7 @@ pnpm create next-app blog --typescript
 },
 ```
 
-아래 명령어를 입력하면 바로 실행해볼 수 있다.
+아래 명령어를 입력하면 바로 실행해 볼 수 있다.
 
 ```bash
 pnpm dev
