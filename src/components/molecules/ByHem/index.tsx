@@ -12,7 +12,7 @@ interface ByHemProps {
  */
 export const ByHem = ({ variant = "default" }: ByHemProps) => {
   return (
-    <div className="flex gap-1 pb-1 text-caption items-baseline sm:text-body2">
+    <div className="flex gap-1 text-caption items-baseline sm:text-body2">
       <span className="text-disabled pb-[1px] h-[20px]">by</span>
       {variant === "default" && (
         <Link
