@@ -43,10 +43,10 @@ export default function Home() {
         content={
           <div className="mt-4 sm:mt-6">
             <p className="text-secondary text-body1">
-              더 나은 UI/UX를 고민하며 개발하는 웹 프론트엔드 개발자 hem입니다.
+              더 나은 사용자 경험을 고민하는 웹 프론트엔드 개발자 hem입니다.
               <br />
-              떠오른 아이디어를 가지고 스스로 구상하고 개발하는 것을 좋아하고
-              경험한 것들을 기록하고 있습니다.
+              떠오른 아이디어를 구현해 보는 것을 좋아하고 관련하여 경험한 것들을
+              기록하고 있습니다.
             </p>
           </div>
         }
