@@ -4,7 +4,7 @@
       {
         "id": 1,
         "series": "blog",
-        "categories": ["Blog", "React", "Next.js", "Typescript"],
+        "categories": ["Blog", "React", "Next.js"],
         "title": "[나만의 블로그를 만들어보자 - Part 1] Next.js로 프로젝트 생성하기",
         "date": "2023년 06월 26일",
         "path": "blog-part1",

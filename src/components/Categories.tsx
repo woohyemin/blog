@@ -5,23 +5,14 @@ import Category from "./Category";
 import { Tabs } from "./molecules/navigation/Tabs";
 import { TabProps } from "@/components/atoms/navigation/Tab/index";
 
-export type Category =
-  | "All"
-  | "Blog"
-  | "Next.js"
-  | "React"
-  | "Typescript"
-  | "tailwindcss"
-  | "Github";
+export type Category = "All" | "Blog" | "Next.js" | "React" | "Tailwind CSS";
 
 const categoryList: Category[] = [
   "All",
   "Blog",
   "Next.js",
   "React",
-  "Typescript",
-  "tailwindcss",
-  "Github",
+  "Tailwind CSS",
 ];
 
 interface Props {
