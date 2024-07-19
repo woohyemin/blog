@@ -35,10 +35,11 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
       const filePath = path.join(
         process.cwd(),
         "_posts",
-        `${post.series}`,
+        post.series || "",
         `${post.path}.md`
       );
       const content = await readFile(filePath, "utf-8");
+
       return { ...post, content };
     })
   );
