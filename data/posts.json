@@ -11,7 +11,8 @@
         "thumbnail": "blog/part1/blog_part1_thumbnail.jpg",
         "description": "Next.js를 활용하여 블로그 프로젝트 생성하기",
         "related": ["Blog", "Next.js"],
-        "nextPost": "blog-part2"
+        "nextPost": "blog-part2",
+        "activate": false
       },
       {
         "id": 2,
@@ -23,7 +24,8 @@
         "thumbnail": "blog/part2/blog_part2_thumbnail.jpg",
         "description": "블로그 프로젝트 Tailwind CSS 적용하기",
         "related": ["Blog", "Tailwind CSS"],
-        "prevPost": "blog-part1"
+        "prevPost": "blog-part1",
+        "activate": false
       }
     ]
   },
@@ -37,7 +39,8 @@
         "path": "package-manager",
         "thumbnail": "package-manager/package_manager_thumbnail.jpg",
         "description": "블로그 프로젝트 Tailwind CSS 적용하기",
-        "related": ["Package Manager", "npx", "npm", "yarn", "pnpm"]
+        "related": ["Package Manager", "npx", "npm", "yarn", "pnpm"],
+        "activate": false
       }
     ]
   }

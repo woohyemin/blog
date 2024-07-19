@@ -18,6 +18,7 @@ export interface Post {
   prevPost?: string;
   nextPost?: string;
   thumbnail?: string;
+  activate?: boolean;
 }
 
 export interface PostData {
@@ -30,6 +31,7 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
   const jsonData = await fs.readFile(filePath, "utf-8");
   const data = JSON.parse(jsonData);
   const flattedAllData = data.map((obj: Post) => Object.values(obj)[0]).flat();
+
   const allPosts = await Promise.all(
     flattedAllData.map(async (post: Post) => {
       const filePath = path.join(
@@ -43,7 +45,10 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
       return { ...post, content };
     })
   );
-  return allPosts;
+
+  const activePosts = allPosts.filter((post) => post.activate);
+
+  return activePosts;
 });
 
 export async function getPost(fileName: string): Promise<Post> {
