@@ -38,27 +38,31 @@ export const Posts = ({ posts }: PostsProps) => {
         setCurrCategory={setCurrCategory}
         allPosts={posts}
       />
-      <div className="flex flex-col gap-4 sm:gap-6">
-        {filteredPosts.map((el, index) => (
-          <Fragment key={`${el.id}-${el.title}`}>
-            <Link href={`posts/${el.path}`} className="w-full">
-              <p className="text-caption text-disabled">{el.date}</p>
-              <h3 className="text-h5 text-primary font-medium pt-1.5 overflow-hidden whitespace-nowrap text-ellipsis sm:text-h4 sm:pt-2">
-                {el.title}
-              </h3>
-              <p className="text-caption text-secondary pt-0.5 overflow-hidden whitespace-nowrap text-ellipsis sm:text-body2">
-                {el.description}
-              </p>
-              <div className="flex gap-1.5 pt-2 sm:pt-3.5 sm:gap-2">
-                {el.categories.map((category) => (
-                  <Chip key={category}>{category}</Chip>
-                ))}
-              </div>
-            </Link>
-            {index < filteredPosts.length - 1 && <Divider />}
-          </Fragment>
-        ))}
-      </div>
+      {filteredPosts.length > 0 ? (
+        <div className="flex flex-col gap-4 sm:gap-6">
+          {filteredPosts.map((el, index) => (
+            <Fragment key={`${el.id}-${el.title}`}>
+              <Link href={`posts/${el.path}`} className="w-full">
+                <p className="text-caption text-disabled">{el.date}</p>
+                <h3 className="text-h5 text-primary font-medium pt-1.5 overflow-hidden whitespace-nowrap text-ellipsis sm:text-h4 sm:pt-2">
+                  {el.title}
+                </h3>
+                <p className="text-caption text-secondary pt-0.5 overflow-hidden whitespace-nowrap text-ellipsis sm:text-body2">
+                  {el.description}
+                </p>
+                <div className="flex gap-1.5 pt-2 sm:pt-3.5 sm:gap-2">
+                  {el.categories.map((category) => (
+                    <Chip key={category}>{category}</Chip>
+                  ))}
+                </div>
+              </Link>
+              {index < filteredPosts.length - 1 && <Divider />}
+            </Fragment>
+          ))}
+        </div>
+      ) : (
+        <p className="pt-4 text-body2 text-disabled">등록된 글이 없어요.</p>
+      )}
     </div>
   );
 };
