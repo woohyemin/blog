@@ -6,28 +6,38 @@
         "series": "blog",
         "categories": ["Blog", "React", "Next.js"],
         "title": "[나만의 블로그를 만들어보자 - Part 1] Next.js로 프로젝트 생성하기",
-        "date": "2023년 06월 26일",
+        "date": "2023-07-17",
         "path": "blog-part1",
         "thumbnail": "blog/part1/blog_part1_thumbnail.jpg",
         "description": "Next.js를 활용하여 블로그 프로젝트 생성하기",
         "related": ["Blog", "Next.js"],
         "nextPost": "blog-part2"
-      }
-    ]
-  },
-  {
-    "blog": [
+      },
       {
         "id": 2,
         "series": "blog",
         "categories": ["Blog", "Tailwind CSS"],
         "title": "[나만의 블로그를 만들어보자 - Part 2] Tailwind CSS 적용하기",
-        "date": "2023년 06월 26일",
+        "date": "2023-07-18",
         "path": "blog-part2",
         "thumbnail": "blog/part2/blog_part2_thumbnail.jpg",
         "description": "블로그 프로젝트 Tailwind CSS 적용하기",
         "related": ["Blog", "Tailwind CSS"],
         "prevPost": "blog-part1"
+      }
+    ]
+  },
+  {
+    "package-manager": [
+      {
+        "id": 3,
+        "categories": ["Package Manager", "npx", "npm", "yarn", "pnpm"],
+        "title": "[패키지 매니저 비교] npx, npm, yarn, pnpm",
+        "date": "2023-07-16",
+        "path": "package-manager",
+        "thumbnail": "package-manager/package_manager_thumbnail.jpg",
+        "description": "블로그 프로젝트 Tailwind CSS 적용하기",
+        "related": ["Package Manager", "npx", "npm", "yarn", "pnpm"]
       }
     ]
   }
