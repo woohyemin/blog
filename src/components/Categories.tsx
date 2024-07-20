@@ -1,18 +1,30 @@
 "use client";
 
 import { Post } from "@/lib/api";
-import Category from "./Category";
 import { Tabs } from "./molecules/navigation/Tabs";
 import { TabProps } from "@/components/atoms/navigation/Tab/index";
 
-export type Category = "All" | "Blog" | "Next.js" | "React" | "Tailwind CSS";
+export type Category =
+  | "All"
+  | "Blog"
+  | "Next.js"
+  | "React"
+  | "Tailwind CSS"
+  | "Plugin"
+  | "eDM"
+  | "SonarQube"
+  | "SonarLint";
 
 const categoryList: Category[] = [
   "All",
   "Blog",
   "Next.js",
-  "React",
+  // "React",
   "Tailwind CSS",
+  "Plugin",
+  "eDM",
+  "SonarQube",
+  "SonarLint",
 ];
 
 interface Props {
