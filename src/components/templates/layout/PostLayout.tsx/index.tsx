@@ -87,7 +87,10 @@ const PostBody = ({ children, ...props }: any) => {
       );
     },
     strong({ ...props }) {
-      return <strong className="font-medium" {...props} />;
+      return <strong className="font-regular text-primary" {...props} />;
+    },
+    del({ ...props }) {
+      return <del className="text-del decoration-[0.8px]" {...props} />;
     },
     a({ ...props }) {
       return (
@@ -114,7 +117,7 @@ const PostBody = ({ children, ...props }: any) => {
 
       if (!match) {
         return (
-          <code className="bg-code py-[2px] px-[4px] my-[6px] text-inherit rounded-[3px] text-caption font-medium sm: sm:px-[6px] sm:rounded-[4px] sm:text-body2">
+          <code className="bg-code py-[2px] px-[4px] my-[6px] rounded-[3px] text-caption text-red sm: sm:px-[6px] sm:rounded-[4px] sm:text-body2">
             {props.children}
           </code>
         );

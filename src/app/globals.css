@@ -20,6 +20,7 @@
   --code: #e6e6e6;
   --chip: #e6e6e6;
   --highlight: #e6e6e6;
+  --del: #d3d3d3;
 }
 
 :root.dark {
@@ -34,11 +35,12 @@
   --tab-active-background: #f3f3f3;
   --tab-active-text: #363636;
   --tab-active-num: #616161;
-  --divider: #363636;
+  --divider: #262626;
   --bullet: #616161;
   --code: #1f1f1f;
   --chip: #1f1f1f;
   --highlight: #1f1f1f;
+  --del: #363636;
 }
 
 html {

@@ -22,6 +22,7 @@ module.exports = {
         bullet: "var(--bullet)",
         code: "var(--code)",
         chip: "var(--chip)",
+        del: "var(--del)",
       },
       textColor: {
         primary: "var(--text-primary)",
