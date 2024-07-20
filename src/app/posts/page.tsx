@@ -3,7 +3,6 @@ import { Header } from "@/components/organisms/Header";
 import { Posts } from "@/components/organisms/Posts";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
 import { getAllPosts } from "@/lib/api";
-import { formatDate } from "@/util/dateUtil";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -35,10 +34,6 @@ export const metadata: Metadata = {
 export default async function Projects() {
   const allPosts = await getAllPosts();
   const sortedPosts = allPosts.sort((a, b) => b.date.localeCompare(a.date));
-  const formatedPosts = sortedPosts.map((post) => ({
-    ...post,
-    date: formatDate(post.date),
-  }));
 
   if (!allPosts) {
     return <div className="bg-red-50 w-5 h-5" />;
@@ -62,7 +57,7 @@ export default async function Projects() {
         }
       />
 
-      <Posts posts={formatedPosts} />
+      <Posts posts={sortedPosts} />
     </TemplateLayout>
   );
 }

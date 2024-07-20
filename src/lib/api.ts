@@ -3,18 +3,19 @@ import { promises as fs } from "fs";
 import { readFile } from "fs/promises";
 import { cache } from "react";
 import { Category } from "@/components/Categories";
+import { formatDate } from "@/util/dateUtil";
 
 export interface Post {
-  id: number;
+  id: string;
   title: string;
   date: string;
-  description: string;
-  series: string;
-  categories: Category[];
   path: string;
   content: string;
-  readingTime: number;
-  related: string[];
+  categories: Category[];
+  description?: string;
+  series?: string;
+  readingTime?: number;
+  related?: string[];
   prevPost?: string;
   nextPost?: string;
   thumbnail?: string;
@@ -42,7 +43,7 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
       );
       const content = await readFile(filePath, "utf-8");
 
-      return { ...post, content };
+      return { ...post, content, date: formatDate(post.date) };
     })
   );
 
