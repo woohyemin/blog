@@ -86,13 +86,15 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
           }
         />
 
-        <Image
-          className="w-full h-auto rounded-lg object-cover"
-          src={`/images/posts/${post.thumbnail}`}
-          alt=""
-          width={640}
-          height={320}
-        />
+        {post.thumbnail && (
+          <Image
+            className="w-full h-auto rounded-lg object-cover"
+            src={`/images/posts/${post.thumbnail}`}
+            alt=""
+            width={640}
+            height={320}
+          />
+        )}
       </div>
 
       <PostLayout>{post.content}</PostLayout>
