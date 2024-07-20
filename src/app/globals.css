@@ -47,6 +47,7 @@ html {
   font-family: var(--font-noto-sans-kr);
   letter-spacing: -0.03em;
   line-height: 1.6;
+  font-weight: 400;
 }
 
 ::selection {
