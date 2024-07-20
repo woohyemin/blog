@@ -2,7 +2,6 @@
 
 import React, { Fragment, useEffect, useState } from "react";
 import { Divider } from "@/components/atoms/data-display/Divider";
-import Image from "next/image";
 import Link from "next/link";
 import { Post } from "@/lib/api";
 import Categories, { Category } from "@/components/Categories";
