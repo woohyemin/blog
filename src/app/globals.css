@@ -28,8 +28,8 @@
   --text-primary: #f3f3f3;
   --text-secondary: #b3b3b3;
   --text-disabled: #757575;
-  --basic-button-background: #1f1f1f;
-  --tab-background: #1f1f1f;
+  --basic-button-background: #222222;
+  --tab-background: #222222;
   --tab-text: #b3b3b3;
   --tab-num: #757575;
   --tab-active-background: #f3f3f3;
@@ -37,9 +37,9 @@
   --tab-active-num: #616161;
   --divider: #262626;
   --bullet: #616161;
-  --code: #1f1f1f;
-  --chip: #1f1f1f;
-  --highlight: #1f1f1f;
+  --code: #222222;
+  --chip: #222222;
+  --highlight: #222222;
   --del: #363636;
 }
 
