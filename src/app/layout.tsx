@@ -5,14 +5,13 @@ import { noto_sans_kr } from "./fonts";
 import { Footer } from "@/components/organisms/Footer";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 
-// export const metadata: Metadata = {
-//   title: "hem's blog",
-//   description: "",
-//   viewport: {
-//     width: "device-width",
-//     initialScale: 1.0,
-//   },
-// };
+export const metadata: Metadata = {
+  title: "hem's blog",
+  description: "I'm a front-end developer.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
 export default function RootLayout({
   children,
