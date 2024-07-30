@@ -17,7 +17,7 @@
 
 아직 `Tailwind CSS`를 사용해본 적이 없었고, 블로그를 빨리 개발하고 싶었기에 처음에는 익숙한 `Styled Components`를 사용하는 것으로 결정했었다.
 
-하지만 개발하다보니 **`Next.js 14버전`에서는 `Styled Components`가 적합하지 않다고 판단**되었다.
+하지만 개발하다보니 `Next.js 14버전`에서는 `Styled Components`가 적합하지 않다고 판단되었다.
 
 관련 내용은 [[나만의 블로그를 만들어보자 - Part 2] Tailwind CSS 적용하기](/posts/blog-part2)에서 다룰 예정이다.
 

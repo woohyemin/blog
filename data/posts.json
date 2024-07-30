@@ -1,30 +1,60 @@
 [
   {
+    "edm-publishing": [
+      {
+        "id": "edm-publishing",
+        "categories": ["eDM"],
+        "title": "[eDM 템플릿] eDM 템플릿 퍼블리싱 주의할 점",
+        "date": "2024-08-01",
+        "path": "edm-publishing",
+        "thumbnail": "edm-publishing/edm_publishing_thumbnail.jpg",
+        "description": "eDM 템플릿 퍼블리싱의 몇가지 주의할 점에 대해 알아보자",
+        "related": ["eDM"],
+        "activate": false
+      }
+    ]
+  },
+  {
+    "sonarlint": [
+      {
+        "id": "sonarlint",
+        "categories": ["Plugin", "SonarLint", "SonarQube"],
+        "title": "[SonarLint] 코드 품질을 실시간으로 개선하는 IDE 확장 플러그인",
+        "date": "2024-07-31",
+        "path": "sonarlint",
+        "thumbnail": "sonarlint/sonarlint_thumbnail.jpg",
+        "description": "실시간 코드 분석 플러그인 SonarLint에 대해 알아보자",
+        "related": ["Plugin", "SonarLint", "SonarQube"],
+        "activate": false
+      }
+    ]
+  },
+  {
     "blog": [
       {
-        "id": 1,
-        "series": "blog",
-        "categories": ["Blog", "React", "Next.js"],
-        "title": "[나만의 블로그를 만들어보자 - Part 1] Next.js로 프로젝트 생성하기",
-        "date": "2023-07-17",
-        "path": "blog-part1",
-        "thumbnail": "blog/part1/blog_part1_thumbnail.jpg",
-        "description": "Next.js를 활용하여 블로그 프로젝트 생성하기",
-        "related": ["Blog", "Next.js"],
-        "nextPost": "blog-part2",
-        "activate": false
-      },
-      {
-        "id": 2,
+        "id": "blog-part2",
         "series": "blog",
         "categories": ["Blog", "Tailwind CSS"],
         "title": "[나만의 블로그를 만들어보자 - Part 2] Tailwind CSS 적용하기",
-        "date": "2023-07-18",
+        "date": "2024-07-31",
         "path": "blog-part2",
         "thumbnail": "blog/part2/blog_part2_thumbnail.jpg",
         "description": "블로그 프로젝트 Tailwind CSS 적용하기",
         "related": ["Blog", "Tailwind CSS"],
         "prevPost": "blog-part1",
+        "activate": false
+      },
+      {
+        "id": "blog-part1",
+        "series": "blog",
+        "categories": ["Blog", "Next.js"],
+        "title": "[나만의 블로그를 만들어보자 - Part 1] Next.js로 프로젝트 생성하기",
+        "date": "2024-07-30",
+        "path": "blog-part1",
+        "thumbnail": "blog/part1/blog_part1_thumbnail.jpg",
+        "description": "Next.js를 활용하여 블로그 프로젝트 생성하기",
+        "related": ["Blog", "Next.js"],
+        "nextPost": "blog-part2",
         "activate": false
       }
     ]
@@ -32,15 +62,30 @@
   {
     "package-manager": [
       {
-        "id": 3,
+        "id": "package-manager",
         "categories": ["Package Manager", "npx", "npm", "yarn", "pnpm"],
-        "title": "[패키지 매니저 비교] npx, npm, yarn, pnpm",
-        "date": "2023-07-16",
+        "title": "[패키지 매니저 비교] npx, npm, yarn, pnpm의 차이",
+        "date": "2024-07-31",
         "path": "package-manager",
         "thumbnail": "package-manager/package_manager_thumbnail.jpg",
-        "description": "블로그 프로젝트 Tailwind CSS 적용하기",
+        "description": "npx, npm, yarn, pnpm의 차이를 알아보자",
         "related": ["Package Manager", "npx", "npm", "yarn", "pnpm"],
         "activate": false
+      }
+    ]
+  },
+  {
+    "first-post": [
+      {
+        "id": "first-post",
+        "categories": ["Etc"],
+        "title": "첫 포스팅",
+        "date": "2024-07-30",
+        "path": "first-post",
+        "thumbnail": "first-post/first_post_thumbnail.jpg",
+        "description": "나만의 기술 블로그, 첫 포스팅",
+        "related": ["Blog"],
+        "activate": true
       }
     ]
   }
