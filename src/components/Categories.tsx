@@ -13,7 +13,13 @@ export type Category =
   | "Plugin"
   | "eDM"
   | "SonarQube"
-  | "SonarLint";
+  | "SonarLint"
+  | "Package Manager"
+  | "npx"
+  | "npm"
+  | "yarn"
+  | "pnpm"
+  | "Etc";
 
 const categoryList: Category[] = [
   "All",
@@ -25,6 +31,12 @@ const categoryList: Category[] = [
   "eDM",
   "SonarQube",
   "SonarLint",
+  "Package Manager",
+  "npx",
+  "npm",
+  "yarn",
+  "pnpm",
+  "Etc",
 ];
 
 interface Props {
