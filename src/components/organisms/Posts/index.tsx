@@ -54,7 +54,7 @@ export const Posts = ({ posts }: PostsProps) => {
                   <p className="text-caption text-secondary pt-0.5 overflow-hidden whitespace-nowrap text-ellipsis sm:text-body2">
                     {el.description}
                   </p>
-                  <div className="flex gap-1.5 pt-3.5 sm:pt-4 sm:gap-2">
+                  <div className="flex gap-1 pt-3.5 sm:pt-4 sm:gap-1.5 flex-wrap">
                     {el.categories.map((category) => (
                       <Chip key={category}>{category}</Chip>
                     ))}
