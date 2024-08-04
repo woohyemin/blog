@@ -23,6 +23,7 @@ module.exports = {
         code: "var(--code)",
         chip: "var(--chip)",
         del: "var(--del)",
+        paper: "var(--paper-background)",
       },
       textColor: {
         primary: "var(--text-primary)",

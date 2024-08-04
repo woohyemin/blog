@@ -141,8 +141,7 @@ const PostBody = ({ children, ...props }: any) => {
           customStyle={{
             borderRadius: "8px",
             margin: "16px 0",
-            // theme === "light" && backgroundColor: "#f0f0f0"
-            backgroundColor: theme === "light" ? "#f0f0f0" : "#191919",
+            backgroundColor: "var(--paper-background)",
           }}
         >
           {String(props.children)}

@@ -21,7 +21,7 @@ export const RelatedPost = ({ prevPost, nextPost }: RelatedPostProps) => {
     >
       {prevPost && (
         <Link
-          className="flex gap-4 items-center rounded-lg py-4 px-5 bg-basicBtnBg sm:w-[calc(50%-8px)]"
+          className="flex gap-4 items-center rounded-lg py-4 px-5 bg-paper sm:w-[calc(50%-8px)]"
           href={`/posts/${prevPost.path}`}
         >
           <Icon icon="arrowLeft" size="sm" />
@@ -37,7 +37,7 @@ export const RelatedPost = ({ prevPost, nextPost }: RelatedPostProps) => {
       )}
       {nextPost && (
         <Link
-          className="flex gap-4 items-center rounded-lg py-4 px-5 bg-basicBtnBg justify-end sm:w-[calc(50%-8px)]"
+          className="flex gap-4 items-center rounded-lg py-4 px-5 bg-paper justify-end sm:w-[calc(50%-8px)]"
           href={`/posts/${nextPost.path}`}
         >
           <div className="flex flex-col gap-1 overflow-hidden">
