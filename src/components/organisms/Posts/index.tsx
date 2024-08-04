@@ -60,7 +60,7 @@ export const Posts = ({ posts }: PostsProps) => {
                     ))}
                   </div>
                 </div>
-                {el.thumbnail && (
+                {/* {el.thumbnail && (
                   <Image
                     className="w-48 min-h-full rounded-lg object-cover hidden sm:inline"
                     src={`/images/posts/${el.thumbnail}`}
@@ -68,7 +68,7 @@ export const Posts = ({ posts }: PostsProps) => {
                     width={270}
                     height={160}
                   />
-                )}
+                )} */}
               </Link>
               {index < filteredPosts.length - 1 && <Divider />}
             </Fragment>

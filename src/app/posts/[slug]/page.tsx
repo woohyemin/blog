@@ -61,7 +61,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
   return (
     <TemplateLayout>
-      <div className="mb-8 sm:mb-10">
+      <div className="mb-3 sm:mb-5">
         <Header
           title={
             <h1 className="text-primary text-h3 font-medium inline sm:text-h2">
@@ -86,7 +86,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
           }
         />
 
-        {post.thumbnail && (
+        {/* {post.thumbnail && (
           <Image
             className="w-full h-[220px] mt-2 rounded-xl object-cover sm:mt-4 sm:h-[360px]"
             src={`/images/posts/${post.thumbnail}`}
@@ -94,7 +94,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
             width={540}
             height={320}
           />
-        )}
+        )} */}
       </div>
 
       <PostLayout>{post.content}</PostLayout>

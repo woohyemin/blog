@@ -16,7 +16,7 @@ const PostBody = ({ children, ...props }: any) => {
   const CustomComponents: any = {
     h1({ ...props }) {
       return (
-        <div className="mt-12 mb-5 sm:mt-20 sm:mb-6">
+        <div className="mt-12 mb-5 sm:mt-20 sm:mb-6 first:mt-0">
           <h2
             className="inline text-primary text-h4 font-medium pb-0.5 pr-3 shadow-highlight sm:text-h3"
             {...props}
