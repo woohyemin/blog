@@ -4,8 +4,12 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  oneLight,
+  oneDark,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Icon } from "@/components/atoms/data-display/Icon";
+import { useTheme } from "next-themes";
 
 /**
  * PostLayout component props
@@ -13,6 +17,8 @@ import { Icon } from "@/components/atoms/data-display/Icon";
 export interface PostLayoutProps {}
 
 const PostBody = ({ children, ...props }: any) => {
+  const { theme } = useTheme();
+
   const CustomComponents: any = {
     h1({ ...props }) {
       return (
@@ -128,13 +134,15 @@ const PostBody = ({ children, ...props }: any) => {
       return (
         <SyntaxHighlighter
           style={{
-            ...vscDarkPlus,
+            ...(theme === "dark" ? oneDark : oneLight),
             'code[class*="language-"]': { fontSize: "13px" },
           }}
           language={language}
           customStyle={{
             borderRadius: "8px",
             margin: "16px 0",
+            // theme === "light" && backgroundColor: "#f0f0f0"
+            backgroundColor: theme === "light" ? "#f0f0f0" : "#191919",
           }}
         >
           {String(props.children)}
