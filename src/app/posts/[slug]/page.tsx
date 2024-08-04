@@ -77,7 +77,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
                 <Dot />
                 <ByHem variant="posts" />
               </div>
-              <div className="flex gap-1.5 pt-2.5 pb-1.5 sm:py-3.5 sm:pb-2.5 sm:gap-2">
+              <div className="flex gap-1 pt-2.5 pb-1.5 sm:py-3.5 sm:pb-2.5 sm:gap-1.5">
                 {post.related.map((el) => (
                   <Chip key={el}>{el}</Chip>
                 ))}
