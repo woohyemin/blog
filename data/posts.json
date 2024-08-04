@@ -3,7 +3,7 @@
     "edm-publishing": [
       {
         "id": "edm-publishing",
-        "categories": ["eDM"],
+        "categories": ["Etc"],
         "title": "[eDM 템플릿] eDM 템플릿 퍼블리싱 주의할 점",
         "date": "2024-08-01",
         "path": "edm-publishing",
@@ -18,7 +18,7 @@
     "sonarlint": [
       {
         "id": "sonarlint",
-        "categories": ["Plugin", "SonarLint", "SonarQube"],
+        "categories": ["Plugin"],
         "title": "[SonarLint] 코드 품질을 실시간으로 개선하는 IDE 확장 플러그인",
         "date": "2024-07-31",
         "path": "sonarlint",
@@ -63,7 +63,7 @@
     "package-manager": [
       {
         "id": "package-manager",
-        "categories": ["Package Manager", "npx", "npm", "yarn", "pnpm"],
+        "categories": ["Etc"],
         "title": "[패키지 매니저 비교] npx, npm, yarn, pnpm의 차이",
         "date": "2024-07-31",
         "path": "package-manager",

@@ -12,10 +12,10 @@ export interface Post {
   path: string;
   content: string;
   categories: Category[];
+  related: string[];
   description?: string;
   series?: string;
   readingTime?: number;
-  related?: string[];
   prevPost?: string;
   nextPost?: string;
   thumbnail?: string;

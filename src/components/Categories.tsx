@@ -11,14 +11,7 @@ export type Category =
   | "React"
   | "Tailwind CSS"
   | "Plugin"
-  | "eDM"
-  | "SonarQube"
-  | "SonarLint"
-  | "Package Manager"
-  | "npx"
-  | "npm"
-  | "yarn"
-  | "pnpm"
+  // | "Package Manager"
   | "Etc";
 
 const categoryList: Category[] = [
@@ -28,14 +21,7 @@ const categoryList: Category[] = [
   // "React",
   "Tailwind CSS",
   "Plugin",
-  "eDM",
-  "SonarQube",
-  "SonarLint",
-  "Package Manager",
-  "npx",
-  "npm",
-  "yarn",
-  "pnpm",
+  // "Package Manager",
   "Etc",
 ];
 

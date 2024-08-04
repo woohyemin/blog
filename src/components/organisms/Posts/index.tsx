@@ -55,8 +55,8 @@ export const Posts = ({ posts }: PostsProps) => {
                     {el.description}
                   </p>
                   <div className="flex gap-1 pt-3.5 sm:pt-4 sm:gap-1.5 flex-wrap">
-                    {el.categories.map((category) => (
-                      <Chip key={category}>{category}</Chip>
+                    {el.related.map((el) => (
+                      <Chip key={el}>{el}</Chip>
                     ))}
                   </div>
                 </div>
