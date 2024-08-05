@@ -47,11 +47,23 @@ const PostBody = ({ children, ...props }: any) => {
       );
     },
     h4({ ...props }) {
+      const content = props.children.split("///");
+      const body = content.pop();
+      const title = content.pop();
+      const icon = content.pop();
+
       return (
-        <h5
-          className="text-primary text-body1 font-medium mt-5 mb-1.5 sm:text-h6"
-          {...props}
-        />
+        <div className="flex bg-paper rounded-lg p-3 mt-2 mb-3 gap-2 sm:mt-3 sm:mb-5 sm:p-4">
+          {icon && <span className="text-body1 sm:text-h3">{icon}</span>}
+          <div className="flex flex-col pt-1">
+            <p className="text-primary font-medium text-caption mb-0.5 sm:text-body2">
+              {title}
+            </p>
+            <p className="text-secondary text-caption mb-0.5 sm:text-body2">
+              {body}
+            </p>
+          </div>
+        </div>
       );
     },
     h5({ ...props }) {
@@ -112,7 +124,7 @@ const PostBody = ({ children, ...props }: any) => {
     img({ ...props }) {
       return (
         <img
-          className="w-full h-auto my-3 rounded-lg sm:my-4"
+          className="max-w-full h-auto my-3 rounded-lg sm:my-4"
           src={props.src}
           alt={props.alt}
         />

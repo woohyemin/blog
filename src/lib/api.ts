@@ -1,5 +1,4 @@
 import path from "path";
-import { promises as fs } from "fs";
 import { readFile } from "fs/promises";
 import { cache } from "react";
 import { Category } from "@/components/Categories";
@@ -29,12 +28,11 @@ export interface PostData {
 
 export const getAllPosts = cache(async (): Promise<Post[]> => {
   const filePath = path.join(process.cwd(), "data", "posts.json");
-  const jsonData = await fs.readFile(filePath, "utf-8");
+  const jsonData = await readFile(filePath, "utf-8");
   const data = JSON.parse(jsonData);
-  const flattedAllData = data.map((obj: Post) => Object.values(obj)[0]).flat();
 
   const allPosts = await Promise.all(
-    flattedAllData.map(async (post: Post) => {
+    data.map(async (post: Post) => {
       const filePath = path.join(
         process.cwd(),
         "_posts",
