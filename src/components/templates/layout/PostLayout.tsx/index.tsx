@@ -9,6 +9,7 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Icon } from "@/components/atoms/data-display/Icon";
 import { useTheme } from "next-themes";
+import rehypeCodeTitles from "rehype-code-titles";
 
 /**
  * PostLayout component props
@@ -169,7 +170,11 @@ export const PostLayout = ({ content }: PostLayoutProps) => {
 
   return (
     <div>
-      <ReactMarkdown components={CustomComponents} remarkPlugins={[remarkGfm]}>
+      <ReactMarkdown
+        components={CustomComponents}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeCodeTitles]}
+      >
         {content}
       </ReactMarkdown>
     </div>
