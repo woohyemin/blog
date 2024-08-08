@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@/components/atoms/data-display/Icon";
 import Link from "next/link";
-import { Post } from "@/lib/api";
+import { Post } from "@/api/posts";
 
 /**
  * RelatedPost component props

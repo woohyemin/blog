@@ -7,7 +7,7 @@
     "path": "edm-publishing",
     "thumbnail": "edm-publishing/edm_publishing_thumbnail.jpg",
     "description": "eDM 템플릿 퍼블리싱의 몇가지 주의할 점에 대해 알아보자",
-    "related": ["eDM"],
+    "tags": ["eDM"],
     "activate": false
   },
   {
@@ -18,35 +18,35 @@
     "path": "sonarlint",
     "thumbnail": "sonarlint/sonarlint_thumbnail.jpg",
     "description": "실시간 코드 분석 플러그인 SonarLint에 대해 알아보자",
-    "related": ["Plugin", "SonarLint", "SonarQube"],
+    "tags": ["Plugin", "SonarLint", "SonarQube"],
     "activate": false
   },
   {
     "id": "blog-part10",
     "series": "blog",
-    "categories": ["Blog", "Etc"],
+    "categories": ["Blog"],
     "title": "[나만의 블로그를 만들어보자 - Part 10] 회고",
     "date": "2024-08-07",
     "path": "blog-part10",
     "thumbnail": "blog/part10/blog_part10_thumbnail.jpg",
     "description": "기술 블로그 개발하면서 느낀 점, 아쉬운 점 등등..",
-    "related": ["Blog", "회고"],
+    "tags": ["Blog", "회고"],
     "prevPost": "blog-part9",
     "activate": false
   },
   {
     "id": "blog-part9",
     "series": "blog",
-    "categories": ["Blog", "Etc"],
+    "categories": ["Blog"],
     "title": "[나만의 블로그를 만들어보자 - Part 9] Google Analytics 적용하기",
     "date": "2024-08-05",
     "path": "blog-part9",
     "thumbnail": "blog/part9/blog_part9_thumbnail.jpg",
     "description": "블로그에 Google Analytics 적용하기",
-    "related": ["Blog", "Google Analytics", "GA"],
+    "tags": ["Blog", "Google Analytics", "GA"],
     "prevPost": "blog-part8",
     "nextPost": "blog-part10",
-    "activate": true
+    "activate": false
   },
   {
     "id": "blog-part8",
@@ -57,10 +57,10 @@
     "path": "blog-part8",
     "thumbnail": "blog/part8/blog_part8_thumbnail.jpg",
     "description": "블로그에 검색엔진(SEO) 최적화하기",
-    "related": ["Blog", "sitemap", "검색엔진", "SEO"],
+    "tags": ["Blog", "sitemap", "검색엔진", "SEO"],
     "prevPost": "blog-part7",
     "nextPost": "blog-part9",
-    "activate": true
+    "activate": false
   },
   {
     "id": "blog-part7",
@@ -71,49 +71,47 @@
     "path": "blog-part7",
     "thumbnail": "blog/part7/blog_part7_thumbnail.jpg",
     "description": "마크다운 형식의 블로그 게시글 페이지 개발하기",
-    "related": ["Blog", "Library", "댓글"],
+    "tags": ["Blog", "Library", "댓글"],
     "prevPost": "blog-part6",
     "nextPost": "blog-part8",
-    "activate": true
+    "activate": false
   },
   {
     "id": "blog-part6",
     "series": "blog",
-    "categories": ["Blog", "Etc"],
+    "categories": ["Blog", "Deploy"],
     "title": "[나만의 블로그를 만들어보자 - Part 6] Vercel로 배포하기",
     "date": "2024-08-04",
     "path": "blog-part6",
     "thumbnail": "blog/part6/blog_part6_thumbnail.jpg",
     "description": "Next.js 프로젝트 Vercel로 배포하기",
-    "related": ["Blog", "Vercel", "Github Pages", "배포"],
+    "tags": ["Blog", "Vercel", "Github Pages", "배포"],
     "prevPost": "blog-part5",
-    "nextPost": "blog-part7",
-    "activate": true
+    "activate": false
   },
   {
     "id": "blog-part5",
     "series": "blog",
-    "categories": ["Blog", "Etc"],
+    "categories": ["Blog"],
     "title": "[나만의 블로그를 만들어보자 - Part 5] 게시글 페이지 만들기",
     "date": "2024-08-04",
     "path": "blog-part5",
     "thumbnail": "blog/part5/blog_part5_thumbnail.jpg",
     "description": "마크다운 형식의 블로그 게시글 페이지 개발하기",
-    "related": ["Blog", "Markdown"],
+    "tags": ["Blog", "Markdown"],
     "prevPost": "blog-part4",
-    "nextPost": "blog-part6",
     "activate": true
   },
   {
     "id": "blog-part4",
     "series": "blog",
-    "categories": ["Blog", "Etc"],
-    "title": "[나만의 블로그를 만들어보자 - Part 4] Github로 연동하기",
+    "categories": ["Blog", "Github"],
+    "title": "[나만의 블로그를 만들어보자 - Part 4] Github 연동하기",
     "date": "2024-08-01",
     "path": "blog-part4",
     "thumbnail": "blog/part4/blog_part4_thumbnail.jpg",
     "description": "블로그 프로젝트 Github에 연동하기",
-    "related": ["Blog", "Github"],
+    "tags": ["Blog", "Github"],
     "prevPost": "blog-part3",
     "nextPost": "blog-part5",
     "activate": true
@@ -125,15 +123,9 @@
     "title": "[나만의 블로그를 만들어보자 - Part 3] Tailwind CSS 적용하기",
     "date": "2024-08-01",
     "path": "blog-part3",
-    "thumbnail": "blog/part2/blog_part3_thumbnail.jpg",
+    "thumbnail": "blog/part3/blog_part3_thumbnail.jpg",
     "description": "블로그 프로젝트 Tailwind CSS 적용하기",
-    "related": [
-      "Blog",
-      "Tailwind CSS",
-      "Styled Components",
-      "Style",
-      "Library"
-    ],
+    "tags": ["Blog", "Tailwind CSS", "Styled Components", "Style", "Library"],
     "prevPost": "blog-part2",
     "nextPost": "blog-part4",
     "activate": true
@@ -145,9 +137,9 @@
     "title": "[나만의 블로그를 만들어보자 - Part 2] Next.js로 프로젝트 생성하기",
     "date": "2024-08-01",
     "path": "blog-part2",
-    "thumbnail": "blog/part1/blog_part2_thumbnail.jpg",
+    "thumbnail": "blog/part2/blog_part2_thumbnail.jpg",
     "description": "Next.js를 활용하여 블로그 프로젝트 생성하기",
-    "related": ["Blog", "Next.js", "프로젝트 생성", "초기 세팅"],
+    "tags": ["Blog", "Next.js", "프로젝트 생성", "초기 세팅"],
     "prevPost": "blog-part1",
     "nextPost": "blog-part3",
     "activate": true
@@ -161,7 +153,7 @@
     "path": "blog-part1",
     "thumbnail": "blog/part1/blog_part1_thumbnail.jpg",
     "description": "블로그 개발을 시작하기 전에 어떤 것들을 고려해야 할까",
-    "related": ["Blog", "기술 스택"],
+    "tags": ["Blog", "기술 스택"],
     "nextPost": "blog-part2",
     "activate": true
   },
@@ -173,7 +165,7 @@
     "path": "package-manager",
     "thumbnail": "package-manager/package_manager_thumbnail.jpg",
     "description": "npx, npm, yarn, pnpm의 차이를 알아보자",
-    "related": ["Package Manager", "npx", "npm", "yarn", "pnpm"],
+    "tags": ["Package Manager", "npx", "npm", "yarn", "pnpm"],
     "activate": true
   },
   {
@@ -184,7 +176,7 @@
     "path": "first-post",
     "thumbnail": "first-post/first_post_thumbnail.jpg",
     "description": "나만의 기술 블로그, 첫 포스팅",
-    "related": ["Blog", "첫 포스팅"],
+    "tags": ["Blog", "첫 포스팅"],
     "activate": true
   }
 ]

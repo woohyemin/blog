@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
@@ -14,12 +13,17 @@ import { useTheme } from "next-themes";
 /**
  * PostLayout component props
  */
-export interface PostLayoutProps {}
+export interface PostLayoutProps {
+  content?: string;
+}
 
-const PostBody = ({ children, ...props }: any) => {
+/**
+ * PostLayout component
+ */
+export const PostLayout = ({ content }: PostLayoutProps) => {
   const { theme } = useTheme();
 
-  const CustomComponents: any = {
+  const CustomComponents: Components = {
     h1({ ...props }) {
       return (
         <div className="mt-12 mb-5 sm:mt-20 sm:mb-6 first:mt-0">
@@ -33,7 +37,7 @@ const PostBody = ({ children, ...props }: any) => {
     h2({ ...props }) {
       return (
         <h3
-          className="text-primary text-h5 font-medium mt-[20px] mb-1.5 sm:text-h4 sm:mt-7 sm:mb-2"
+          className="text-primary text-h5 font-medium mt-[20px] mb-1.5 sm:text-h4 sm:mt-7 sm:mb-2 first:mt-0"
           {...props}
         />
       );
@@ -47,7 +51,7 @@ const PostBody = ({ children, ...props }: any) => {
       );
     },
     h4({ ...props }) {
-      const content = props.children.split("///");
+      const content = String(props.children).split("///");
       const body = content.pop();
       const title = content.pop();
       const icon = content.pop();
@@ -114,6 +118,7 @@ const PostBody = ({ children, ...props }: any) => {
       return (
         <a
           className="inline-flex flex-row items-center underline underline-offset-2 decoration-[#b3b3b3]"
+          target="_blank"
           {...props}
         >
           {props.children}
@@ -131,7 +136,7 @@ const PostBody = ({ children, ...props }: any) => {
       );
     },
     code({ ...props }) {
-      const match = /language-(\w+)/.exec(props.className!);
+      const match = /language-(\w+)/.exec(props.className ?? "");
 
       if (!match) {
         return (
@@ -141,7 +146,7 @@ const PostBody = ({ children, ...props }: any) => {
         );
       }
 
-      const [, language] = match;
+      const language = match[1];
 
       return (
         <SyntaxHighlighter
@@ -163,17 +168,10 @@ const PostBody = ({ children, ...props }: any) => {
   };
 
   return (
-    <div className="w-full my-0 mx-auto">
+    <div>
       <ReactMarkdown components={CustomComponents} remarkPlugins={[remarkGfm]}>
-        {children}
+        {content}
       </ReactMarkdown>
     </div>
   );
-};
-
-/**
- * PostLayout component
- */
-export const PostLayout = ({ children }: any) => {
-  return <PostBody>{children}</PostBody>;
 };

@@ -4,7 +4,7 @@ import Comments from "@/components/organisms/Comments";
 import { Header } from "@/components/organisms/Header";
 import { PostLayout } from "@/components/templates/layout/PostLayout.tsx";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
-import { getPost } from "@/lib/api";
+import { getPost } from "@/api/posts";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Chip } from "@/components/atoms/data-display/Chip";
@@ -78,26 +78,26 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
                 <ByHem variant="posts" />
               </div>
               <div className="flex gap-1 pt-2.5 pb-1.5 sm:py-3.5 sm:pb-2.5 sm:gap-1.5">
-                {post.related.map((el) => (
-                  <Chip key={el}>{el}</Chip>
+                {post.tags.map((tag) => (
+                  <Chip key={tag}>{tag}</Chip>
                 ))}
               </div>
             </div>
           }
         />
 
-        {/* {post.thumbnail && (
+        {post.thumbnail && (
           <Image
-            className="w-full h-[220px] mt-2 rounded-xl object-cover sm:mt-4 sm:h-[360px]"
+            className="w-full rounded-xl object-cover mt-2 mb-4 sm:mt-2 sm:mb-12 sm:h-[360px]"
             src={`/images/posts/${post.thumbnail}`}
             alt={`${post.title} 섬네일`}
-            width={540}
-            height={320}
+            width={810}
+            height={480}
           />
-        )} */}
+        )}
       </div>
 
-      <PostLayout>{post.content}</PostLayout>
+      <PostLayout content={post.content} />
 
       <RelatedPost prevPost={prevPost} nextPost={nextPost} />
 

@@ -3,7 +3,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Divider } from "@/components/atoms/data-display/Divider";
 import Link from "next/link";
-import { Post } from "@/lib/api";
+import { Post } from "@/api/posts";
 import Categories, { Category } from "@/components/Categories";
 import { Chip } from "@/components/atoms/data-display/Chip";
 import Image from "next/image";
@@ -55,12 +55,12 @@ export const Posts = ({ posts }: PostsProps) => {
                     {el.description}
                   </p>
                   <div className="flex gap-1 pt-3.5 sm:pt-4 sm:gap-1.5 flex-wrap">
-                    {el.related.map((el) => (
-                      <Chip key={el}>{el}</Chip>
+                    {el.tags.map((tag) => (
+                      <Chip key={tag}>{tag}</Chip>
                     ))}
                   </div>
                 </div>
-                {/* {el.thumbnail && (
+                {el.thumbnail && (
                   <Image
                     className="w-48 min-h-full rounded-lg object-cover hidden sm:inline"
                     src={`/images/posts/${el.thumbnail}`}
@@ -68,7 +68,7 @@ export const Posts = ({ posts }: PostsProps) => {
                     width={270}
                     height={160}
                   />
-                )} */}
+                )}
               </Link>
               {index < filteredPosts.length - 1 && <Divider />}
             </Fragment>

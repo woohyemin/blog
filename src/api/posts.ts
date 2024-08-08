@@ -1,6 +1,5 @@
 import path from "path";
 import { readFile } from "fs/promises";
-import { cache } from "react";
 import { Category } from "@/components/Categories";
 import { formatDate } from "@/util/dateUtil";
 
@@ -11,22 +10,16 @@ export interface Post {
   path: string;
   content: string;
   categories: Category[];
-  related: string[];
+  tags: string[];
   description?: string;
   series?: string;
-  readingTime?: number;
   prevPost?: string;
   nextPost?: string;
   thumbnail?: string;
   activate?: boolean;
 }
 
-export interface PostData {
-  next?: Post | null;
-  prev?: Post | null;
-}
-
-export const getAllPosts = cache(async (): Promise<Post[]> => {
+export const getAllPosts = async (): Promise<Post[]> => {
   const filePath = path.join(process.cwd(), "data", "posts.json");
   const jsonData = await readFile(filePath, "utf-8");
   const data = JSON.parse(jsonData);
@@ -48,7 +41,7 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
   const activePosts = allPosts.filter((post) => post.activate);
 
   return activePosts;
-});
+};
 
 export async function getPost(fileName: string): Promise<Post> {
   const allPosts = await getAllPosts();

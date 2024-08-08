@@ -2,7 +2,7 @@ import { ByHem } from "@/components/molecules/ByHem";
 import { Header } from "@/components/organisms/Header";
 import { Posts } from "@/components/organisms/Posts";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts } from "@/api/posts";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

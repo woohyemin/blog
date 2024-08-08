@@ -1,6 +1,6 @@
 "use client";
 
-import { Post } from "@/lib/api";
+import { Post } from "@/api/posts";
 import { Tabs } from "./molecules/navigation/Tabs";
 import { TabProps } from "@/components/atoms/navigation/Tab/index";
 
