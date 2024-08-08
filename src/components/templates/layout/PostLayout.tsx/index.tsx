@@ -141,8 +141,8 @@ export const PostLayout = ({ content }: PostLayoutProps) => {
 
       if (!match) {
         return (
-          <code className="bg-code py-[2px] px-[4px] my-[6px] rounded-[3px] text-caption text-red sm: sm:px-[6px] sm:rounded-[4px] sm:text-body2">
-            {props.children}
+          <code className="text-primary text-caption sm:text-body2">
+            `{props.children}`
           </code>
         );
       }
