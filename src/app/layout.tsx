@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Providers from "@/styles/Providers";
 import "./globals.css";
-import { noto_sans_kr } from "./fonts";
 import { Footer } from "@/components/organisms/Footer";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 
@@ -19,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={`${noto_sans_kr.className}`}>
+    <html lang="ko" className="font-Pretendard">
       <body className="transition duration-300 bg-background min-h-screen">
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />

@@ -7,6 +7,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-noto-sans-kr)"],
         mont: ["var(--font-montserrat)"],
+        Pretendard: ["Pretendard"],
       },
       colors: {
         background: "var(--background)",
