@@ -2,6 +2,7 @@ import React from "react";
 import { Icon } from "@/components/atoms/data-display/Icon";
 import Link from "next/link";
 import { Post } from "@/api/posts";
+import { Divider } from "@/components/atoms/data-display/Divider";
 
 /**
  * PrevNextPosts component props
@@ -16,39 +17,38 @@ interface PrevNextPostsProps {
  */
 export const PrevNextPosts = ({ prevPost, nextPost }: PrevNextPostsProps) => {
   return (
-    <div
-      className={`flex flex-col gap-2 sm:gap-4 pt-8 sm:pt-12 sm:flex-row ${!prevPost && "justify-end"}`}
-    >
-      {prevPost && (
-        <Link
-          className="flex gap-4 items-center rounded-lg py-4 px-5 bg-paper sm:w-[calc(50%-8px)]"
-          href={`/posts/${prevPost.path}`}
-        >
-          <Icon icon="arrowLeft" size="sm" />
-          <div className="flex flex-col gap-1 overflow-hidden">
-            <span className="text-caption text-secondary">이전 글</span>
-            <span className="text-primary text-body2 font-medium overflow-hidden whitespace-nowrap text-ellipsis">
-              {prevPost.title}
-            </span>
-          </div>
-        </Link>
-      )}
-      {nextPost && (
-        <Link
-          className="flex gap-4 items-center rounded-lg py-4 px-5 bg-paper justify-end sm:w-[calc(50%-8px)]"
-          href={`/posts/${nextPost.path}`}
-        >
-          <div className="flex flex-col gap-1 overflow-hidden">
-            <span className="text-caption text-secondary text-right">
-              다음 글
-            </span>
-            <span className="text-primary text-body2 font-medium overflow-hidden whitespace-nowrap text-ellipsis">
+    <div className="flex flex-col gap-6 mt-10 sm:mt-16">
+      <Divider />
+      <div className={`flex gap-3 ${!prevPost && "justify-end"}`}>
+        {prevPost && (
+          <Link
+            className="flex flex-col gap-1 sm:gap-1.5 w-[calc(50%-6px)] bg-paper rounded-lg p-3 sm:p-4"
+            href={`/posts/${prevPost.path}`}
+          >
+            <div className="flex gap-1.5 items-center ">
+              <Icon icon="arrowLeft" size="xs" color="disabled" />
+              <span className="text-caption text-disabled">이전 글</span>
+            </div>
+            <span className="text-primary text-body2">{prevPost.title}</span>
+          </Link>
+        )}
+        {nextPost && (
+          <Link
+            className="flex flex-col gap-1 sm:gap-1.5 w-[calc(50%-6px)] bg-paper rounded-lg p-3 sm:p-4 items-end"
+            href={`/posts/${nextPost.path}`}
+          >
+            <div className="flex gap-1.5 items-center ">
+              <span className="text-caption text-disabled text-right">
+                다음 글
+              </span>
+              <Icon icon="arrowRight" size="xs" color="disabled" />
+            </div>
+            <span className="text-primary text-body2 text-end">
               {nextPost.title}
             </span>
-          </div>
-          <Icon icon="arrowRight" size="sm" />
-        </Link>
-      )}
+          </Link>
+        )}
+      </div>
     </div>
   );
 };
