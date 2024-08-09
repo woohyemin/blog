@@ -118,7 +118,7 @@ export const PostLayout = ({ content }: PostLayoutProps) => {
     a({ ...props }) {
       return (
         <a
-          className="inline-flex flex-row items-center underline underline-offset-2 decoration-[#b3b3b3]"
+          className="inline-flex flex-row items-center underline underline-offset-2 decoration-[0.8px] decoration-[#b3b3b3]"
           target="_blank"
           {...props}
         >
