@@ -4,17 +4,17 @@ import Link from "next/link";
 import { Post } from "@/api/posts";
 
 /**
- * RelatedPost component props
+ * PrevNextPosts component props
  */
-interface RelatedPostProps {
+interface PrevNextPostsProps {
   prevPost?: Post;
   nextPost?: Post;
 }
 
 /**
- * RelatedPost component
+ * PrevNextPosts component
  */
-export const RelatedPost = ({ prevPost, nextPost }: RelatedPostProps) => {
+export const PrevNextPosts = ({ prevPost, nextPost }: PrevNextPostsProps) => {
   return (
     <div
       className={`flex flex-col gap-2 sm:gap-4 pt-8 sm:pt-12 sm:flex-row ${!prevPost && "justify-end"}`}
@@ -26,10 +26,8 @@ export const RelatedPost = ({ prevPost, nextPost }: RelatedPostProps) => {
         >
           <Icon icon="arrowLeft" size="sm" />
           <div className="flex flex-col gap-1 overflow-hidden">
-            <span className="text-caption font-medium text-secondary">
-              이전 포스트
-            </span>
-            <span className="text-body2 overflow-hidden whitespace-nowrap text-ellipsis">
+            <span className="text-caption text-secondary">이전 글</span>
+            <span className="text-primary text-body2 font-medium overflow-hidden whitespace-nowrap text-ellipsis">
               {prevPost.title}
             </span>
           </div>
@@ -41,10 +39,10 @@ export const RelatedPost = ({ prevPost, nextPost }: RelatedPostProps) => {
           href={`/posts/${nextPost.path}`}
         >
           <div className="flex flex-col gap-1 overflow-hidden">
-            <span className="text-caption font-medium text-secondary text-right">
-              다음 포스트
+            <span className="text-caption text-secondary text-right">
+              다음 글
             </span>
-            <span className="text-body2 overflow-hidden whitespace-nowrap text-ellipsis">
+            <span className="text-primary text-body2 font-medium overflow-hidden whitespace-nowrap text-ellipsis">
               {nextPost.title}
             </span>
           </div>

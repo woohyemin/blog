@@ -4,11 +4,11 @@ import Comments from "@/components/organisms/Comments";
 import { Header } from "@/components/organisms/Header";
 import { PostLayout } from "@/components/templates/layout/PostLayout.tsx";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
-import { getPost } from "@/api/posts";
+import { getPost, getPrevNextPost } from "@/api/posts";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Chip } from "@/components/atoms/data-display/Chip";
-import { RelatedPost } from "@/components/organisms/RelatedPosts";
+import { PrevNextPosts } from "@/components/organisms/PrevNextPosts";
 
 interface Props {
   params: {
@@ -51,9 +51,7 @@ export async function generateMetadata({
 
 export default async function PostDetailPage({ params: { slug } }: Props) {
   const post = await getPost(slug);
-
-  const prevPost = post.prevPost ? await getPost(post.prevPost) : undefined;
-  const nextPost = post.nextPost ? await getPost(post.nextPost) : undefined;
+  const { prevPost, nextPost } = await getPrevNextPost(slug);
 
   if (!post) {
     return <div className="bg-red-50 w-5 h-5" />;
@@ -99,7 +97,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
       <PostLayout content={post.content} />
 
-      <RelatedPost prevPost={prevPost} nextPost={nextPost} />
+      <PrevNextPosts prevPost={prevPost} nextPost={nextPost} />
 
       <Comments />
     </TemplateLayout>

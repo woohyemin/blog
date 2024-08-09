@@ -13,10 +13,13 @@ export interface Post {
   tags: string[];
   description?: string;
   series?: string;
-  prevPost?: string;
-  nextPost?: string;
   thumbnail?: string;
   activate?: boolean;
+}
+
+export interface PrevNextPost {
+  nextPost?: Post;
+  prevPost?: Post;
 }
 
 export const getAllPosts = async (): Promise<Post[]> => {
@@ -43,12 +46,26 @@ export const getAllPosts = async (): Promise<Post[]> => {
   return activePosts;
 };
 
-export async function getPost(fileName: string): Promise<Post> {
+export async function getPost(slug: string): Promise<Post> {
   const allPosts = await getAllPosts();
-  const post = allPosts.find((post) => post.path === fileName);
+  const post = allPosts.find((post) => post.path === slug);
 
-  if (!post)
-    throw new Error(`${fileName}에 해당하는 포스트를 찾을 수 없습니다.`);
+  if (!post) throw new Error(`${slug}에 해당하는 포스트를 찾을 수 없습니다.`);
 
   return { ...post };
+}
+
+export async function getPrevNextPost(slug: string): Promise<PrevNextPost> {
+  const allPosts = await getAllPosts();
+  const currPost = await getPost(slug);
+
+  const currIndex = allPosts.findIndex((post) => post.path === currPost.path);
+  const prevIndex = currIndex + 1;
+  const nextIndex = currIndex - 1;
+
+  const nextPost = nextIndex >= 0 ? allPosts[nextIndex] : undefined;
+  const prevPost =
+    prevIndex < allPosts.length ? allPosts[prevIndex] : undefined;
+
+  return { nextPost, prevPost };
 }
