@@ -40,7 +40,7 @@ export const Comments = () => {
     removeComments();
   }, [theme]);
 
-  return <section className="pt-4 sm:pt-8" ref={ref} />;
+  return <section className="pt-8 sm:pt-16" ref={ref} />;
 };
 
 export default Comments;
