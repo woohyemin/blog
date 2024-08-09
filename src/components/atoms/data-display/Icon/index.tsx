@@ -17,7 +17,7 @@ interface IconProps {
   /**
    * Icon color
    */
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "disabled";
 }
 
 /**
@@ -44,21 +44,12 @@ export const Icon = ({
     return size;
   };
 
-  const getColor = () => {
-    if (color === "primary") {
-      return "text-primary";
-    } else if (color === "secondary") {
-      return "text-secondary";
-    }
-    return "text-primary";
-  };
-
   return (
     <svg
       viewBox="0 0 120 120"
       width={getSize()}
       height={getSize()}
-      className={`${getColor()} min-w-fit min-h-fit`}
+      className={`text-${color || "primary"} min-w-fit min-h-fit`}
       {...props}
     >
       {icons[icon]}
