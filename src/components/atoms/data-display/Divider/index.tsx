@@ -7,11 +7,22 @@ import React from "react";
  */
 export interface DividerProps {
   color?: "basic";
+  direction?: "horizontal" | "vertical";
 }
 
 /**
  * Divider component
  */
-export const Divider = ({ color = "basic", ...props }: DividerProps) => {
-  return <div className="w-full h-[1px] bg-divider" color="basic" {...props} />;
+export const Divider = ({
+  color = "basic",
+  direction = "horizontal",
+  ...props
+}: DividerProps) => {
+  return (
+    <div
+      className={`${direction === "horizontal" ? "h-[1px] min-w-full" : "w-[1px] min-h-full"} bg-divider`}
+      color="basic"
+      {...props}
+    />
+  );
 };
