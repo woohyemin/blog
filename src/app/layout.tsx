@@ -19,7 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={`font-Pretendard ${montserrat.variable}`}>
+    <html
+      lang="ko"
+      className={`font-Pretendard ${montserrat.variable} font-light selection:bg-highlight`}
+    >
       <body className="transition duration-300 bg-background min-h-screen">
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
