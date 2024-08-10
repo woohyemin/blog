@@ -3,6 +3,7 @@ import Providers from "@/styles/Providers";
 import "./globals.css";
 import { Footer } from "@/components/organisms/Footer";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
+import { montserrat } from "./fonts";
 
 export const metadata: Metadata = {
   title: "hem's blog",
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className="font-Pretendard">
+    <html lang="ko" className={`font-Pretendard ${montserrat.variable}`}>
       <body className="transition duration-300 bg-background min-h-screen">
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />

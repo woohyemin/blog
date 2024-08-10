@@ -1,7 +1,6 @@
 import { Header } from "@/components/organisms/Header";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
 import Link from "next/link";
-import { montserrat } from "./fonts";
 import { Icon } from "@/components/atoms/data-display/Icon";
 import { Metadata } from "next";
 
@@ -33,9 +32,7 @@ export default function Home() {
       <Header
         title={
           <div className="flex flex-row gap-2 items-center">
-            <h1
-              className={`${montserrat.className} text-primary text-h3 font-medium inline`}
-            >
+            <h1 className="font-Montserrat text-primary text-h3 font-medium inline">
               hem
             </h1>
           </div>
