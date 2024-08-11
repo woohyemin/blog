@@ -19,6 +19,7 @@ module.exports = {
         tabActiveNum: "var(--tab-active-num)",
         underlineSecondary: "var(--text-secondary)",
         divider: "var(--divider)",
+        underline: "var(--underline)",
         bullet: "var(--bullet)",
         code: "var(--code)",
         chip: "var(--chip)",

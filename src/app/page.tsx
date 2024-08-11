@@ -52,7 +52,7 @@ export default function Home() {
       <div className="flex flex-col gap-2.5 mt-6 sm:mt-10 sm:gap-3.5">
         <Link className="no-underline flex gap-3 items-center" href="/posts">
           <Icon icon="filledDocument" size="md" color="secondary" />
-          <span className="text-body2 text-secondary underline underline-offset-2 decoration-[#b3b3b3]">
+          <span className="text-body2 text-secondary underline underline-offset-[3px] decoration-underline">
             <span className="text-primary font-medium">경험</span>들을 기록하고
             있어요
           </span>
@@ -64,7 +64,7 @@ export default function Home() {
         >
           <Icon icon="GitHub" size="md" color="secondary" />
           <span className="flex gap-0.5 items-center">
-            <span className="text-body2 text-secondary underline underline-offset-2 decoration-[#b3b3b3]">
+            <span className="text-body2 text-secondary underline underline-offset-[3px] decoration-underline">
               <span className="text-primary font-medium">코드</span>는 Github로
               관리하고 있어요
             </span>
@@ -76,7 +76,7 @@ export default function Home() {
           href="mailto:woo28870826@gmail.com"
         >
           <Icon icon="filledMail" size="md" color="secondary" />
-          <span className="text-body2 text-secondary underline underline-offset-2 decoration-[#b3b3b3]">
+          <span className="text-body2 text-secondary underline underline-offset-[3px] decoration-underline">
             <span className="text-primary font-medium">연락</span>은 이메일로
             부탁드려요 <span className="text-caption tracking-wider">:)</span>
           </span>
