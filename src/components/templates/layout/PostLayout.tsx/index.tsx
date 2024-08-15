@@ -110,7 +110,7 @@ export const PostLayout = ({ content }: PostLayoutProps) => {
       );
     },
     strong({ ...props }) {
-      return <strong className="font-regular text-primary" {...props} />;
+      return <strong className="font-medium text-primary" {...props} />;
     },
     del({ ...props }) {
       return <del className="text-del decoration-[0.8px]" {...props} />;
