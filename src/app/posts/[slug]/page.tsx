@@ -86,7 +86,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
         {post.thumbnail && (
           <Image
-            className="w-full rounded-xl object-cover mt-2 mb-4 sm:mt-2 sm:mb-12 sm:h-[360px]"
+            className="w-full rounded-xl object-cover mt-2 mb-4 sm:mt-2 sm:mb-12"
             src={`/images/posts/${post.thumbnail}`}
             alt={`${post.title} 섬네일`}
             width={810}
