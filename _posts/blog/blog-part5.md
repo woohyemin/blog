@@ -1,5 +1,257 @@
-블로그의 필수 기능이라고 볼 수 있는 게시글 페이지를 개발한 내용을 기록하려고 한다.
+블로그의 필수 기능이라고 볼 수 있는 게시글 페이지를 개발한 내용을 적어 보려고 한다.
 
-검색해보니 대부분 마크다운 파일로 블로그 글을 관리하는 것 같았다.
+# Markdown
+Markdown은 문서의 서식을 간단하고 직관적으로 지정할 수 있게 해주는 경량 마크업 언어다. 하지만 제한된 서식 옵션으로 인해 복잡한 서식이 필요한 경우에는 한계가 있기 때문에 주로 간단한 문서 작성이나 기술 블로그, README 파일 등에 적합하다.
+#####
+디자인 자유도를 위해선 직접 만든 컴포넌트로 구성할까 고민도 됐었는데, 일단 마크다운 형식으로 작성한 후에 아쉬운 부분들을 개선하는 방향으로 진행하기로 했다.
 
-## 마크다운
+# md 파일 불러오기
+
+## 파일 구조
+`_posts`라는 디렉토리 하위에 md 파일들을 추가했고, 시리즈 게시글인 경우 시리즈명의 디렉토리 하위에 파일 넣었다.
+
+```css:md파일_구조
+📁 _posts
+├── 📁 blog
+│   ├── 📄 blog-part1.md
+│   ├── 📄 blog-part2.md
+├── 📄 other-post1.md
+└── 📄 other-post2.md
+```
+
+## 게시글 데이터 관리
+글 리스트를 다음과 같이 관리하도록 했다. 각 md 파일에 정보들을 작성하여 관리하는 방법도 고민해 보았는데, 일괄적으로 수정해야할 경우 등을 생각했을 때 이렇게 배열 형태로 관리하는 것도 괜찮을 것 같다고 생각되었다. 추후에 불편한 부분이 있다면 개선 방법을 고민해 보려고 한다.
+
+```json:/data/posts.json
+[
+  {
+    "id": "blog-part1",
+    "title": "[나만의 블로그를 만들어보자 - Part 1] 블로그 개발을 시작하기 전에",
+    "date": "2024-08-11",
+    "path": "blog-part1",
+    "categories": ["Blog"],
+    "tags": ["Blog"],
+    "description": "나만의 블로그를 만들어보자",
+    "series": "blog",
+    "activate": true
+  },
+   {
+    "id": "blog-part2",
+    "title": "[나만의 블로그를 만들어보자 - Part 2] Next.js로 프로젝트 생성하기",
+    "date": "2024-00-13",
+    "path": "blog-part2",
+    "categories": ["Blog"],
+    "tags": ["Blog", "Next.js"],
+    "description": "나만의 블로그를 만들어보자",
+    "series": "blog",
+    "activate": false
+  },
+]
+```
+
+## API
+다음은 게시글 정보를 불러오는 api 함수를 정의한 코드다.
+
+```typescript:/src/api/posts.ts
+import path from "path";
+import { readFile } from "fs/promises";
+import { cache } from "react";
+import { Category } from "@/components/Categories";
+import { formatDate } from "@/util/dateUtil";
+
+export interface Post {
+  id: string;
+  title: string;
+  date: string;
+  path: string;
+  categories: Category[];
+  tags: string[];
+  description?: string;
+  series?: string;
+  thumbnail?: string;
+  activate?: boolean;
+}
+
+export const getAllPosts = async (): Promise<Post[]> => {
+  const filePath = path.join(process.cwd(), "data", "posts.json");
+  const jsonData = await readFile(filePath, "utf-8");
+  const data = JSON.parse(jsonData);
+
+  const allPosts = await Promise.all(
+    data.map(async (post: Post) => {
+      const filePath = path.join(
+        process.cwd(),
+        "_posts",
+        post.series || "",
+        `${post.path}.md`
+      );
+      const content = await readFile(filePath, "utf-8");
+
+      return { ...post, content, date: formatDate(post.date) };
+    })
+  );
+
+  const activePosts = allPosts.filter((post) => post.activate);
+
+  return activePosts;
+};
+
+export async function getPost(slug: string): Promise<Post> {
+  const allPosts = await getAllPosts();
+  const post = allPosts.find((post) => post.path === slug);
+
+  if (!post)
+    throw new Error(`${slug}에 해당하는 글을 찾을 수 없습니다.`);
+
+  return { ...post };
+}
+```
+
+# react-markdown
+`react-markdown`은 React 애플리케이션에서 Markdown을 렌더링하는 데 사용되는 라이브러리이다. Markdown 문서를 React 컴포넌트로 변환하여 Markdown 콘텐츠를 쉽게 렌더링하고 조작할 수 있게 해준다. ([공식 문서](https://www.npmjs.com/package/react-markdown))
+
+## 설치
+사용 중인 패키지 매니저를 사용하여 설치하면 된다.
+```bash
+pnpm install react-markdown
+```
+
+## 사용
+```typescript
+import ReactMarkdown from "react-markdown";
+
+export interface PostLayoutProps {
+  content?: string;
+}
+
+export const PostLayout = ({ content }: PostLayoutProps) => {
+  return (
+    <ReactMarkdown>
+      {content}
+    </ReactMarkdown>
+  );
+};
+```
+
+# remark-gfm
+remark 생태계의 플러그인으로, GitHub Flavored Markdown (GFM)을 지원하는 기능을 제공한다.
+
+remark는 Markdown을 파싱, 변환, 그리고 렌더링할 수 있는 JavaScript 도구 모음이며, 다양한 플러그인과 함께 사용되어 Markdown 문서를 처리하고 변환하는 작업을 쉽게 할 수 있다.
+
+## GitHub Flavored Markdown (GFM)
+GFM은 GitHub에서 사용되는 Markdown 확장으로, 다음과 같은 추가 기능들을 포함하고 있다.
+#####
+```markdown:표
+| Syntax    | Description |
+| --------- | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |
+```
+
+```markdown:체크리스트
+- [x] Write code
+- [ ] Write tests
+- [ ] Document features
+```
+
+```markdown:자동링크
+https://example.com
+```
+
+```markdown:취소선
+~~This text will be strikethrough.~~
+```
+
+## 설치
+```bash
+pnpm install remark-gfm
+```
+
+## 사용
+```typescript
+export const PostLayout = ({ content }: PostLayoutProps) => {
+  return (
+    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+      {content}
+    </ReactMarkdown>
+  );
+};
+```
+
+# react-syntax-highlighter
+여기까지만 작업하면 마크다운이 정말 보기 좋지 않게 렌더링된다.🙃
+
+따라서 마크다운을 원하는대로 스타일링 하려면 다음과 같은 방식으로 적용해 주면 되는데, 코드 블록의 경우 `react-syntax-highlighter`를 사용하여 더 가독성 있고 예쁘게(?) 스타일링할 수 있다.🙂
+
+## 설치
+```bash
+pnpm install react-syntax-highlighter
+```
+
+## 사용
+```typescript
+// ...
+
+const CustomComponents: Components = {
+    h1({ ...props }) {
+      return (
+          <h2 className="..." {...props} />
+      );
+    },
+    code({ ...props }) {
+      const match = /language-(\w+)/.exec(props.className ?? "");
+
+      if (!match) {
+        return (
+          <code className="...">
+            {props.children}
+          </code>
+        );
+      }
+
+      const language = match[1];
+
+      return (
+        <SyntaxHighlighter language={language}>
+          {String(props.children)}
+        </SyntaxHighlighter>
+      );
+    },
+  };
+
+  return (
+    <ReactMarkdown components={CustomComponents}>
+      {content}
+    </ReactMarkdown>
+  );
+
+// ...
+```
+
+# rehype-code-titles
+`rehype-code-titles`는 [rehype](https://github.com/rehypejs/rehype) 플러그인의 하나로, 코드 블록에 제목을 추가하는 기능을 제공한다.
+
+## 설치
+```bash
+pnpm install rehype-code-titles
+```
+
+## 사용
+```typescript
+import rehypeCodeTitles from "rehype-code-titles";
+// ...
+  return (
+    <ReactMarkdown rehypePlugins={[rehypeCodeTitles]}>
+      {content}
+    </ReactMarkdown>
+  );
+// ...
+```
+
+```typescript:/src/app/globals.css
+.rehype-code-title {
+    // 스타일 정의...
+}
+```
+
+정리하다보니 생각보다 내용이 길어진 것 같은데, 블로그를 운영하면서 디렉토리 구조나 파일을 관리하는 방식에 좀 더 개선할 부분이 있을지 고민해봐야 할 것 같다.
