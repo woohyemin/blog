@@ -89,8 +89,8 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
             className="w-full rounded-xl object-cover mt-2 mb-4 sm:mt-2 sm:mb-12"
             src={`/images/posts/${post.thumbnail}`}
             alt={`${post.title} 섬네일`}
-            width={810}
-            height={480}
+            width={1080}
+            height={640}
           />
         )}
       </div>
