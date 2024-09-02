@@ -1,14 +1,14 @@
 블로그의 필수 기능이라고 볼 수 있는 게시글 페이지를 개발한 내용을 적어 보려고 한다.
 
 # Markdown
-Markdown은 문서의 서식을 간단하고 직관적으로 지정할 수 있게 해주는 경량 마크업 언어다. 하지만 제한된 서식 옵션으로 인해 복잡한 서식이 필요한 경우에는 한계가 있기 때문에 주로 간단한 문서 작성이나 기술 블로그, README 파일 등에 적합하다.
+Markdown은 문서의 서식을 간단하고 직관적으로 지정할 수 있게 해주는 경량 마크업 언어다. 하지만 제한된 서식 옵션으로 인해 주로 간단한 문서 작성이나 기술 블로그, README 파일 등에 적합하다.
 #####
 디자인 자유도를 위해선 직접 만든 컴포넌트로 구성할까 고민도 됐었는데, 일단 마크다운 형식으로 작성한 후에 아쉬운 부분들을 개선하는 방향으로 진행하기로 했다.
 
 # md 파일 불러오기
 
 ## 파일 구조
-`_posts`라는 디렉토리 하위에 md 파일들을 추가했고, 시리즈 게시글인 경우 시리즈명의 디렉토리 하위에 파일 넣었다.
+`_posts`라는 디렉토리 하위에 md 파일들을 추가했고, 시리즈 게시글인 경우 시리즈명의 디렉토리 하위에 파일을 넣었다.
 
 ```css:md파일_구조
 📁 _posts
@@ -38,11 +38,11 @@ Markdown은 문서의 서식을 간단하고 직관적으로 지정할 수 있�
    {
     "id": "blog-part2",
     "title": "[나만의 블로그를 만들어보자 - Part 2] Next.js로 프로젝트 생성하기",
-    "date": "2024-00-13",
+    "date": "2024-08-13",
     "path": "blog-part2",
     "categories": ["Blog"],
     "tags": ["Blog", "Next.js"],
-    "description": "나만의 블로그를 만들어보자",
+    "description": "나만의 블로그 프로젝트를 생성해보자",
     "series": "blog",
     "activate": false
   },
@@ -111,7 +111,7 @@ export async function getPost(slug: string): Promise<Post> {
 `react-markdown`은 React 애플리케이션에서 Markdown을 렌더링하는 데 사용되는 라이브러리이다. Markdown 문서를 React 컴포넌트로 변환하여 Markdown 콘텐츠를 쉽게 렌더링하고 조작할 수 있게 해준다. ([공식 문서](https://www.npmjs.com/package/react-markdown))
 
 ## 설치
-사용 중인 패키지 매니저를 사용하여 설치하면 된다.
+사용 중인 패키지 매니저를 사용하여 설치하면 된다. 나는 pnpm을 사용하여 설치했다.
 ```bash
 pnpm install react-markdown
 ```
