@@ -32,17 +32,15 @@ export default function Home() {
       <Header
         title={
           <div className="flex flex-row gap-2 items-center">
-            <h1 className="font-Montserrat text-primary text-h3 font-medium inline">
-              hem
-            </h1>
+            <h1 className="text-primary text-h3 font-medium inline">우혜민</h1>
           </div>
         }
         content={
           <div className="mt-4 sm:mt-6">
             <p className="text-secondary text-body1">
-              더 나은 사용자 경험을 고민하는 웹 프론트엔드 개발자 hem입니다.
+              더 나은 사용자 경험을 고민하는 웹 프론트엔드 개발자 우혜민입니다.
               <br />
-              떠오른 아이디어를 구현해 보는 것을 좋아하고 관련하여 경험한 것들을
+              떠오른 아이디어를 구현해 보는 것을 좋아하고, 경험한 것들을
               기록하고 있습니다.
             </p>
           </div>
