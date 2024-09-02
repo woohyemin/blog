@@ -1,12 +1,126 @@
 # 댓글 기능을 구현하는 방법
-댓글을 구현하는 방법으로는 크게(?) 2가지 정도 있을 것 같다.
+댓글을 구현하는 방법으로는 크게 2가지 정도 있을 것 같다.
 
 ## 1️⃣ 직접 처음부터 끝까지 구현하기
 직접 구현하게 되면 디자인 자유도는 높지만 개발하는데 시간이 더 많이 소요된다.
 
-## 2️⃣ Giscus, Utterances, Disqus 등을 활용하여 구현하기
-디자인 자유도는 다소 제한적일 수 있겠지만 시간을 절약할 수 있다.
+## 2️⃣ Utterances, giscus, Disqus 등 댓글 시스템을 활용하여 구현하기
+디자인 자유도는 다소 제한적일 수 있겠지만 시간을 절약할 수 있다. `Utterances`, `giscus`, `Disqus`의 차이를 요약하면 다음과 같다.
+
+###
+**[Utterances](https://utteranc.es/)**
+
+GitHub Issues 기반의 가벼운 댓글 시스템으로, GitHub를 통해 웹사이트에 댓글을 남길 수 있는 기능을 제공한다.
+###
+**[giscus](https://giscus.app/ko)**
+
+GitHub Discussions를 활용한 댓글 시스템으로, GitHub를 통해 웹사이트에 댓글과 반응을 남길 수 있는 기능을 제공한다. Utterances에서 영감을 받아 만들어졌다고 한다.
+###
+**[Disqus](https://disqus.com/)**
+
+기능이 매우 풍부한 독립적인 댓글 플랫폼으로, 다양한 사이트에서 사용 가능하며, 광고 및 수익화 옵션을 제공한다.
 
 # 내가 구현한 방법
-나는 두 번째 방법의 단점이 그렇게 치명적이지 않다고 판단했고, 단점에 비해 장점이 더 크다고 생각했다. 이러한 이유로 두 번째 방법을 선택했고, 그 중에서도 `Giscus`를 적용했다. 하지만 이번에도 역시나 시행착오가 있었는데, 사실 처음엔 Utterances를 적용했다가 Giscus로 교체했다..🫠 이유는.. 단지 Giscus에서 제공하는 **반응** 기능을 넣고 싶어서였다..ㅎ
+결론부터 이야기 하면 나는 두 번째 방법을 선택했고, 그 중에서도 `giscus`를 사용하여 댓글 기능을 구현했다.
+
+## 댓글 시스템을 활용한 이유
+나는 댓글 시스템을 활용하는 방법의 단점이 그렇게 치명적이지 않다고 판단했다. 또한 개발하는 시간도 절약할 수 있고, 이미 많이 사용되고 있는 시스템이기에 장점이 더 크다고 생각했다. 그리고 GitHub에서 프로젝트의 코드와 댓글을 모두 관리할 수 있다는 점도 마음에 들었다.
+
+##  giscus를 선택한 이유
+현재로서는 간단한 댓글 기능 정도만 필요했기 때문에 Disqus를 사용하기엔 시스템이 다소 무겁다고 생각되었다. 그래서 Utterances 또는 giscus 중에 고민을 했는데, 이번에도 역시나 시행착오가 있었다. 사실 처음엔 두 시스템의 차이가 크게 없어 보여서 Utterances를 적용했었다. 그런데 다른 블로그들에서 종종 보이는 **반응** 기능이 내 블로그에는 보이지 않는 것이었다. giscus에서 제공하는 기능이었던 것이다..😞
+![giscus 반응 기능](/images/posts/blog/part6/giscus_reaction.png)
+그래서 결국 Utterances로 적용했던 댓글 기능을 giscus로 교체했다.. 사실 조금 귀찮아서 하지 말까 고민도 했었는데,, `Utterances은 댓글을 Issues에 저장`하고, `giscus는 댓글을 Discussions에 저장`하기 때문에 나중에 변경하게 될 때 번거로워질 것 같아서 그냥 바꾸기로 결정했다.🫠
+
+# 적용 방법
+적용 방식은 Utterances와 비슷한 방식으로 꽤 간단해서 어렵지 않게 변경할 수 있었다.
+
+## giscus Github App 설치
+giscus를 Github에 설치하기 위해 [giscus Github App](https://github.com/apps/giscus)에서 접속한다. 나는 이미 설치했기 때문에 Configure 버튼이 보이는데, 처음 설치하는 경우엔 Install 버튼이 보인다. 이 버튼을 클릭하면 된다.
+![giscus Github App 설치 화면](/images/posts/blog/part6/giscus_Github_App_install.png)
+
+## giscus 사용할 Repository 설정
+giscus Github App이 접근 가능하도록 허용할 Repository를 설정한다.
+![giscus 접근 설정 화면](/images/posts/blog/part6/giscus_repository_access.png)
+
+## Github Discussions 활성화
+댓글이 저장될 Repository의 Discussions을 활성화한다.
+```markdown
+Repository > Settings > General > Features > Discussions 활성화
+```
+![Github Discussions 활성화 화면](/images/posts/blog/part6/discussions_check.png)
+
+## Discussions Category 생성
+이미 생성되어 있는 카테고리를 사용해도 될 것 같은데, 나는 `Comments`라는 댓글용 카테고리를 새로 만들었다.
+```markdown
+Repository > Discussions > Categories > 수정 버튼 클릭 > New category 버튼 클릭 > Create category
+```
+![Github Discussions Category 생성 화면](/images/posts/blog/part6/discussions_create_category.png)
+
+## giscus script 생성
+1. 댓글 기능을 적용하기 위한 script를 생성하기 위해 [giscus](https://giscus.app/ko)에 접속한다.
+1. 연결할 GitHub 저장소를 입력한다.
+![giscus script 저장소 설정 화면](/images/posts/blog/part6/giscus_script_setting_1.png)
+1. 페이지와 Discussion 연결하고, 카테고리를 선택한다.
+![giscus script 페이지와 Discussion 연결 및 카테고리 설정 화면](/images/posts/blog/part6/giscus_script_setting_2.png)
+1. 원하는 기능과 테마를 선택한다.
+![giscus script 기능 및 테마 설정 화면](/images/posts/blog/part6/giscus_script_setting_3.png)
+1. script가 생성된다.
+![giscus script 사용 코드 화면](/images/posts/blog/part6/giscus_script_setting_4.png)
+
+
+## giscus script 적용
+이렇게 생성된 script를 가지고 Next.js 프로젝트에 다음과 같이 적용했다.
+
+```typescript:Comments.tsx
+"use client";
+
+import { useTheme } from "next-themes";
+import React, { useEffect, useRef } from "react";
+
+export const Comments = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { theme } = useTheme();
+
+  const dataTheme = theme === "dark" ? "noborder_gray" : "noborder_light";
+
+  useEffect(() => {
+    if (!ref.current || ref.current.hasChildNodes()) return;
+
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+
+    script.setAttribute("data-repo", "woohyemin/blog");
+    script.setAttribute("data-repo-id", "R_kgDOLyuNag");
+    script.setAttribute("data-category", "Comments");
+    script.setAttribute("data-category-id", "DIC_kwDOLyuNas4CiHOi");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "bottom");
+    script.setAttribute("data-theme", dataTheme);
+    script.setAttribute("data-lang", "ko");
+
+    ref.current.appendChild(script);
+  }, [dataTheme]);
+
+  useEffect(() => {
+    const iframe = document.querySelector<HTMLIFrameElement>(
+      "iframe.giscus-frame"
+    );
+    iframe?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: dataTheme } } },
+      "https://giscus.app"
+    );
+  }, [dataTheme]);
+
+  return <section className="pt-8 sm:pt-16" ref={ref} />;
+};
+
+export default Comments;
+```
+
+디자인도 Utterances보다 마음에 들고, 댓글이 로딩될 때 귀여운 애니메이션도 나와서 바꾸길 잘했다는 생각이 들었다. 적용 방법도 꽤 간단했고 댓글 기능을 `Comments`라는 컴포넌트로 분리하여 구현했었기 때문에 해당 컴포넌트만 수정하면 되어서 사이드 이펙트도 딱히 없었다.👏🏻
 
