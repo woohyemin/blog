@@ -129,11 +129,9 @@ export const PostLayout = ({ content }: PostLayoutProps) => {
     },
     img({ ...props }) {
       return (
-        <img
-          className="max-w-full h-auto my-3 rounded-lg sm:my-4"
-          src={props.src}
-          alt={props.alt}
-        />
+        <div className="flex w-full h-auto my-3 sm:my-4 justify-center items-center">
+          <img className="rounded-lg" src={props.src} alt={props.alt} />
+        </div>
       );
     },
     code({ ...props }) {
