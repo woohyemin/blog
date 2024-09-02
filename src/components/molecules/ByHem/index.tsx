@@ -19,7 +19,7 @@ export const ByHem = ({ variant = "default" }: ByHemProps) => {
           className="underline decoration-underlineSecondary decoration-1 underline-offset-2"
           href="/"
         >
-          <span className="text-secondary">hem</span>
+          <span className="text-secondary">hyemin</span>
         </Link>
       )}
       {variant === "posts" && (
@@ -27,7 +27,7 @@ export const ByHem = ({ variant = "default" }: ByHemProps) => {
           className="underline decoration-underlineSecondary decoration-1 underline-offset-2"
           href="/posts"
         >
-          <span className="text-secondary">hem's posts</span>
+          <span className="text-secondary">hyemin's posts</span>
         </Link>
       )}
     </div>
