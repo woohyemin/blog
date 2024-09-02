@@ -3,6 +3,7 @@ import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
 import Link from "next/link";
 import { Icon } from "@/components/atoms/data-display/Icon";
 import { Metadata } from "next";
+import { PropsWithChildren } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
@@ -26,6 +27,12 @@ export const metadata: Metadata = {
   },
 };
 
+const Tag = ({ children }: PropsWithChildren) => (
+  <span className="font-Montserrat text-disabled text-caption">
+    # {children}
+  </span>
+);
+
 export default function Home() {
   return (
     <TemplateLayout>
@@ -43,6 +50,15 @@ export default function Home() {
               떠오른 아이디어를 구현해 보는 것을 좋아하고, 경험한 것들을
               기록하고 있습니다.
             </p>
+
+            <div className="flex flex-row gap-x-3 gap-y-1 flex-wrap mt-4">
+              <Tag>Frontend Developer</Tag>
+              <Tag>React</Tag>
+              <Tag>Next.js</Tag>
+              <Tag>Typescript</Tag>
+              <Tag>Styled Components</Tag>
+              <Tag>Tailwind CSS</Tag>
+            </div>
           </div>
         }
       />
