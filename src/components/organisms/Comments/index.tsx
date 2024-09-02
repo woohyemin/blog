@@ -7,38 +7,40 @@ export const Comments = () => {
   const ref = useRef<HTMLElement>(null);
   const { theme } = useTheme();
 
-  const makeComments = () => {
-    if (ref.current) {
-      const script = document.createElement("script");
-
-      script.src = "https://utteranc.es/client.js";
-      script.async = false;
-      script.setAttribute("repo", "woohyemin/blog");
-      script.setAttribute("issue-term", "pathname");
-
-      if (theme === "dark") {
-        script.setAttribute("theme", "photon-dark");
-      } else {
-        script.setAttribute("theme", "github-light");
-      }
-      script.setAttribute("label", "blog-comment");
-      ref.current.appendChild(script);
-    }
-  };
-
-  const removeComments = () => {
-    if (ref.current) {
-      const existingScript = ref.current.querySelector(".utterances");
-      if (existingScript) {
-        existingScript.remove();
-      }
-    }
-  };
+  const dataTheme = theme === "dark" ? "noborder_gray" : "noborder_light";
 
   useEffect(() => {
-    makeComments();
-    removeComments();
-  }, [theme]);
+    if (!ref.current || ref.current.hasChildNodes()) return;
+
+    const scriptElement = document.createElement("script");
+    scriptElement.src = "https://giscus.app/client.js";
+    scriptElement.async = true;
+    scriptElement.crossOrigin = "anonymous";
+
+    scriptElement.setAttribute("data-repo", "woohyemin/blog");
+    scriptElement.setAttribute("data-repo-id", "R_kgDOLyuNag");
+    scriptElement.setAttribute("data-category", "Comments");
+    scriptElement.setAttribute("data-category-id", "DIC_kwDOLyuNas4CiHOi");
+    scriptElement.setAttribute("data-mapping", "pathname");
+    scriptElement.setAttribute("data-strict", "0");
+    scriptElement.setAttribute("data-reactions-enabled", "1");
+    scriptElement.setAttribute("data-emit-metadata", "0");
+    scriptElement.setAttribute("data-input-position", "bottom");
+    scriptElement.setAttribute("data-theme", dataTheme);
+    scriptElement.setAttribute("data-lang", "ko");
+
+    ref.current.appendChild(scriptElement);
+  }, [dataTheme]);
+
+  useEffect(() => {
+    const iframe = document.querySelector<HTMLIFrameElement>(
+      "iframe.giscus-frame"
+    );
+    iframe?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: dataTheme } } },
+      "https://giscus.app"
+    );
+  }, [dataTheme]);
 
   return <section className="pt-8 sm:pt-16" ref={ref} />;
 };
