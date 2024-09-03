@@ -47,10 +47,10 @@ export const Posts = ({ posts }: PostsProps) => {
                 className="w-full flex flex-row justify-between gap-8"
               >
                 <div className="flex flex-col overflow-hidden">
-                  <h3 className="text-h5 text-primary font-medium overflow-hidden whitespace-nowrap text-ellipsis sm:text-h4">
+                  <h3 className="text-h4 text-primary font-medium overflow-hidden whitespace-nowrap text-ellipsis sm:text-h3">
                     {el.title}
                   </h3>
-                  <p className="text-caption text-secondary pt-0.5 sm:pt-1 overflow-hidden whitespace-nowrap text-ellipsis sm:text-body2">
+                  <p className="text-body2 text-secondary pt-0.5 sm:pt-1 overflow-hidden whitespace-nowrap text-ellipsis sm:text-body1">
                     {el.description}
                   </p>
                   <div className="flex gap-1 pt-2 sm:pt-2.5 sm:gap-1.5 flex-wrap">
