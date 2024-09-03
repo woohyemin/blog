@@ -148,20 +148,22 @@ export const PostLayout = ({ content }: PostLayoutProps) => {
       const language = match[1];
 
       return (
-        <SyntaxHighlighter
-          style={{
-            ...(theme === "dark" ? oneDark : oneLight),
-            'code[class*="language-"]': { fontSize: "13px" },
-          }}
-          language={language}
-          customStyle={{
-            borderRadius: "8px",
-            margin: "16px 0",
-            backgroundColor: "var(--paper-background)",
-          }}
-        >
-          {String(props.children)}
-        </SyntaxHighlighter>
+        <div className="text-caption sm:text-body2">
+          <SyntaxHighlighter
+            style={{
+              ...(theme === "dark" ? oneDark : oneLight),
+              'code[class*="language-"]': { background: "transparent" },
+            }}
+            language={language}
+            customStyle={{
+              borderRadius: "8px",
+              margin: "16px 0",
+              backgroundColor: "var(--paper-background)",
+            }}
+          >
+            {String(props.children)}
+          </SyntaxHighlighter>
+        </div>
       );
     },
   };
