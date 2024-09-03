@@ -23,7 +23,7 @@ interface HeaderProps {
  */
 export const Header = ({ title, content }: HeaderProps) => {
   return (
-    <div className="flex flex-col gap-1 pb-5 sm:pb-6 sm:gap-2">
+    <div className="flex flex-col gap-1 pb-5 sm:pb-6 sm:gap-1.5">
       <div className="flex gap-4 items-center justify-between">
         {title}
         <ThemeToggle />
