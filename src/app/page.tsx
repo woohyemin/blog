@@ -7,21 +7,21 @@ import { PropsWithChildren } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
-  title: "hem's blog",
+  title: "Hyemin's blog",
   description: "I'm a front-end developer.",
   openGraph: {
     images: [
       {
-        url: "/opengraph-image.png",
-        alt: "hem's blog",
+        url: "/images/og/hyemin_blog_og_img.jpg",
+        alt: "hyemin's blog",
       },
     ],
   },
   twitter: {
     images: [
       {
-        url: "/opengraph-image.png",
-        alt: "hem's blog",
+        url: "/images/og/hyemin_blog_og_img.jpg",
+        alt: "hyemin's blog",
       },
     ],
   },

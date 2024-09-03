@@ -7,25 +7,25 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
-  title: "hem's posts",
+  title: "Hyemin's posts",
   description: "I'm recording my development experiences.",
   openGraph: {
     images: [
       {
-        url: "/posts/opengraph-image",
+        url: "/images/og/hyemin_posts_og_img.jpg",
         width: 1200,
         height: 630,
-        alt: "hem's posts",
+        alt: "hyemin's posts",
       },
     ],
   },
   twitter: {
     images: [
       {
-        url: "/posts/opengraph-image",
+        url: "/images/og/hyemin_posts_og_img.jpg",
         width: 1200,
         height: 630,
-        alt: "hem's posts",
+        alt: "hyemin's posts",
       },
     ],
   },
