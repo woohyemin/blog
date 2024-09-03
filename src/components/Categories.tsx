@@ -11,7 +11,7 @@ export type Category =
   | "React"
   | "Tailwind CSS"
   | "Plugin"
-  // | "Package Manager"
+  | "Algorithm"
   | "Etc";
 
 const categoryList: Category[] = [
@@ -20,8 +20,8 @@ const categoryList: Category[] = [
   "Next.js",
   // "React",
   "Tailwind CSS",
-  "Plugin",
-  // "Package Manager",
+  // "Plugin",
+  // "Algorithm",
   "Etc",
 ];
 
