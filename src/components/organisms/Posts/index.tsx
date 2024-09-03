@@ -64,11 +64,11 @@ export const Posts = ({ posts }: PostsProps) => {
                 </div>
                 {el.thumbnail && (
                   <Image
-                    className="w-48 min-h-full rounded-lg object-cover hidden sm:inline"
+                    className="w-[216px] min-h-full rounded-xl object-cover hidden sm:inline"
                     src={`/images/posts/${el.thumbnail}`}
                     alt={`${el.title} 섬네일`}
-                    width={270}
-                    height={160}
+                    width={300}
+                    height={315}
                   />
                 )}
               </Link>
