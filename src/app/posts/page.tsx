@@ -47,7 +47,7 @@ export default async function Projects() {
             <h1 className="text-primary text-h3 font-medium inline sm:text-h2">
               포스트
             </h1>
-            <div className="pb-1">
+            <div className="pb-0.5 sm:pb-1">
               <ByHem />
             </div>
           </div>
