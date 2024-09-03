@@ -43,7 +43,7 @@ export default async function Projects() {
     <TemplateLayout>
       <Header
         title={
-          <div className="flex gap-3 items-end">
+          <div className="flex gap-2 sm:gap-3 items-end">
             <h1 className="text-primary text-h3 font-medium inline sm:text-h2">
               포스트
             </h1>
