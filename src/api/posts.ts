@@ -46,18 +46,30 @@ export const getAllPosts = async (): Promise<Post[]> => {
   return activePosts;
 };
 
-export async function getPost(slug: string): Promise<Post> {
+export async function getPost(slug: string): Promise<Post | "not-found"> {
   const allPosts = await getAllPosts();
   const post = allPosts.find((post) => post.path === slug);
 
-  if (!post) throw new Error(`❗️ '${slug}'에 해당하는 글을 찾을 수 없습니다.`);
+  if (!post) {
+    console.error(`❗️ '${slug}'에 해당하는 글을 찾을 수 없습니다.`);
+    return "not-found";
+  }
 
   return { ...post };
 }
 
-export async function getPrevNextPost(slug: string): Promise<PrevNextPost> {
+export async function getPrevNextPost(
+  slug: string
+): Promise<PrevNextPost | "not-found"> {
   const allPosts = await getAllPosts();
   const currPost = await getPost(slug);
+
+  if (!currPost || currPost === "not-found") {
+    console.error(
+      `❗️ '${slug}'에 해당하는 글을 찾을 수 없어, 이전 또는 다음 글을 찾을 수 없습니다.`
+    );
+    return "not-found";
+  }
 
   const currIndex = allPosts.findIndex((post) => post.path === currPost.path);
   const prevIndex = currIndex + 1;

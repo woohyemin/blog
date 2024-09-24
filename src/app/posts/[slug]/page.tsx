@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { Chip } from "@/components/atoms/data-display/Chip";
 import { PrevNextPosts } from "@/components/organisms/PrevNextPosts";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: {
@@ -18,21 +19,24 @@ interface Props {
 
 export async function generateMetadata({
   params: { slug },
-}: Props): Promise<Metadata> {
-  const { title, description, path } = await getPost(slug);
-  const imagePaths = path.split("-");
+}: Props): Promise<Metadata | undefined> {
+  const post = await getPost(slug);
+
+  if (post === "not-found") return undefined;
+
+  const imagePaths = post.path.split("-");
 
   return {
     metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
-    title,
-    description,
+    title: post.title,
+    description: post.description,
     openGraph: {
       images: [
         {
           url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join("_")}_thumbnail.jpg`,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: post.title,
         },
       ],
     },
@@ -42,7 +46,7 @@ export async function generateMetadata({
           url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join("_")}_thumbnail.jpg`,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: post.title,
         },
       ],
     },
@@ -51,10 +55,10 @@ export async function generateMetadata({
 
 export default async function PostDetailPage({ params: { slug } }: Props) {
   const post = await getPost(slug);
-  const { prevPost, nextPost } = await getPrevNextPost(slug);
+  const prevNextPost = await getPrevNextPost(slug);
 
-  if (!post) {
-    return <div className="bg-red-50 w-5 h-5" />;
+  if (!post || post === "not-found") {
+    notFound();
   }
 
   return (
@@ -97,7 +101,12 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
 
       <PostLayout content={post.content} />
 
-      <PrevNextPosts prevPost={prevPost} nextPost={nextPost} />
+      {prevNextPost !== "not-found" && (
+        <PrevNextPosts
+          prevPost={prevNextPost.prevPost}
+          nextPost={prevNextPost.nextPost}
+        />
+      )}
 
       <Comments />
     </TemplateLayout>
