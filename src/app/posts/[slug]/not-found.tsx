@@ -9,7 +9,7 @@ export default async function PostDetailNotFound() {
       <Header
         title={
           <h1 className="text-primary text-h3 sm:text-h2 font-medium inline">
-            포스트를 찾을 수 없어요.
+            글을 찾을 수 없어요.
           </h1>
         }
         content={
