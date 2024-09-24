@@ -12,11 +12,12 @@ const ThemeToggle = () => {
         onClick={() => {
           setTheme(theme === "dark" ? "light" : "dark");
         }}
+        className="hover:*:text-primary"
       >
         {theme === "dark" ? (
-          <Icon icon="sun" size="md" color="secondary" />
-        ) : (
           <Icon icon="moon" size="md" color="secondary" />
+        ) : (
+          <Icon icon="sun" size="md" color="secondary" />
         )}
       </button>
     </>
