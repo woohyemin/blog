@@ -39,7 +39,9 @@ export default function Home() {
       <Header
         title={
           <div className="flex flex-row gap-2 items-center">
-            <h1 className="text-primary text-h3 font-medium inline">우혜민</h1>
+            <h1 className="text-primary text-h3 sm:text-h2 font-medium inline">
+              우혜민
+            </h1>
           </div>
         }
         content={<p className="text-secondary text-body2">프론트엔드 개발자</p>}
