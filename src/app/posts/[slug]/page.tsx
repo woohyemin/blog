@@ -9,7 +9,7 @@ import Image from "next/image";
 import { Chip } from "@/components/atoms/data-display/Chip";
 import { PrevNextPosts } from "@/components/organisms/PrevNextPosts";
 import { notFound } from "next/navigation";
-import dynamic from "next/dynamic";
+import { MDXContent } from '@/components/MDXContent';
 
 interface Props {
   params: {
@@ -56,7 +56,6 @@ export async function generateMetadata({
 export default async function PostDetailPage({ params: { slug } }: Props) {
   const post = await getPost(slug);
   const prevNextPost = await getPrevNextPost(slug);
-  const MDXContent = dynamic(() => import(`@/data/posts/${slug}.mdx`));
 
   if (!post || post === "not-found") {
     notFound();
@@ -100,7 +99,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
         )}
       </div>
       
-      <MDXContent />
+      <MDXContent {...post.source}/>
 
       {prevNextPost !== "not-found" && (
         <PrevNextPosts

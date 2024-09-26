@@ -7,6 +7,7 @@ import {
   oneLight,
   oneDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
+import ReactMarkdown from "react-markdown";
 
 /**
  * CodeBlock component props
@@ -28,7 +29,7 @@ export const CodeBlock = ({
   if (!match) {
     return (
       <code className="text-primary text-caption sm:text-body2">
-        {props.children}
+        `{props.children}`
       </code>
     );
   }
@@ -37,20 +38,26 @@ export const CodeBlock = ({
 
   return (
     <div className="text-caption sm:text-body2">
-      <SyntaxHighlighter
-        style={{
-          ...(theme === "dark" ? oneDark : oneLight),
-          'code[class*="language-"]': { background: "transparent" },
-        }}
-        language={language}
-        customStyle={{
-          borderRadius: "8px",
-          margin: "16px 0",
-          background: "var(--paper-background)",
-        }}
-      >
-        {String(props.children)}
-      </SyntaxHighlighter>
+      {language === "markdown" ? (
+        <div className="pt-4 px-3 pb-3 my-4 rounded-lg bg-paper">
+          <ReactMarkdown>{String(props.children)}</ReactMarkdown>
+        </div>
+      ) : (
+        <SyntaxHighlighter
+          style={{
+            ...(theme === "dark" ? oneDark : oneLight),
+            'code[class*="language-"]': { background: "transparent" },
+          }}
+          language={language}
+          customStyle={{
+            borderRadius: "8px",
+            margin: "16px 0",
+            background: "var(--paper-background)",
+          }}
+        >
+          {String(props.children)}
+        </SyntaxHighlighter>
+      )}
     </div>
   );
 };

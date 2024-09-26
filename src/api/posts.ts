@@ -2,8 +2,11 @@ import path from "path";
 import { readFile } from "fs/promises";
 import { Category } from "@/components/Categories";
 import { readdirSync } from "fs";
-import matter from "gray-matter";
 import { formatDate } from "@/util/dateUtil";
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import rehypeCodeTitles from "rehype-code-titles";
+import remarkGfm from "remark-gfm";
 
 export interface PostData {
   title: string;
@@ -19,6 +22,7 @@ export interface PostData {
 export interface Post extends PostData {
   path: string;
   content: string;
+  source: MDXRemoteSerializeResult;
 }
 
 export interface PrevNextPost {
@@ -33,12 +37,16 @@ export const getAllPosts = async (): Promise<Post[]> => {
   const allPosts = await Promise.all(fileNames.map(async (fileName) => {
     const filePath = path.join(postsDirectory, fileName);
     const fileContents = await readFile(filePath, 'utf8');
-    const { data, content } = matter(fileContents);
+
+    const mdxSource = await serialize(fileContents, {mdxOptions: {remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeCodeTitles], format: 'mdx'}, parseFrontmatter: true });
+    const { frontmatter, compiledSource } = mdxSource;
 
     return {
-      ...data,
+      ...frontmatter,
       path: fileName.replace(/\.mdx$/, ''),
-      content,
+      content: compiledSource,
+      source: mdxSource,
     } as Post;
   }));
 
