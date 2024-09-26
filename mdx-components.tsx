@@ -1,30 +1,9 @@
-"use client";
-
-import ReactMarkdown, { Components } from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  oneLight,
-  oneDark,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
+import type { MDXComponents } from "mdx/types";
 import { Icon } from "@/components/atoms/data-display/Icon";
-import { useTheme } from "next-themes";
-import rehypeCodeTitles from "rehype-code-titles";
+import { CodeBlock } from "@/components/CodeBlock";
 
-/**
- * PostLayout component props
- */
-export interface PostLayoutProps {
-  content?: string;
-}
-
-/**
- * PostLayout component
- */
-export const PostLayout = ({ content }: PostLayoutProps) => {
-  const { theme } = useTheme();
-
-  const CustomComponents: Components = {
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
     h1({ ...props }) {
       return (
         <div className="mt-12 mb-5 sm:mt-20 sm:mb-6 first:mt-0">
@@ -135,48 +114,8 @@ export const PostLayout = ({ content }: PostLayoutProps) => {
       );
     },
     code({ ...props }) {
-      const match = /language-(\w+)/.exec(props.className ?? "");
-
-      if (!match) {
-        return (
-          <code className="text-primary text-caption sm:text-body2">
-            `{props.children}`
-          </code>
-        );
-      }
-
-      const language = match[1];
-
-      return (
-        <div className="text-caption sm:text-body2">
-          <SyntaxHighlighter
-            style={{
-              ...(theme === "dark" ? oneDark : oneLight),
-              'code[class*="language-"]': { background: "transparent" },
-            }}
-            language={language}
-            customStyle={{
-              borderRadius: "8px",
-              margin: "16px 0",
-              backgroundColor: "var(--paper-background)",
-            }}
-          >
-            {String(props.children)}
-          </SyntaxHighlighter>
-        </div>
-      );
+      return <CodeBlock {...props} />;
     },
+    ...components,
   };
-
-  return (
-    <div>
-      <ReactMarkdown
-        components={CustomComponents}
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeCodeTitles]}
-      >
-        {content}
-      </ReactMarkdown>
-    </div>
-  );
-};
+}

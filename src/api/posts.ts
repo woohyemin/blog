@@ -1,14 +1,13 @@
 import path from "path";
 import { readFile } from "fs/promises";
 import { Category } from "@/components/Categories";
+import { readdirSync } from "fs";
+import matter from "gray-matter";
 import { formatDate } from "@/util/dateUtil";
 
-export interface Post {
-  id: string;
+export interface PostData {
   title: string;
   date: string;
-  path: string;
-  content: string;
   categories: Category[];
   tags: string[];
   description?: string;
@@ -17,33 +16,37 @@ export interface Post {
   activate?: boolean;
 }
 
+export interface Post extends PostData {
+  path: string;
+  content: string;
+}
+
 export interface PrevNextPost {
   nextPost?: Post;
   prevPost?: Post;
 }
 
+const postsDirectory = path.join(process.cwd(), 'src/data/posts');
+
 export const getAllPosts = async (): Promise<Post[]> => {
-  const filePath = path.join(process.cwd(), "data", "posts.json");
-  const jsonData = await readFile(filePath, "utf-8");
-  const data = JSON.parse(jsonData);
+  const fileNames = readdirSync(postsDirectory);
+  const allPosts = await Promise.all(fileNames.map(async (fileName) => {
+    const filePath = path.join(postsDirectory, fileName);
+    const fileContents = await readFile(filePath, 'utf8');
+    const { data, content } = matter(fileContents);
 
-  const allPosts = await Promise.all(
-    data.map(async (post: Post) => {
-      const filePath = path.join(
-        process.cwd(),
-        "_posts",
-        post.series || "",
-        `${post.path}.md`
-      );
-      const content = await readFile(filePath, "utf-8");
-
-      return { ...post, content, date: formatDate(post.date) };
-    })
-  );
+    return {
+      ...data,
+      path: fileName.replace(/\.mdx$/, ''),
+      content,
+    } as Post;
+  }));
 
   const activePosts = allPosts.filter((post) => post.activate);
+  const sortedPosts = activePosts.sort((a, b) => b.date.localeCompare(a.date));
+  const result = sortedPosts.map((post) => ({...post, date: formatDate(post.date.split(' ')[0])}));
 
-  return activePosts;
+  return result;
 };
 
 export async function getPost(slug: string): Promise<Post | "not-found"> {

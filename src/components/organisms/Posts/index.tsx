@@ -41,7 +41,7 @@ export const Posts = ({ posts }: PostsProps) => {
       {filteredPosts.length > 0 ? (
         <div className="flex flex-col gap-5 sm:gap-6">
           {filteredPosts.map((el, index) => (
-            <Fragment key={`${el.id}-${el.title}`}>
+            <Fragment key={el.path}>
               <Link
                 href={`posts/${el.path}`}
                 className="w-full flex flex-row justify-between gap-8"

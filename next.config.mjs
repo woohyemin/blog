@@ -1,7 +1,18 @@
+import createMDX from "@next/mdx";
+import rehypeCodeTitles from "rehype-code-titles";
+import remarkGfm from "remark-gfm";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
-  compiler: {},
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  extension: /\.(md|mdx)$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeCodeTitles],
+  },
+});
+
+export default withMDX(nextConfig);

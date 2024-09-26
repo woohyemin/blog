@@ -33,7 +33,6 @@ export const metadata: Metadata = {
 
 export default async function Projects() {
   const allPosts = await getAllPosts();
-  const sortedPosts = allPosts.sort((a, b) => b.date.localeCompare(a.date));
 
   if (!allPosts) {
     return <div className="bg-red-50 w-5 h-5" />;
@@ -59,7 +58,7 @@ export default async function Projects() {
         }
       />
 
-      <Posts posts={sortedPosts} />
+      <Posts posts={allPosts} />
     </TemplateLayout>
   );
 }
