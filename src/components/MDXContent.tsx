@@ -90,5 +90,9 @@ const components: MDXComponents = {
  * MDXContent component
  */
 export const MDXContent = ({ ...props }: MDXRemoteSerializeResult) => {
-  return <MDXRemote {...props} components={components} />;
+  return (
+    <div>
+      <MDXRemote {...props} components={components} />
+    </div>
+  );
 };
