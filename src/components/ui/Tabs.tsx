@@ -1,7 +1,13 @@
 "use client";
 
 import * as RadixTabs from "@radix-ui/react-tabs";
-import React, { useEffect, useRef, useState, ReactNode } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  ReactNode,
+  useCallback,
+} from "react";
 
 type TabOffset = { [key: string]: { left: number; width: number } };
 
@@ -16,7 +22,7 @@ const Tabs = ({
   const [selectedTab, setSelectedTab] = useState(defaultValue);
   const [tabOffsets, setTabOffsets] = useState<TabOffset>({});
 
-  useEffect(() => {
+  const updateTabOffsets = useCallback(() => {
     if (tabRef.current) {
       const childrenArray = Array.from(
         tabRef.current.querySelectorAll("[role='tablist'] > button")
@@ -41,6 +47,19 @@ const Tabs = ({
     }
   }, []);
 
+  useEffect(() => {
+    updateTabOffsets();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => updateTabOffsets();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <RadixTabs.Root
       ref={tabRef}
@@ -57,7 +76,7 @@ const Tabs = ({
                   left: tabOffsets[selectedTab]?.left,
                   width: tabOffsets[selectedTab]?.width,
                 }}
-                className="absolute bottom-0 h-0.5 bg-tabActiveBg rounded-sm transition-all duration-300 ease-in-out"
+                className="absolute bottom-[-1px] h-0.5 bg-tabActiveBg rounded-sm transition-all duration-300 ease-in-out"
               />
             </TabsList>
           );
@@ -69,7 +88,11 @@ const Tabs = ({
 };
 
 const TabsList = ({ children }: { children: ReactNode }) => {
-  return <RadixTabs.List className="relative">{children}</RadixTabs.List>;
+  return (
+    <RadixTabs.List className="relative flex gap-4 sm:gap-5 mb-5 sm:mb-8">
+      {children}
+    </RadixTabs.List>
+  );
 };
 
 const TabsTrigger = ({
@@ -82,7 +105,7 @@ const TabsTrigger = ({
   return (
     <RadixTabs.Trigger
       value={value}
-      className="text-disabled px-3 py-1 text-h4 data-[state=active]:text-primary"
+      className="text-disabled py-0.5 text-h5 sm:text-h4 data-[state=active]:text-primary data-[state=active]:font-medium"
     >
       {children}
     </RadixTabs.Trigger>
