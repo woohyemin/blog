@@ -32,7 +32,7 @@ export const Posts = ({ posts }: PostsProps) => {
   }, [currCategory]);
 
   return (
-    <div className="flex flex-col gap-6 sm:gap-9">
+    <div className="flex flex-col gap-6 sm:gap-8">
       <Categories
         currCategory={currCategory}
         setCurrCategory={setCurrCategory}
@@ -58,7 +58,7 @@ export const Posts = ({ posts }: PostsProps) => {
                       <Chip key={tag}>{tag}</Chip>
                     ))}
                   </div>
-                  <p className="text-caption text-disabled pt-3 sm:pt-5">
+                  <p className="text-caption sm:text-body2 text-disabled pt-3 sm:pt-5">
                     {el.date}
                   </p>
                 </div>
