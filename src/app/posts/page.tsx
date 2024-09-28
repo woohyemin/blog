@@ -4,6 +4,7 @@ import { Posts } from "@/components/organisms/Posts";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
 import { getAllPosts } from "@/api/posts";
 import { Metadata } from "next";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
@@ -32,11 +33,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Projects() {
-  const allPosts = await getAllPosts();
-
-  if (!allPosts) {
-    return <div className="bg-red-50 w-5 h-5" />;
-  }
+  const writingPosts = await getAllPosts('writing');
+  const studyPosts = await getAllPosts('study');
 
   return (
     <TemplateLayout>
@@ -58,7 +56,19 @@ export default async function Projects() {
         }
       />
 
-      <Posts posts={allPosts} />
+      <Tabs defaultValue="writing">
+        <TabsList>
+          <TabsTrigger value="writing">글</TabsTrigger>
+          <TabsTrigger value="study">공부</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="writing">
+          <Posts posts={writingPosts} />
+        </TabsContent>
+        <TabsContent value="study">
+          <Posts posts={studyPosts} />
+        </TabsContent>
+      </Tabs>
     </TemplateLayout>
   );
 }

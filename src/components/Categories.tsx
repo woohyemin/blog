@@ -4,30 +4,9 @@ import { Post } from "@/api/posts";
 import { Tabs } from "./molecules/navigation/Tabs";
 import { TabProps } from "@/components/atoms/navigation/Tab/index";
 
-export type Category =
-  | "All"
-  | "Blog"
-  | "Next.js"
-  | "React"
-  | "Tailwind CSS"
-  | "Plugin"
-  | "Algorithm"
-  | "Etc";
-
-const categoryList: Category[] = [
-  "All",
-  "Blog",
-  "Next.js",
-  // "React",
-  "Tailwind CSS",
-  // "Plugin",
-  // "Algorithm",
-  "Etc",
-];
-
 interface Props {
-  currCategory: Category;
-  setCurrCategory: (category: Category) => void;
+  currCategory: string;
+  setCurrCategory: (category: string) => void;
   allPosts: Post[];
 }
 
@@ -36,15 +15,21 @@ export default function Categories({
   setCurrCategory,
   allPosts,
 }: Props) {
-  const onCategoryClick = (category: Category) => setCurrCategory(category);
+  const categories = Array.from(new Set(allPosts.map(post => post.categories).flat())).filter(category => category !== 'Etc');
+  const sortedCategories = categories.sort((a, b) => a.localeCompare(b));
 
-  const numOfCategoryPosts = (currCategory: Category) => {
+  sortedCategories.unshift('All');
+  sortedCategories.push('Etc');
+
+  const onCategoryClick = (category: string) => setCurrCategory(category);
+
+  const numOfCategoryPosts = (currCategory: string) => {
     if (currCategory === "All") return allPosts.length;
     return allPosts.filter((post) => post.categories.includes(currCategory))
       .length;
   };
 
-  const tabs: TabProps[] = categoryList.map((category) => {
+  const tabs: TabProps[] = sortedCategories.map((category) => {
     return {
       label: (
         <div className="flex gap-1">

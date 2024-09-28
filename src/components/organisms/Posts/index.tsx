@@ -4,7 +4,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Divider } from "@/components/atoms/data-display/Divider";
 import Link from "next/link";
 import { Post } from "@/api/posts";
-import Categories, { Category } from "@/components/Categories";
+import Categories from "@/components/Categories";
 import { Chip } from "@/components/atoms/data-display/Chip";
 import Image from "next/image";
 
@@ -19,7 +19,7 @@ export interface PostsProps {
  * Posts component
  */
 export const Posts = ({ posts }: PostsProps) => {
-  const [currCategory, setCurrCategory] = useState<Category>("All");
+  const [currCategory, setCurrCategory] = useState<string>("All");
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
 
   useEffect(() => {
