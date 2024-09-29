@@ -28,32 +28,6 @@ const components: MDXComponents = {
       {...props}
     />
   ),
-  h4: (props) => {
-    const content = String(props.children).split("///");
-    const body = content.pop();
-    const title = content.pop();
-    const icon = content.pop();
-
-    return (
-      <div className="flex bg-paper rounded-lg p-3 mt-2 mb-3 gap-2 sm:mt-3 sm:mb-5 sm:p-4">
-        {icon && <span className="text-body1 sm:text-h3">{icon}</span>}
-        <div className="flex flex-col pt-1">
-          <p className="text-primary font-medium text-caption mb-0.5 sm:text-body2">
-            {title}
-          </p>
-          <p className="text-secondary text-caption mb-0.5 sm:text-body2">
-            {body}
-          </p>
-        </div>
-      </div>
-    );
-  },
-  h5: (props) => (
-    <h6
-      className="text-primary text-body1 font-medium mt-2.5 mb-1 sm:text-h6"
-      {...props}
-    />
-  ),
   p: (props) => (
     <p className="text-secondary text-body2 mb-0.5 sm:text-body1" {...props} />
   ),
