@@ -5,6 +5,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import React from "react";
 import { Icon } from "@/components/atoms/data-display/Icon";
 import { CodeBlock } from "@/components/CodeBlock";
+import { DescriptionBox } from "@/components/ui/DescriptionBox";
 
 const components: MDXComponents = {
   h1: (props) => (
@@ -84,6 +85,7 @@ const components: MDXComponents = {
     </div>
   ),
   code: (props) => <CodeBlock {...props} />,
+  DescriptionBox,
 };
 
 /**
