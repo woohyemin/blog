@@ -12,11 +12,13 @@ import React, {
 type TabOffset = { [key: string]: { left: number; width: number } };
 
 const Tabs = ({
+  value,
   defaultValue,
   children,
 }: {
   defaultValue: string;
   children: ReactNode;
+  value?: string;
 }) => {
   const tabRef = useRef<HTMLDivElement>(null);
   const [selectedTab, setSelectedTab] = useState(defaultValue);
@@ -49,7 +51,11 @@ const Tabs = ({
 
   useEffect(() => {
     updateTabOffsets();
-  }, []);
+  }, [updateTabOffsets]);
+
+  useEffect(() => {
+    if (value) setSelectedTab(value);
+  }, [value]);
 
   useEffect(() => {
     const handleResize = () => updateTabOffsets();
@@ -58,11 +64,12 @@ const Tabs = ({
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [updateTabOffsets]);
 
   return (
     <RadixTabs.Root
       ref={tabRef}
+      value={value}
       defaultValue={defaultValue}
       onValueChange={setSelectedTab}
     >
