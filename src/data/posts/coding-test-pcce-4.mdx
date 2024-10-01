@@ -1,0 +1,33 @@
+---
+title: "[코딩테스트] PCCE 기출문제 4번 - 저축"
+date: "2024-10-01 21:30:00"
+description: "PCCE 기출문제 풀기"
+categories: ["Algorithm", "Coding Test"]
+tags: ["Algorithm", "Coding Test", "Study", "Programmers", "PCCE", "Level 0"]
+activate: true
+---
+
+# 문제
+
+- 난이도: `Level 0`
+- 언어: `Python3`
+- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/250130
+
+# 풀이
+
+```python:Solution
+start = int(input())
+before = int(input())
+after = int(input())
+
+money = start
+month = 1
+while money < 70:
+    money += before
+    month += 1
+while money < 100:
+    money += after
+    month += 1
+
+print(month)
+```

@@ -1,0 +1,28 @@
+---
+title: "[코딩테스트] PCCE 기출문제 6번 - 가채점"
+date: "2024-10-01 22:50:00"
+description: "PCCE 기출문제 풀기"
+categories: ["Algorithm", "Coding Test"]
+tags: ["Algorithm", "Coding Test", "Study", "Programmers", "PCCE", "Level 0"]
+activate: true
+---
+
+# 문제
+
+- 난이도: `Level 0`
+- 언어: `Python3`
+- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/240601
+
+# 풀이
+
+```python:Solution
+def solution(numbers, our_score, score_list):
+    answer = []
+    for i in range(len(numbers)):
+        if our_score[i] == score_list[numbers[i] - 1]:
+            answer.append("Same")
+        else:
+            answer.append("Different")
+
+    return answer
+```

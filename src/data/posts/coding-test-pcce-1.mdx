@@ -1,0 +1,48 @@
+---
+title: "[코딩테스트] PCCE 기출문제 1번 - 출력"
+date: "2024-10-01 20:20:00"
+description: "PCCE 기출문제 풀기"
+categories: ["Algorithm", "Coding Test"]
+tags: ["Algorithm", "Coding Test", "Study", "Programmers", "PCCE", "Level 0"]
+activate: true
+---
+
+# 문제
+
+- 난이도: `Level 0`
+- 언어: `Java`
+- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/250133
+
+# 풀이
+
+```java:Solution1
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        String msg = "Spring is beginning";
+        int val1 = 3;
+        String val2 = "3";
+
+        System.out.println(msg);
+        System.out.println(val1 + 10);
+        System.out.println(val2 + "10");
+    }
+}
+```
+
+```java:Solution2
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        String msg = "Spring is beginning";
+        int val1 = msg.split(" ").length;
+        String val2 = String.valueOf(val1);
+
+        System.out.println(msg);
+        System.out.println(val1 + 10);
+        System.out.println(val2 + "10");
+    }
+}
+```

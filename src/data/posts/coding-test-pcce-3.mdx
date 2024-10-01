@@ -1,0 +1,28 @@
+---
+title: "[코딩테스트] PCCE 기출문제 3번 - 나이 계산"
+date: "2024-10-01 21:20:00"
+description: "PCCE 기출문제 풀기"
+categories: ["Algorithm", "Coding Test"]
+tags: ["Algorithm", "Coding Test", "Study", "Programmers", "PCCE", "Level 0"]
+activate: true
+---
+
+# 문제
+
+- 난이도: `Level 0`
+- 언어: `Python3`
+- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/250131
+
+# 풀이
+
+```python:Solution
+year = int(input())
+age_type = input()
+
+if age_type == "Korea":
+    answer = 2030 - year + 1
+elif age_type == "Year":
+    answer = 2030 - year
+
+print(answer)
+```
