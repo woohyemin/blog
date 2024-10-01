@@ -23,7 +23,9 @@ export default function Tab({
 }: TabProps) {
   return (
     <button
-      className={`transition-all flex min-w-fit items-center rounded-full ${sizes[size]} ${
+      className={`transition-[background-color] flex min-w-fit items-center rounded-full ${
+        sizes[size]
+      } ${
         selected ? "bg-tabActiveBg text-tabActiveText" : "bg-tabBg text-tabText"
       }`}
       {...props}
