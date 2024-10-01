@@ -1,8 +1,8 @@
 "use client";
 
 import { Post } from "@/api/posts";
-import { Tabs } from "./molecules/navigation/Tabs";
-import { TabProps } from "@/components/atoms/navigation/Tab/index";
+import { Buttons } from "../../molecules/buttons";
+import { ButtonProps } from "../../atoms/button";
 
 interface Props {
   currCategory: string;
@@ -10,16 +10,14 @@ interface Props {
   allPosts: Post[];
 }
 
-export default function Categories({
-  currCategory,
-  setCurrCategory,
-  allPosts,
-}: Props) {
-  const categories = Array.from(new Set(allPosts.map(post => post.categories).flat())).filter(category => category !== 'Etc');
+const Categories = ({ currCategory, setCurrCategory, allPosts }: Props) => {
+  const categories = Array.from(
+    new Set(allPosts.map((post) => post.categories).flat())
+  ).filter((category) => category !== "Etc");
   const sortedCategories = categories.sort((a, b) => a.localeCompare(b));
 
-  sortedCategories.unshift('All');
-  sortedCategories.push('Etc');
+  sortedCategories.unshift("All");
+  sortedCategories.push("Etc");
 
   const onCategoryClick = (category: string) => setCurrCategory(category);
 
@@ -29,23 +27,27 @@ export default function Categories({
       .length;
   };
 
-  const tabs: TabProps[] = sortedCategories.map((category) => {
+  const buttons: ButtonProps[] = sortedCategories.map((category) => {
     return {
       label: (
         <div className="flex gap-1">
           <span>{category}</span>
           <span
-            className={`tracking-wider ${currCategory === category ? "text-tabActiveNum" : "text-tabNum"}`}
+            className={`tracking-wider ${
+              currCategory === category ? "text-tabActiveNum" : "text-tabNum"
+            }`}
           >
             ({numOfCategoryPosts(category)})
           </span>
         </div>
       ),
       value: category,
-      selected: currCategory === category,
+      isActive: currCategory === category,
       onClick: () => onCategoryClick(category),
     };
   });
 
-  return <Tabs tabs={tabs} />;
-}
+  return <Buttons buttons={buttons} />;
+};
+
+export default Categories;

@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useRef } from "react";
 
-export const Comments = () => {
+const Comments = () => {
   const ref = useRef<HTMLElement>(null);
   const { theme } = useTheme();
 

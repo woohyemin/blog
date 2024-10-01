@@ -1,8 +1,13 @@
 "use client";
 
 import React, { PropsWithChildren } from "react";
-import { Posts } from "@/components/organisms/Posts";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
+import Posts from "@/components/organisms/posts";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/molecules/tabs";
 import { Post } from "@/api/posts";
 
 /**

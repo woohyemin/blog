@@ -1,8 +1,8 @@
 import React from "react";
-import { Icon } from "@/components/atoms/data-display/Icon";
+import Icon from "@/components/atoms/icon";
 import Link from "next/link";
 import { Post } from "@/api/posts";
-import { Divider } from "@/components/atoms/data-display/Divider";
+import Divider from "@/components/atoms/divider";
 
 /**
  * PrevNextPosts component props
@@ -15,7 +15,7 @@ interface PrevNextPostsProps {
 /**
  * PrevNextPosts component
  */
-export const PrevNextPosts = ({ prevPost, nextPost }: PrevNextPostsProps) => {
+const PrevNextPosts = ({ prevPost, nextPost }: PrevNextPostsProps) => {
   return (
     <div className="flex flex-col gap-6 mt-10 sm:mt-16">
       <Divider />
@@ -52,3 +52,5 @@ export const PrevNextPosts = ({ prevPost, nextPost }: PrevNextPostsProps) => {
     </div>
   );
 };
+
+export default PrevNextPosts;

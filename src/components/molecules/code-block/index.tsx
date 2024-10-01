@@ -18,7 +18,7 @@ export interface CodeBlockProps {
 /**
  * CodeBlock component
  */
-export const CodeBlock = ({
+const CodeBlock = ({
   className,
   ...props
 }: PropsWithChildren<CodeBlockProps>) => {
@@ -60,3 +60,5 @@ export const CodeBlock = ({
     </div>
   );
 };
+
+export default CodeBlock;

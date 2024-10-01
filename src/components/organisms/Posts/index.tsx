@@ -1,11 +1,11 @@
 "use client";
 
 import React, { Fragment, useEffect, useState } from "react";
-import { Divider } from "@/components/atoms/data-display/Divider";
+import Divider from "@/components/atoms/divider";
 import Link from "next/link";
 import { Post } from "@/api/posts";
-import Categories from "@/components/Categories";
-import { Chip } from "@/components/atoms/data-display/Chip";
+import Categories from "@/components/organisms/categories";
+import Chip from "@/components/atoms/chip";
 import Image from "next/image";
 
 /**
@@ -18,7 +18,7 @@ export interface PostsProps {
 /**
  * Posts component
  */
-export const Posts = ({ posts }: PostsProps) => {
+const Posts = ({ posts }: PostsProps) => {
   const [currCategory, setCurrCategory] = useState<string>("All");
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
 
@@ -29,7 +29,7 @@ export const Posts = ({ posts }: PostsProps) => {
         return post.categories.includes(currCategory);
       })
     );
-  }, [currCategory]);
+  }, [currCategory, posts]);
 
   return (
     <div className="flex flex-col gap-6 sm:gap-8">
@@ -82,3 +82,5 @@ export const Posts = ({ posts }: PostsProps) => {
     </div>
   );
 };
+
+export default Posts;

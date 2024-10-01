@@ -3,9 +3,9 @@
 import { MDXComponents } from "mdx/types";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import React from "react";
-import { Icon } from "@/components/atoms/data-display/Icon";
-import { CodeBlock } from "@/components/CodeBlock";
-import { DescriptionBox } from "@/components/ui/DescriptionBox";
+import Icon from "@/components/atoms/icon";
+import CodeBlock from "@/components/molecules/code-block";
+import DescriptionBox from "@/components/molecules/description-box";
 
 const components: MDXComponents = {
   h1: (props) => (
@@ -63,12 +63,14 @@ const components: MDXComponents = {
 };
 
 /**
- * MDXContent component
+ * MDXTemplate component
  */
-export const MDXContent = ({ ...props }: MDXRemoteSerializeResult) => {
+const MDXTemplate = ({ ...props }: MDXRemoteSerializeResult) => {
   return (
     <div>
       <MDXRemote {...props} components={components} />
     </div>
   );
 };
+
+export default MDXTemplate;

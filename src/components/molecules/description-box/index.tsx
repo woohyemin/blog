@@ -14,7 +14,7 @@ export interface DescriptionBoxProps {
 /**
  * DescriptionBox component
  */
-export const DescriptionBox = ({
+const DescriptionBox = ({
   icon,
   title,
   content,
@@ -33,3 +33,5 @@ export const DescriptionBox = ({
     </div>
   );
 };
+
+export default DescriptionBox;

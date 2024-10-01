@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Providers from "@/styles/Providers";
 import "./globals.css";
-import { Footer } from "@/components/organisms/Footer";
+import Footer from "@/components/organisms/footer";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import { montserrat } from "./fonts";
 

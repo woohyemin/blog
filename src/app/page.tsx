@@ -1,7 +1,7 @@
-import { Header } from "@/components/organisms/Header";
-import TemplateLayout from "@/components/templates/layout/TemplateLayout";
+import Header from "@/components/organisms/header";
+import TemplateLayout from "@/components/templates/layout/template-layout";
 import Link from "next/link";
-import { Icon } from "@/components/atoms/data-display/Icon";
+import Icon from "@/components/atoms/icon";
 import { Metadata } from "next";
 import { PropsWithChildren } from "react";
 

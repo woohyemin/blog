@@ -1,9 +1,9 @@
-import { ByHem } from "@/components/molecules/ByHem";
-import { Header } from "@/components/organisms/Header";
-import TemplateLayout from "@/components/templates/layout/TemplateLayout";
+import ByHem from "@/components/molecules/by-hem";
+import Header from "@/components/organisms/header";
+import TemplateLayout from "@/components/templates/layout/template-layout";
 import { getAllPosts } from "@/api/posts";
 import { Metadata } from "next";
-import PostsTemplate from "@/components/templates/PostsTemplate";
+import PostsTemplate from "@/components/templates/posts-template";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),

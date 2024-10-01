@@ -1,7 +1,7 @@
 import Link from "next/link";
-import TemplateLayout from "@/components/templates/layout/TemplateLayout";
-import { Icon } from "@/components/atoms/data-display/Icon";
-import { Header } from "@/components/organisms/Header";
+import TemplateLayout from "@/components/templates/layout/template-layout";
+import Icon from "@/components/atoms/icon";
+import Header from "@/components/organisms/header";
 
 export default async function NotFound() {
   return (

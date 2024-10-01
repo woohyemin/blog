@@ -1,6 +1,6 @@
 import type { MDXComponents } from "mdx/types";
-import { Icon } from "@/components/atoms/data-display/Icon";
-import { CodeBlock } from "@/components/CodeBlock";
+import Icon from "@/components/atoms/icon";
+import CodeBlock from "@/components/molecules/code-block";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

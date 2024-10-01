@@ -1,15 +1,15 @@
-import { Dot } from "@/components/atoms/data-display/Dot";
-import { ByHem } from "@/components/molecules/ByHem";
-import Comments from "@/components/organisms/Comments";
-import { Header } from "@/components/organisms/Header";
-import TemplateLayout from "@/components/templates/layout/TemplateLayout";
+import Dot from "@/components/atoms/dot";
+import ByHem from "@/components/molecules/by-hem";
+import Comments from "@/components/organisms/comments";
+import Header from "@/components/organisms/header";
+import TemplateLayout from "@/components/templates/layout/template-layout";
 import { getPost, getPrevNextPost } from "@/api/posts";
 import { Metadata } from "next";
 import Image from "next/image";
-import { Chip } from "@/components/atoms/data-display/Chip";
-import { PrevNextPosts } from "@/components/organisms/PrevNextPosts";
+import Chip from "@/components/atoms/chip";
+import PrevNextPosts from "@/components/organisms/prev-next-posts";
 import { notFound } from "next/navigation";
-import { MDXContent } from "@/components/MDXContent";
+import MDXTemplate from "@/components/templates/mdx-template";
 
 interface Props {
   params: {
@@ -103,7 +103,7 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
         )}
       </div>
 
-      <MDXContent {...post.source} />
+      <MDXTemplate {...post.source} />
 
       {prevNextPost !== "not-found" && (
         <PrevNextPosts

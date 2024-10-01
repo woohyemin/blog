@@ -34,7 +34,7 @@ interface IconProps {
 /**
  * Icon component
  */
-export const Icon = ({
+const Icon = ({
   icon,
   size = "md",
   color = "primary",
@@ -52,3 +52,5 @@ export const Icon = ({
     </svg>
   );
 };
+
+export default Icon;

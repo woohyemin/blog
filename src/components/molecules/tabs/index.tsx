@@ -76,7 +76,7 @@ const Tabs = ({
                   left: tabOffsets[selectedTab]?.left,
                   width: tabOffsets[selectedTab]?.width,
                 }}
-                className="absolute bottom-[-1px] h-0.5 bg-tabActiveBg rounded-sm transition-all duration-300 ease-in-out"
+                className="absolute bottom-[-1px] h-0.5 bg-btnActiveBg rounded-sm transition-all duration-300 ease-in-out"
               />
             </TabsList>
           );
@@ -98,14 +98,17 @@ const TabsList = ({ children }: { children: ReactNode }) => {
 const TabsTrigger = ({
   value,
   children,
+  onClick,
 }: {
   value: string;
   children: ReactNode;
+  onClick?: () => void;
 }) => {
   return (
     <RadixTabs.Trigger
       value={value}
       className="text-disabled py-0.5 text-h5 sm:text-h4 data-[state=active]:text-primary data-[state=active]:font-medium"
+      onClick={onClick}
     >
       {children}
     </RadixTabs.Trigger>
