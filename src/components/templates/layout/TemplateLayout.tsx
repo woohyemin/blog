@@ -12,7 +12,7 @@ export interface TemplateLayoutProps {
 /**
  * TemplateLayout component
  */
-export const TemplateLayout = ({
+const TemplateLayout = ({
   className,
   ...props
 }: PropsWithChildren<TemplateLayoutProps>) => {
@@ -23,3 +23,5 @@ export const TemplateLayout = ({
     />
   );
 };
+
+export default TemplateLayout;

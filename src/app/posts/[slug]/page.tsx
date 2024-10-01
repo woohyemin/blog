@@ -2,14 +2,14 @@ import { Dot } from "@/components/atoms/data-display/Dot";
 import { ByHem } from "@/components/molecules/ByHem";
 import Comments from "@/components/organisms/Comments";
 import { Header } from "@/components/organisms/Header";
-import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
+import TemplateLayout from "@/components/templates/layout/TemplateLayout";
 import { getPost, getPrevNextPost } from "@/api/posts";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Chip } from "@/components/atoms/data-display/Chip";
 import { PrevNextPosts } from "@/components/organisms/PrevNextPosts";
 import { notFound } from "next/navigation";
-import { MDXContent } from '@/components/MDXContent';
+import { MDXContent } from "@/components/MDXContent";
 
 interface Props {
   params: {
@@ -33,7 +33,9 @@ export async function generateMetadata({
     openGraph: {
       images: [
         {
-          url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join("_")}_thumbnail.jpg`,
+          url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join(
+            "_"
+          )}_thumbnail.jpg`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -43,7 +45,9 @@ export async function generateMetadata({
     twitter: {
       images: [
         {
-          url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join("_")}_thumbnail.jpg`,
+          url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join(
+            "_"
+          )}_thumbnail.jpg`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -98,8 +102,8 @@ export default async function PostDetailPage({ params: { slug } }: Props) {
           />
         )}
       </div>
-      
-      <MDXContent {...post.source}/>
+
+      <MDXContent {...post.source} />
 
       {prevNextPost !== "not-found" && (
         <PrevNextPosts

@@ -1,5 +1,5 @@
 import { Header } from "@/components/organisms/Header";
-import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
+import TemplateLayout from "@/components/templates/layout/TemplateLayout";
 import Link from "next/link";
 import { Icon } from "@/components/atoms/data-display/Icon";
 import { Metadata } from "next";

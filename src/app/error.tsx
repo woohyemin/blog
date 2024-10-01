@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
+import TemplateLayout from "@/components/templates/layout/TemplateLayout";
 import { Icon } from "@/components/atoms/data-display/Icon";
 import { Header } from "@/components/organisms/Header";
 

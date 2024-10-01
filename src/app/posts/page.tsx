@@ -1,6 +1,6 @@
 import { ByHem } from "@/components/molecules/ByHem";
 import { Header } from "@/components/organisms/Header";
-import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
+import TemplateLayout from "@/components/templates/layout/TemplateLayout";
 import { getAllPosts } from "@/api/posts";
 import { Metadata } from "next";
 import PostsTemplate from "@/components/templates/PostsTemplate";
