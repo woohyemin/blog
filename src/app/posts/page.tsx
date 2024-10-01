@@ -1,10 +1,9 @@
 import { ByHem } from "@/components/molecules/ByHem";
 import { Header } from "@/components/organisms/Header";
-import { Posts } from "@/components/organisms/Posts";
 import { TemplateLayout } from "@/components/templates/layout/TemplateLayout";
 import { getAllPosts } from "@/api/posts";
 import { Metadata } from "next";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
+import PostsTemplate from "@/components/templates/PostsTemplate";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
@@ -32,9 +31,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Projects() {
-  const writingPosts = await getAllPosts('writing');
-  const studyPosts = await getAllPosts('study');
+export default async function Posts() {
+  const writingPosts = await getAllPosts("writing");
+  const studyPosts = await getAllPosts("study");
 
   return (
     <TemplateLayout>
@@ -56,19 +55,7 @@ export default async function Projects() {
         }
       />
 
-      <Tabs defaultValue="writing">
-        <TabsList>
-          <TabsTrigger value="writing">글</TabsTrigger>
-          <TabsTrigger value="study">공부</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="writing">
-          <Posts posts={writingPosts} />
-        </TabsContent>
-        <TabsContent value="study">
-          <Posts posts={studyPosts} />
-        </TabsContent>
-      </Tabs>
+      <PostsTemplate writingPosts={writingPosts} studyPosts={studyPosts} />
     </TemplateLayout>
   );
 }
