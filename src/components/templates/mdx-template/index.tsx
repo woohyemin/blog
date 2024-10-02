@@ -45,12 +45,14 @@ const components: MDXComponents = {
   del: (props) => <del className="text-del decoration-[0.8px]" {...props} />,
   a: (props) => (
     <a
-      className="text-primary font-regular inline-flex flex-row items-center underline underline-offset-[3px] decoration-[0.8px] decoration-underline"
+      className="text-primary font-regular inline-flex flex-row break-all items-start underline underline-offset-[3px] decoration-[0.8px] decoration-underline"
       target="_blank"
       {...props}
     >
       {props.children}
-      <Icon icon="externalLink" size="sm" color="secondary" />
+      <span className="pt-[4px] sm:pt-[5px]">
+        <Icon icon="externalLink" size="sm" color="secondary" />
+      </span>
     </a>
   ),
   img: (props) => (
