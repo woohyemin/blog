@@ -110,3 +110,13 @@
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
+
+@layer utilities {
+  .header-gradient {
+    background: linear-gradient(
+      to bottom,
+      var(--background) 0%,
+      transparent 100%
+    );
+  }
+}
