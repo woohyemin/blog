@@ -10,7 +10,6 @@ import {
 } from "@/components/molecules/tabs";
 import { Post } from "@/api/posts";
 import { useRouter, useSearchParams } from "next/navigation";
-import Loader from "@/components/atoms/loader";
 import TemplateLayout from "../layout/template-layout";
 import ByHem from "@/components/molecules/by-hem";
 import Header from "@/components/organisms/header";
@@ -24,13 +23,18 @@ const TABS = [
 /**
  * PostsTemplate component
  */
-const PostsTemplate = () => {
+export interface PostsTemplateProps {
+  writingPosts: Post[];
+  studyPosts: Post[];
+}
+
+/**
+ * PostsTemplate component
+ */
+const PostsTemplate = ({ writingPosts, studyPosts }: PostsTemplateProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [currentTab, setCurrentTab] = useState<string>(DEFAULT_TAB);
-  const [writingPosts, setWritingPosts] = useState<Post[]>([]);
-  const [studyPosts, setStudyPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
 
   const handleTabChange = (selectedTab: string) => {
     const newParams = new URLSearchParams(searchParams.toString());
@@ -42,24 +46,6 @@ const PostsTemplate = () => {
     const tab = searchParams.get("tab");
     if (tab) setCurrentTab(tab);
   }, [searchParams]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-
-      const res = await fetch(`/api/posts?tab=writing`);
-      const writingData = await res.json();
-      setWritingPosts(writingData);
-
-      const studyRes = await fetch(`/api/posts?tab=study`);
-      const studyData = await studyRes.json();
-      setStudyPosts(studyData);
-
-      setLoading(false);
-    };
-
-    fetchPosts();
-  }, [currentTab]);
 
   return (
     <TemplateLayout>
@@ -93,18 +79,13 @@ const PostsTemplate = () => {
             </TabsTrigger>
           ))}
         </TabsList>
-        {loading ? (
-          <Loader />
-        ) : (
-          <>
-            <TabsContent value="writing">
-              <Posts posts={writingPosts} />
-            </TabsContent>
-            <TabsContent value="study">
-              <Posts posts={studyPosts} />
-            </TabsContent>
-          </>
-        )}
+
+        <TabsContent value="writing">
+          <Posts posts={writingPosts} />
+        </TabsContent>
+        <TabsContent value="study">
+          <Posts posts={studyPosts} />
+        </TabsContent>
       </Tabs>
     </TemplateLayout>
   );
