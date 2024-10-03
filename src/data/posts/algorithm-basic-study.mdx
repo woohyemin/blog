@@ -1,0 +1,101 @@
+---
+title: "알고리즘 (기본)"
+date: "2024-09-29 03:20:00"
+description: "기본적인 알고리즘 위주로 정리하기"
+categories: ["Algorithm"]
+tags: ["Algorithm", "Study"]
+activate: true
+---
+
+<DescriptionBox
+  icon="📝"
+  title="참고"
+  content="해당 글은 알고리즘을 공부하며 정리하는 문서로, 내용이 추가 및 수정될 수 있습니다."
+/>
+
+# 배열
+
+## 배열 중복 제거하기
+
+배열에서 중복된 값을 제거하기
+
+```javascript:Code
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4]));
+```
+
+```javascript:Result
+[1, 2, 3, 4]
+```
+
+## 배열의 교집합 구하기
+
+배열에서 공통으로 포함된 요소만 반환하기
+
+```javascript:Code
+// 배열이 2개 주어졌을 때
+function intersection(arr1, arr2) {
+  return arr1.filter((value) => arr2.includes(value));
+}
+
+console.log(intersection([1, 2, 3], [2, 3, 4]));
+```
+
+```javascript:Result
+[2, 3]
+```
+
+## 배열 합집합 구하기
+
+배열에서 중복을 제거한 합집합을 반환하기
+
+```javascript:Code
+// 배열이 2개 주어졌을 때
+function union(arr1, arr2) {
+  return [...new Set([...arr1, ...arr2])];
+}
+
+console.log(union([1, 2, 3], [2, 3, 4]));
+```
+
+```javascript:Result
+[1, 2, 3, 4]
+```
+
+## 배열 차집합 구하기
+
+첫 번째 배열에 포함되어 있지만, 두 번째 배열에는 없는 요소들을 반환하기
+
+```javascript:Code
+// 배열이 2개 주어졌을 때
+function difference(arr1, arr2) {
+  return arr1.filter((value) => !arr2.includes(value));
+}
+
+console.log(difference([1, 2, 3], [2, 3, 4]));
+```
+
+```javascript:Result
+[1]
+```
+
+# 문자열
+
+## 문자열 뒤집기
+
+주어진 문자열을 뒤집기
+
+```javascript:Code
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+
+console.log(reverseString("frontend"));
+```
+
+```javascript:Result
+dnetnorf
+```
