@@ -33,7 +33,7 @@ const Chip = ({
     <span
       className={`flex justify-center items-center text-caption py-0.5 px-2.5 ${
         variants[variant][color]
-      } min-w-fit h-[26px] ${round ? "rounded-full" : "rounded-md"}`}
+      } min-w-fit h-6 ${round ? "rounded-full" : "rounded-md"}`}
       {...props}
     >
       {children}
