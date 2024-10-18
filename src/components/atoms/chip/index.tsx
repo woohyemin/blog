@@ -9,6 +9,7 @@ const colors = {
 
 export interface ChipProps extends HTMLAttributes<HTMLSpanElement> {
   color?: "primary" | "secondary";
+  round?: boolean;
 }
 
 /**
@@ -16,12 +17,15 @@ export interface ChipProps extends HTMLAttributes<HTMLSpanElement> {
  */
 const Chip = ({
   color = "secondary",
+  round,
   children,
   ...props
 }: PropsWithChildren<ChipProps>) => {
   return (
     <span
-      className={`text-caption py-1 px-2.5 rounded-md ${colors[color]} min-w-fit`}
+      className={`text-caption py-1 px-2.5 ${colors[color]} min-w-fit ${
+        round ? "rounded-full" : "rounded-md"
+      }`}
       {...props}
     >
       {children}

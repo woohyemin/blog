@@ -55,9 +55,11 @@ const Projects = ({ projects }: ProjectsProps) => {
                     {el.date}
                   </p>
                   {el.completed ? (
-                    <Chip color="primary">개발 완료</Chip>
+                    <Chip color="primary" round>
+                      개발 완료
+                    </Chip>
                   ) : (
-                    <Chip>개발 중</Chip>
+                    <Chip round>개발 중</Chip>
                   )}
                 </div>
               </div>
