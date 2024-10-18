@@ -33,8 +33,8 @@ const Projects = ({ projects }: ProjectsProps) => {
                     className="w-full h-[200px] object-cover inline"
                     src={`/images/posts/${el.thumbnail}`}
                     alt={`${el.title} 섬네일`}
-                    width={300}
-                    height={315}
+                    width={600}
+                    height={630}
                   />
                 )}
 
