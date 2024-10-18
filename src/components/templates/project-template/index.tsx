@@ -11,6 +11,8 @@ import Image from "next/image";
 import MDXTemplate from "@/components/templates/mdx-template";
 import Chip from "@/components/atoms/chip";
 import { Post } from "@/api/posts";
+import Link from "next/link";
+import DescriptionBox from "@/components/molecules/description-box";
 
 /**
  * ProjectTemplate component props
@@ -70,6 +72,19 @@ const ProjectTemplate = ({ project }: ProjectTemplateProps) => {
             width={1080}
             height={640}
           />
+        )}
+
+        {project.url && (
+          <div className="flex items-center gap-3 mb-6 sm:mb-8 text-h5 sm:text-h4">
+            <span>🔗</span>
+            <Link
+              className="text-secondary text-h5 sm:text-h4 underline"
+              href={project.url}
+              target="_blank"
+            >
+              {project.url}
+            </Link>
+          </div>
         )}
 
         <MDXTemplate {...project.source} />

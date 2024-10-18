@@ -15,6 +15,7 @@ export interface PostData {
   description?: string;
   series?: string;
   thumbnail?: string;
+  url?: string;
   completed?: boolean;
   activate?: boolean;
 }
