@@ -31,7 +31,7 @@ const Header = ({ title, content }: HeaderProps) => {
         </div>
         {content}
       </div>
-      <div className="h-8 header-gradient" />
+      <div className="h-6 header-gradient" />
     </header>
   );
 };
