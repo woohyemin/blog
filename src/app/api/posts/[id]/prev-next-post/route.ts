@@ -1,12 +1,12 @@
-import { getPrevNextPost } from "@/api/posts";
+import { getPrevNextPost, PostType } from "@/api/posts";
 import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string; type: PostType } }
 ) {
-  const { id } = params;
-  const data = await getPrevNextPost(id);
+  const { id, type } = params;
+  const data = await getPrevNextPost({ id, type });
 
   return NextResponse.json(data);
 }

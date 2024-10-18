@@ -6,6 +6,20 @@ import React from "react";
 import Icon from "@/components/atoms/icon";
 import CodeBlock from "@/components/molecules/code-block";
 import DescriptionBox from "@/components/molecules/description-box";
+import Lottie from "react-lottie-player";
+import smileLoader from "@/data/animations/smile-loader.json";
+import SampleContainer from "@/components/organisms/sampleContainer";
+
+const SmileLoaderSample = () => (
+  <SampleContainer caption="SmileLoader">
+    <Lottie
+      loop
+      animationData={smileLoader}
+      play
+      style={{ width: 160, height: 160 }}
+    />
+  </SampleContainer>
+);
 
 const components: MDXComponents = {
   h1: (props) => (
@@ -62,6 +76,8 @@ const components: MDXComponents = {
   ),
   code: (props) => <CodeBlock {...props} />,
   DescriptionBox,
+  Lottie,
+  SmileLoaderSample,
 };
 
 /**

@@ -6,7 +6,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const { id } = params;
-  const data = await getPost(id);
+  const data = await getPost({ id, type: "all" });
 
   return NextResponse.json(data);
 }

@@ -1,13 +1,14 @@
 import React from "react";
 import Icon from "@/components/atoms/icon";
 import Link from "next/link";
-import { Post } from "@/api/posts";
+import { Post, PostType } from "@/api/posts";
 import Divider from "@/components/atoms/divider";
 
 /**
  * PrevNextPosts component props
  */
 interface PrevNextPostsProps {
+  type: PostType;
   prevPost?: Post;
   nextPost?: Post;
 }
@@ -15,7 +16,7 @@ interface PrevNextPostsProps {
 /**
  * PrevNextPosts component
  */
-const PrevNextPosts = ({ prevPost, nextPost }: PrevNextPostsProps) => {
+const PrevNextPosts = ({ type, prevPost, nextPost }: PrevNextPostsProps) => {
   return (
     <div className="flex flex-col gap-6 mt-10 sm:mt-16">
       <Divider />
@@ -23,7 +24,7 @@ const PrevNextPosts = ({ prevPost, nextPost }: PrevNextPostsProps) => {
         {prevPost && (
           <Link
             className="flex flex-col gap-1 sm:gap-1.5 w-[calc(50%-6px)] bg-paper rounded-lg p-3 sm:p-4"
-            href={`/posts/${prevPost.path}`}
+            href={`/posts/${type}/${prevPost.path}`}
           >
             <div className="flex gap-1.5 items-center ">
               <Icon icon="arrowLeft" size="xs" color="disabled" />
@@ -35,7 +36,7 @@ const PrevNextPosts = ({ prevPost, nextPost }: PrevNextPostsProps) => {
         {nextPost && (
           <Link
             className="flex flex-col gap-1 sm:gap-1.5 w-[calc(50%-6px)] bg-paper rounded-lg p-3 sm:p-4 items-end"
-            href={`/posts/${nextPost.path}`}
+            href={`/posts/${type}/${nextPost.path}`}
           >
             <div className="flex gap-1.5 items-center ">
               <span className="text-caption text-disabled text-right">

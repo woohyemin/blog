@@ -13,11 +13,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import TemplateLayout from "../layout/template-layout";
 import ByHem from "@/components/molecules/by-hem";
 import Header from "@/components/organisms/header";
+import Projects from "@/components/organisms/projects";
 
 const DEFAULT_TAB = "writing";
 const TABS = [
   { label: "글", value: "writing" },
   { label: "공부", value: "study" },
+  { label: "프로젝트", value: "project" },
 ];
 
 /**
@@ -26,12 +28,17 @@ const TABS = [
 export interface PostsTemplateProps {
   writingPosts: Post[];
   studyPosts: Post[];
+  projectPosts: Post[];
 }
 
 /**
  * PostsTemplate component
  */
-const PostsTemplate = ({ writingPosts, studyPosts }: PostsTemplateProps) => {
+const PostsTemplate = ({
+  writingPosts,
+  studyPosts,
+  projectPosts,
+}: PostsTemplateProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [currentTab, setCurrentTab] = useState<string>(DEFAULT_TAB);
@@ -81,10 +88,13 @@ const PostsTemplate = ({ writingPosts, studyPosts }: PostsTemplateProps) => {
         </TabsList>
 
         <TabsContent value="writing">
-          <Posts posts={writingPosts} />
+          <Posts type="writing" posts={writingPosts} />
         </TabsContent>
         <TabsContent value="study">
-          <Posts posts={studyPosts} />
+          <Posts type="study" posts={studyPosts} />
+        </TabsContent>
+        <TabsContent value="project">
+          <Projects projects={projectPosts} />
         </TabsContent>
       </Tabs>
     </TemplateLayout>

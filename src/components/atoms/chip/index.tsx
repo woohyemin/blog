@@ -2,15 +2,26 @@
 
 import { PropsWithChildren, HTMLAttributes } from "react";
 
-export interface ChipProps extends HTMLAttributes<HTMLSpanElement> {}
+const colors = {
+  primary: "bg-btnActiveBg text-btnActiveText",
+  secondary: "bg-chip text-secondary",
+};
+
+export interface ChipProps extends HTMLAttributes<HTMLSpanElement> {
+  color?: "primary" | "secondary";
+}
 
 /**
  * Chip component
  */
-const Chip = ({ children, ...props }: PropsWithChildren<ChipProps>) => {
+const Chip = ({
+  color = "secondary",
+  children,
+  ...props
+}: PropsWithChildren<ChipProps>) => {
   return (
     <span
-      className="text-caption py-0.5 px-2.5 rounded-md bg-chip text-secondary min-w-fit"
+      className={`text-caption py-1 px-2.5 rounded-md ${colors[color]} min-w-fit`}
       {...props}
     >
       {children}

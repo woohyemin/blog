@@ -53,11 +53,18 @@ module.exports = {
       },
       animation: {
         "fade-up": "fadeUp 0.5s ease-in-out",
+        "diagonal-move-top-right":
+          "diagonalMoveTopRight 1s ease-in-out infinite",
       },
       keyframes: {
         fadeUp: {
           from: { opacity: 0, transform: "translateY(10px)" },
           to: { opacity: 1, transform: "translateY(0)" },
+        },
+        diagonalMoveTopRight: {
+          "0%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(2px, -2px)" },
+          "100%": { transform: "translate(0, 0)" },
         },
       },
     },

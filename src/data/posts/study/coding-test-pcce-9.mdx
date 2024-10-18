@@ -1,0 +1,33 @@
+---
+title: "[코딩테스트] PCCE 기출문제 9번 - 이웃한 칸"
+date: "2024-10-02 23:50:00"
+description: "PCCE 기출문제 풀기"
+categories: ["Algorithm", "Coding Test"]
+tags: ["Algorithm", "Coding Test", "Study", "Programmers", "PCCE", "Level 1"]
+activate: false
+---
+
+# 문제
+
+- 난이도: `Level 0`
+- 언어: `Python3`
+- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/250125
+
+# 풀이
+
+```python:Solution
+def solution(storage, num):
+    clean_storage = []
+    clean_num = []
+    for i in range(len(storage)):
+        if storage[i] in clean_storage:
+            pos = clean_storage.index(storage[i])
+            clean_num[pos] += num[i]
+        else:
+            clean_storage.append(storage[i])
+            clean_num.append(num[i])
+
+    max_num = max(clean_num)
+    answer = clean_storage[clean_num.index(max_num)]
+    return answer
+```

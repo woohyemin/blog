@@ -3,7 +3,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Divider from "@/components/atoms/divider";
 import Link from "next/link";
-import { Post } from "@/api/posts";
+import { Post, PostType } from "@/api/posts";
 import Categories from "@/components/organisms/categories";
 import Chip from "@/components/atoms/chip";
 import Image from "next/image";
@@ -12,13 +12,14 @@ import Image from "next/image";
  * Posts component props
  */
 export interface PostsProps {
+  type: PostType;
   posts: Post[];
 }
 
 /**
  * Posts component
  */
-const Posts = ({ posts }: PostsProps) => {
+const Posts = ({ type, posts }: PostsProps) => {
   const [currCategory, setCurrCategory] = useState<string>("All");
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
 
@@ -43,7 +44,7 @@ const Posts = ({ posts }: PostsProps) => {
           {filteredPosts.map((el, index) => (
             <Fragment key={el.path}>
               <Link
-                href={`posts/${el.path}`}
+                href={`posts/${type}/${el.path}`}
                 className="w-full flex flex-row justify-between gap-8"
               >
                 <div className="flex flex-col overflow-hidden">
