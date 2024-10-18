@@ -23,7 +23,7 @@ export default function RootLayout({
       lang="ko"
       className={`font-Pretendard ${montserrat.variable} font-light selection:bg-highlight`}
     >
-      <body className="transition duration-300 bg-background min-h-screen">
+      <body className="bg-background min-h-screen">
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
