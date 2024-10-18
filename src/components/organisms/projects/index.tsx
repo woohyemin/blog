@@ -20,7 +20,7 @@ const Projects = ({ projects }: ProjectsProps) => {
   return (
     <div className="flex flex-col gap-6 sm:gap-8">
       {projects.length > 0 ? (
-        <div className="flex gap-3 sm:gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           {projects.map((el) => (
             <Link
               key={el.path}
@@ -46,14 +46,14 @@ const Projects = ({ projects }: ProjectsProps) => {
                     />
                   )}
 
-                  <div className="flex gap-1 pt-2 sm:pt-2.5 sm:gap-1.5 flex-wrap">
+                  <div className="flex gap-1 sm:mt-1 sm:gap-1.5 flex-wrap">
                     {el.tags?.map((tag) => (
                       <Chip key={tag}>{tag}</Chip>
                     ))}
                   </div>
                 </div>
 
-                <div className="flex gap-1 justify-between mt-3 sm:mt-5">
+                <div className="flex gap-1 justify-between mt-4 sm:mt-5">
                   {/* <p className="text-caption sm:text-body2 text-disabled">
                     {el.date}
                   </p> */}
