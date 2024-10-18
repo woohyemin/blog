@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Pretendard: ["Pretendard"],
+        Pretendard: ["Pretendard", "sans-serif"],
         Montserrat: ["var(--font-montserrat)"],
       },
       colors: {
