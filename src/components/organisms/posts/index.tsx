@@ -65,7 +65,7 @@ const Posts = ({ type, posts }: PostsProps) => {
                 </div>
                 {el.thumbnail && (
                   <Image
-                    className="w-[216px] min-h-full rounded-xl object-cover hidden sm:inline"
+                    className="w-[216px] min-h-full rounded-xl object-cover hidden sm:inline border border-divider"
                     src={`/images/posts/${el.thumbnail}`}
                     alt={`${el.title} 섬네일`}
                     width={300}
