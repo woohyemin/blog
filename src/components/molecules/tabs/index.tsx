@@ -96,7 +96,7 @@ const Tabs = ({
 
 const TabsList = ({ children }: { children: ReactNode }) => {
   return (
-    <RadixTabs.List className="relative flex gap-4 sm:gap-5 mb-5 sm:mb-8">
+    <RadixTabs.List className="relative flex gap-4 sm:gap-5 mb-6 sm:mb-8">
       {children}
     </RadixTabs.List>
   );
@@ -114,7 +114,7 @@ const TabsTrigger = ({
   return (
     <RadixTabs.Trigger
       value={value}
-      className="text-disabled py-0.5 text-h5 sm:text-h4 data-[state=active]:text-primary data-[state=active]:font-medium"
+      className="text-disabled py-0.5 text-h4 data-[state=active]:text-primary data-[state=active]:font-medium"
       onClick={onClick}
     >
       {children}
