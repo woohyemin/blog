@@ -64,7 +64,7 @@ const ProjectTemplate = ({ project }: ProjectTemplateProps) => {
 
         {project.thumbnail && (
           <Image
-            className="w-full rounded-xl object-cover mt-2 mb-4 sm:mt-2 sm:mb-12"
+            className="w-full rounded-xl object-cover mb-4 sm:mb-12"
             src={`/images/posts/${project.thumbnail}`}
             alt={`${project.title} 섬네일`}
             width={1080}
