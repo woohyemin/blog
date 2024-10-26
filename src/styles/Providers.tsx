@@ -18,5 +18,9 @@ export default function Providers({ children }: ThemePropsInterface) {
     return null;
   }
 
-  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
+  return (
+    <ThemeProvider attribute="class" defaultTheme="system">
+      {children}
+    </ThemeProvider>
+  );
 }

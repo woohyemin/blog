@@ -2,6 +2,7 @@
 
 import React, { PropsWithChildren } from "react";
 import { IconType, icons } from "./icons";
+import { cn } from "@/util/cn";
 
 type IconSize = "xs" | "sm" | "md" | "lg" | "xl";
 type IconColor = "primary" | "secondary" | "disabled";
@@ -29,6 +30,11 @@ interface IconProps {
    * Icon color
    */
   color?: IconColor;
+
+  /**
+   * className
+   */
+  className?: string;
 }
 
 /**
@@ -38,6 +44,7 @@ const Icon = ({
   icon,
   size = "md",
   color = "primary",
+  className,
   ...props
 }: PropsWithChildren<IconProps>) => {
   return (
@@ -45,7 +52,10 @@ const Icon = ({
       viewBox="0 0 120 120"
       width={sizes[size]}
       height={sizes[size]}
-      className={`text-${color || "primary"} min-w-fit min-h-fit`}
+      className={cn(
+        `text-${color || "primary"} min-w-fit min-h-fit`,
+        className
+      )}
       {...props}
     >
       {icons[icon]}
