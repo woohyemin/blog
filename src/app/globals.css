@@ -33,7 +33,7 @@
 }
 
 :root.dark {
-  --background: #0a0a0a;
+  --background: #101010;
   --text-primary: #ededed;
   --text-secondary: #b9b9b9;
   --text-disabled: #757575;
