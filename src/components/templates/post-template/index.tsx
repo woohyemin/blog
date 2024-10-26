@@ -66,7 +66,7 @@ const PostTemplate = ({ type, post, prevNextPost }: PostTemplateProps) => {
 
         {post.thumbnail && (
           <Image
-            className="w-full rounded-xl object-cover mb-8 sm:mb-12"
+            className="w-full rounded-2xl object-cover mb-8 sm:mb-12"
             src={`/images/posts/${post.thumbnail}`}
             alt={`${post.title} 섬네일`}
             width={1080}
