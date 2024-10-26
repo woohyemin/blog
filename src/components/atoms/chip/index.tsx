@@ -17,6 +17,7 @@ export interface ChipProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: "contained" | "outlined";
   color?: "primary" | "secondary";
   round?: boolean;
+  className?: string;
 }
 
 /**
@@ -26,6 +27,7 @@ const Chip = ({
   variant = "contained",
   color = "secondary",
   round,
+  className,
   children,
   ...props
 }: PropsWithChildren<ChipProps>) => {
@@ -33,7 +35,7 @@ const Chip = ({
     <span
       className={`flex justify-center items-center text-caption py-0.5 px-2.5 ${
         variants[variant][color]
-      } min-w-fit h-6 ${round ? "rounded-full" : "rounded-md"}`}
+      } min-w-fit h-6 ${round ? "rounded-full" : "rounded-md"} ${className}`}
       {...props}
     >
       {children}
