@@ -53,7 +53,9 @@ const Icon = ({
       width={sizes[size]}
       height={sizes[size]}
       className={cn(
-        `text-${color || "primary"} min-w-fit min-h-fit`,
+        `text-${color || "primary"}`,
+        `min-w-[${sizes[size]}] min-h-[${sizes[size]}]`,
+        `max-w-[${sizes[size]}] max-h-[${sizes[size]}]`,
         className
       )}
       {...props}
