@@ -25,9 +25,30 @@ const Projects = ({ projects }: ProjectsProps) => {
             <Link
               key={el.path}
               href={`/posts/project/${el.path}`}
-              className="w-full sm:w-[calc(50%-8px)] flex flex-row justify-between gap-8 border border-divider rounded-2xl overflow-hidden"
+              className="relative w-full sm:w-[calc(50%-8px)] flex flex-row justify-between gap-8 border border-divider rounded-2xl overflow-hidden"
             >
               <div className="flex flex-col w-full overflow-hidden">
+                <div className="absolute right-4 top-3">
+                  {el.completed ? (
+                    <Chip
+                      color="primary"
+                      round
+                      className="font-regular bg-[#363636] text-white"
+                    >
+                      개발 완료
+                    </Chip>
+                  ) : (
+                    <Chip
+                      variant="outlined"
+                      color="primary"
+                      round
+                      className="font-regular bg-white text-[#363636] border-none"
+                    >
+                      개발 중
+                    </Chip>
+                  )}
+                </div>
+
                 {el.thumbnail && (
                   <Image
                     className="w-full h-[200px] object-cover inline"
@@ -52,21 +73,6 @@ const Projects = ({ projects }: ProjectsProps) => {
                         <Chip key={tag}>{tag}</Chip>
                       ))}
                     </div>
-                  </div>
-
-                  <div className="flex gap-1 justify-between mt-4 sm:mt-5">
-                    {/* <p className="text-caption sm:text-body2 text-disabled">
-                    {el.date}
-                  </p> */}
-                    {el.completed ? (
-                      <Chip color="primary" round>
-                        개발 완료
-                      </Chip>
-                    ) : (
-                      <Chip variant="outlined" color="primary" round>
-                        개발 중
-                      </Chip>
-                    )}
                   </div>
                 </div>
               </div>
