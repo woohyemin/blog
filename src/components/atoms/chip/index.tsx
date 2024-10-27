@@ -12,6 +12,8 @@ const variants = {
   outlined: {
     primary: "border border-btnActiveBg text-btnActiveBg",
     secondary: "border border-secondary text-secondary",
+    white: "border border-[#f9f9f9] text-[#f9f9f9]",
+    black: "border border-[#363636] text-[#363636]",
   },
 };
 
