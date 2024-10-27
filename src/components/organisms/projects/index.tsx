@@ -30,20 +30,11 @@ const Projects = ({ projects }: ProjectsProps) => {
               <div className="flex flex-col w-full overflow-hidden">
                 <div className="absolute right-4 top-3">
                   {el.completed ? (
-                    <Chip
-                      color="primary"
-                      round
-                      className="font-regular bg-[#363636] text-white"
-                    >
+                    <Chip color="black" round className="font-regular ">
                       개발 완료
                     </Chip>
                   ) : (
-                    <Chip
-                      variant="outlined"
-                      color="primary"
-                      round
-                      className="font-regular bg-white text-[#363636] border-none"
-                    >
+                    <Chip color="white" round className="font-regular ">
                       개발 중
                     </Chip>
                   )}
