@@ -19,7 +19,7 @@ export async function generateMetadata({
   const imagePaths = post.path.split("-");
 
   return {
-    metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
+    metadataBase: new URL("https://www.woohyemin.com"),
     title: post.title,
     description: post.description,
     openGraph: {

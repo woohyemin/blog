@@ -3,7 +3,7 @@ import PostsTemplate from "@/components/templates/posts-template";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
+  metadataBase: new URL("https://www.woohyemin.com"),
   title: "Hyemin's posts",
   description: "I'm recording my development experiences.",
   openGraph: {

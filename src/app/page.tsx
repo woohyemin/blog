@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import { PropsWithChildren } from "react";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blog-woohyemins-projects.vercel.app"),
+  metadataBase: new URL("https://www.woohyemin.com"),
   title: "Hyemin's blog",
   description: "I'm a front-end developer.",
   openGraph: {
