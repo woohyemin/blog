@@ -6,6 +6,8 @@ const variants = {
   contained: {
     primary: "bg-btnActiveBg text-btnActiveText",
     secondary: "bg-chip text-secondary",
+    white: "bg-[#f9f9f9] text-[#363636]",
+    black: "bg-[#363636] text-[#f9f9f9]",
   },
   outlined: {
     primary: "border border-btnActiveBg text-btnActiveBg",
@@ -15,7 +17,7 @@ const variants = {
 
 export interface ChipProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: "contained" | "outlined";
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "white" | "black";
   round?: boolean;
   className?: string;
 }
