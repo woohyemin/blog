@@ -24,6 +24,7 @@ export interface Post extends PostData {
   path: string;
   content: string;
   source: MDXRemoteSerializeResult;
+  prevNextPost?: PrevNextPost;
 }
 
 export interface PrevNextPost {
@@ -131,6 +132,24 @@ export const getAllProjects = async (): Promise<Post[]> => {
   return formattedProjects;
 };
 
+export async function getPrevNextPost({
+  currPostPath,
+}: {
+  currPostPath: string;
+}): Promise<PrevNextPost | "not-found"> {
+  const allPosts = await getAllPosts();
+
+  const currIndex = allPosts.findIndex((post) => post.path === currPostPath);
+  const prevIndex = currIndex + 1;
+  const nextIndex = currIndex - 1;
+
+  const nextPost = nextIndex >= 0 ? allPosts[nextIndex] : undefined;
+  const prevPost =
+    prevIndex < allPosts.length ? allPosts[prevIndex] : undefined;
+
+  return { nextPost, prevPost };
+}
+
 export async function getPost({
   id,
   type,
@@ -151,6 +170,9 @@ export async function getPost({
   });
   const { frontmatter, compiledSource } = mdxSource;
   const postdata: any = frontmatter;
+  const postPath = id.replace(/\.mdx$/, "");
+
+  const prevNextPost = await getPrevNextPost({ currPostPath: postPath });
 
   if (!mdxSource || !frontmatter.activate) {
     console.error(`❗️ '${id}'에 해당하는 글을 찾을 수 없습니다.`);
@@ -160,36 +182,9 @@ export async function getPost({
   return {
     ...frontmatter,
     date: formatDate(postdata.date.split(" ")[0]),
-    path: id.replace(/\.mdx$/, ""),
+    path: postPath,
     content: compiledSource,
     source: mdxSource,
+    prevNextPost,
   } as Post;
-}
-
-export async function getPrevNextPost({
-  id,
-  type,
-}: {
-  id: string;
-  type: PostType;
-}): Promise<PrevNextPost | "not-found"> {
-  const allPosts = await getAllPosts(type);
-  const currPost = await getPost({ id, type });
-
-  if (!currPost || currPost === "not-found") {
-    console.error(
-      `❗️ '${id}'에 해당하는 글을 찾을 수 없어, 이전 또는 다음 글을 찾을 수 없습니다.`
-    );
-    return "not-found";
-  }
-
-  const currIndex = allPosts.findIndex((post) => post.path === currPost.path);
-  const prevIndex = currIndex + 1;
-  const nextIndex = currIndex - 1;
-
-  const nextPost = nextIndex >= 0 ? allPosts[nextIndex] : undefined;
-  const prevPost =
-    prevIndex < allPosts.length ? allPosts[prevIndex] : undefined;
-
-  return { nextPost, prevPost };
 }

@@ -50,7 +50,5 @@ export async function generateMetadata({
 }
 
 export default async function ProjectDetailPage({ params: { id } }: Props) {
-  const post = await getPost({ id, type: "project" });
-
-  return <ProjectTemplate project={post} />;
+  return <ProjectTemplate id={id} />;
 }

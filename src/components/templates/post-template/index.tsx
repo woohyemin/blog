@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Post, PostType, PrevNextPost } from "@/api/posts";
+import React, { useEffect } from "react";
+import { PostType } from "@/api/posts";
 import { notFound, usePathname } from "next/navigation";
 import Loader from "@/components/atoms/loader";
 import Dot from "@/components/atoms/dot";
@@ -13,28 +13,35 @@ import Image from "next/image";
 import PrevNextPosts from "@/components/organisms/prev-next-posts";
 import MDXTemplate from "@/components/templates/mdx-template";
 import Chip from "@/components/atoms/chip";
+import { useGetPost } from "../../../../hooks/api/useGetPost";
+import PostSkeleton from "@/components/templates/post-template/skeleton";
 
 /**
  * PostTemplate component props
  */
 export interface PostTemplateProps {
+  id: string;
   type: PostType;
-  post: Post | "not-found";
-  prevNextPost: PrevNextPost | "not-found";
 }
 
 /**
  * PostTemplate component
  */
-const PostTemplate = ({ type, post, prevNextPost }: PostTemplateProps) => {
+const PostTemplate = ({ id, type }: PostTemplateProps) => {
   const pathname = usePathname();
+
+  const { data: post, isLoading, error } = useGetPost({ id, type });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  if (post === "not-found") {
+  if (error) {
     notFound();
+  }
+
+  if (isLoading) {
+    return <PostSkeleton />;
   }
 
   if (post) {
@@ -76,11 +83,11 @@ const PostTemplate = ({ type, post, prevNextPost }: PostTemplateProps) => {
 
         <MDXTemplate {...post.source} />
 
-        {prevNextPost && prevNextPost !== "not-found" && (
+        {post.prevNextPost && (
           <PrevNextPosts
             type={type}
-            prevPost={prevNextPost.prevPost}
-            nextPost={prevNextPost.nextPost}
+            prevPost={post.prevNextPost.prevPost}
+            nextPost={post.prevNextPost.nextPost}
           />
         )}
 

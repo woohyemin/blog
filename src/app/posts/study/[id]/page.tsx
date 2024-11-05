@@ -49,8 +49,5 @@ export async function generateMetadata({
 }
 
 export default async function PostDetailPage({ params: { id } }: Props) {
-  const post = await getPost({ id, type: "study" });
-  const prevNextPost = await getPrevNextPost({ id, type: "study" });
-
-  return <PostTemplate type="study" post={post} prevNextPost={prevNextPost} />;
+  return <PostTemplate type="study" id={id} />;
 }
