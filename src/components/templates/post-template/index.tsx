@@ -1,8 +1,6 @@
-"use client";
-
-import React, { useEffect } from "react";
+import React from "react";
 import { Post, PostType } from "@/api/posts";
-import { notFound, usePathname } from "next/navigation";
+import { notFound } from "next/navigation";
 import Dot from "@/components/atoms/dot";
 import ByHem from "@/components/molecules/by-hem";
 import Comments from "@/components/organisms/comments";
@@ -25,12 +23,6 @@ export interface PostTemplateProps {
  * PostTemplate component
  */
 const PostTemplate = ({ post, type }: PostTemplateProps) => {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   if (post === "not-found") {
     notFound();
   }

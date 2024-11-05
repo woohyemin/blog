@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { notFound, usePathname } from "next/navigation";
+import React from "react";
+import { notFound } from "next/navigation";
 import Dot from "@/components/atoms/dot";
 import ByHem from "@/components/molecules/by-hem";
 import Comments from "@/components/organisms/comments";
@@ -24,12 +24,6 @@ export interface ProjectTemplateProps {
  * ProjectTemplate component
  */
 const ProjectTemplate = ({ project }: ProjectTemplateProps) => {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   if (project === "not-found") {
     notFound();
   }
