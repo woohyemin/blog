@@ -1,4 +1,4 @@
-import { getPost, getPrevNextPost } from "@/api/posts";
+import { getPost } from "@/api/posts";
 import { Metadata } from "next";
 import PostTemplate from "@/components/templates/post-template";
 
@@ -48,6 +48,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function PostDetailPage({ params: { id } }: Props) {
-  return <PostTemplate type="study" id={id} />;
+export default async function StudyPostDetailPage({ params: { id } }: Props) {
+  const post = await getPost({ id, type: "study" });
+
+  return <PostTemplate type="study" post={post} />;
 }

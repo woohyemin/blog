@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { PostType } from "@/api/posts";
+import { Post, PostType } from "@/api/posts";
 import { notFound, usePathname } from "next/navigation";
-import Loader from "@/components/atoms/loader";
 import Dot from "@/components/atoms/dot";
 import ByHem from "@/components/molecules/by-hem";
 import Comments from "@/components/organisms/comments";
@@ -13,35 +12,27 @@ import Image from "next/image";
 import PrevNextPosts from "@/components/organisms/prev-next-posts";
 import MDXTemplate from "@/components/templates/mdx-template";
 import Chip from "@/components/atoms/chip";
-import { useGetPost } from "../../../../hooks/api/useGetPost";
-import PostSkeleton from "@/components/templates/post-template/skeleton";
 
 /**
  * PostTemplate component props
  */
 export interface PostTemplateProps {
-  id: string;
+  post: Post | "not-found";
   type: PostType;
 }
 
 /**
  * PostTemplate component
  */
-const PostTemplate = ({ id, type }: PostTemplateProps) => {
+const PostTemplate = ({ post, type }: PostTemplateProps) => {
   const pathname = usePathname();
-
-  const { data: post, isLoading, error } = useGetPost({ id, type });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  if (error) {
+  if (post === "not-found") {
     notFound();
-  }
-
-  if (isLoading) {
-    return <PostSkeleton />;
   }
 
   if (post) {

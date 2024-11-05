@@ -1,6 +1,5 @@
 import { getPost } from "@/api/posts";
 import { Metadata } from "next";
-import PostTemplate from "@/components/templates/post-template";
 import ProjectTemplate from "@/components/templates/project-template";
 
 interface Props {
@@ -50,5 +49,7 @@ export async function generateMetadata({
 }
 
 export default async function ProjectDetailPage({ params: { id } }: Props) {
-  return <ProjectTemplate id={id} />;
+  const project = await getPost({ id, type: "project" });
+
+  return <ProjectTemplate project={project} />;
 }

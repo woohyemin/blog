@@ -11,38 +11,27 @@ import Image from "next/image";
 import MDXTemplate from "@/components/templates/mdx-template";
 import Chip from "@/components/atoms/chip";
 import Link from "next/link";
-import { useGetPost } from "../../../../hooks/api/useGetPost";
-import PostSkeleton from "@/components/templates/post-template/skeleton";
+import { Post } from "@/api/posts";
 
 /**
  * ProjectTemplate component props
  */
 export interface ProjectTemplateProps {
-  id: string;
+  project: Post | "not-found";
 }
 
 /**
  * ProjectTemplate component
  */
-const ProjectTemplate = ({ id }: ProjectTemplateProps) => {
+const ProjectTemplate = ({ project }: ProjectTemplateProps) => {
   const pathname = usePathname();
-
-  const {
-    data: project,
-    isLoading,
-    error,
-  } = useGetPost({ id, type: "project" });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  if (error) {
+  if (project === "not-found") {
     notFound();
-  }
-
-  if (isLoading) {
-    return <PostSkeleton />;
   }
 
   if (project) {

@@ -48,6 +48,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function PostDetailPage({ params: { id } }: Props) {
-  return <PostTemplate type="writing" id={id} />;
+export default async function WritingPostDetailPage({ params: { id } }: Props) {
+  const post = await getPost({ id, type: "writing" });
+
+  return <PostTemplate type="writing" post={post} />;
 }

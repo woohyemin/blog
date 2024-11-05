@@ -1,4 +1,4 @@
-import { getAllPosts, getAllProjects } from "@/api/posts";
+import { getPosts } from "@/api/posts";
 import PostsTemplate from "@/components/templates/posts-template";
 import { Metadata } from "next";
 
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Posts() {
-  const writingPosts = await getAllPosts("writing");
-  const studyPosts = await getAllPosts("study");
-  const projectPosts = await getAllProjects();
+  const writingPosts = await getPosts("writing");
+  const studyPosts = await getPosts("study");
+  const projectPosts = await getPosts("project");
 
   return (
     <PostsTemplate
