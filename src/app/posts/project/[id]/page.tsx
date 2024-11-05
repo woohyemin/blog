@@ -2,6 +2,8 @@ import { getPost } from "@/api/posts";
 import { Metadata } from "next";
 import ProjectTemplate from "@/components/templates/project-template";
 
+export const dynamic = "force-static";
+
 interface Props {
   params: {
     id: string;

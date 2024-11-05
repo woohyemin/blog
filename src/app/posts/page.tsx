@@ -2,6 +2,8 @@ import { getPosts } from "@/api/posts";
 import PostsTemplate from "@/components/templates/posts-template";
 import { Metadata } from "next";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.woohyemin.com"),
   title: "Hyemin's posts",
