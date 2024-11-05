@@ -70,9 +70,7 @@ const components: MDXComponents = {
     </a>
   ),
   img: (props) => (
-    <div className="flex w-full h-auto my-3 sm:my-4 justify-center items-center">
-      <img className="rounded-lg" src={props.src} alt={props.alt} />
-    </div>
+    <img className="my-3 sm:my-4 rounded-lg" src={props.src} alt={props.alt} />
   ),
   code: (props) => <CodeBlock {...props} />,
   DescriptionBox,
