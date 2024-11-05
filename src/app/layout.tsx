@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/organisms/footer";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import { montserrat } from "./fonts";
+import ReactQueryProvider from "@/providers/react-query-provider";
 
 export const metadata: Metadata = {
   title: "hem's blog",
@@ -46,8 +47,10 @@ export default function RootLayout({
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
         <Providers>
-          {children}
-          <Footer />
+          <ReactQueryProvider>
+            {children}
+            <Footer />
+          </ReactQueryProvider>
         </Providers>
       </body>
     </html>
