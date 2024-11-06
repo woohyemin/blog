@@ -5,6 +5,8 @@ import Icon from "@/components/atoms/icon";
 import { Metadata } from "next";
 import { PropsWithChildren } from "react";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.woohyemin.com"),
   title: "Hyemin's blog",
