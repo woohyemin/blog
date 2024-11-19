@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 const Tag = ({ children }: PropsWithChildren) => (
-  <span className="font-Montserrat text-disabled text-caption">
+  <span className="font-montserrat text-disabled text-caption">
     # {children}
   </span>
 );

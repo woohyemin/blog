@@ -9,6 +9,7 @@ import DescriptionBox from "@/components/molecules/description-box";
 import Lottie from "react-lottie-player";
 import smileLoader from "@/data/animations/smile-loader.json";
 import SampleContainer from "@/components/organisms/sampleContainer";
+import Emoji from "@/components/atoms/emoji";
 
 const SmileLoaderSample = () => (
   <SampleContainer caption="SmileLoader">
@@ -76,6 +77,7 @@ const components: MDXComponents = {
   DescriptionBox,
   Lottie,
   SmileLoaderSample,
+  Emoji,
 };
 
 /**

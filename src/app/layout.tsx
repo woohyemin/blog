@@ -3,7 +3,7 @@ import Providers from "@/styles/Providers";
 import "./globals.css";
 import Footer from "@/components/organisms/footer";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
-import { montserrat } from "./fonts";
+import { montserrat, notoColorEmoji } from "./fonts";
 import ReactQueryProvider from "@/providers/react-query-provider";
 
 export const metadata: Metadata = {
@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`font-Pretendard ${montserrat.variable} font-light selection:bg-highlight`}
+      className={`font-pretendard ${montserrat.variable} ${notoColorEmoji.variable} font-light selection:bg-highlight`}
     >
       <body className="bg-background min-h-screen">
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
