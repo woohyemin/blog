@@ -1,11 +1,11 @@
 ---
-title: "[나만의 블로그를 만들어보자 6편] Giscus 댓글 기능 추가하기"
+title: "[나만의 블로그를 만들어보자 6편] giscus 댓글 기능 추가하기"
 date: "2024-09-02 22:30:00"
-description: "나만의 블로그에 Giscus 댓글을 적용해보자"
+description: "나만의 블로그에 giscus 댓글을 적용해보자"
 series: "blog"
 categories: ["Blog", "Etc"]
 thumbnail: "blog/part6/blog_part6_thumbnail.jpg"
-tags: ["Blog", "Library", "댓글", "Utterances", "Giscus", "Disqus"]
+tags: ["Blog", "Library", "댓글", "utterances", "giscus", "Disqus"]
 activate: true
 ---
 
@@ -17,27 +17,27 @@ activate: true
 
 직접 구현하게 되면 디자인 자유도는 높지만 개발하는데 시간이 더 많이 소요된다.
 
-## 2️⃣ Utterances, giscus, Disqus 등 댓글 시스템을 활용하여 구현하기
+## 2️⃣ utterances, giscus, Disqus 등 댓글 시스템을 활용하여 구현하기
 
-디자인 자유도는 다소 제한적일 수 있겠지만 시간을 절약할 수 있다. `Utterances`, `giscus`, `Disqus`의 차이를 요약하면 다음과 같다.
+디자인 자유도는 다소 제한적일 수 있겠지만 시간을 절약할 수 있다. `utterances`, `giscus`, `Disqus`의 차이를 요약하면 다음과 같다.
 
 ###
 
-**[Utterances](https://utteranc.es/)**
+**[utterances](https://utteranc.es/)**
 
-GitHub Issues 기반의 가벼운 댓글 시스템으로, GitHub를 통해 웹사이트에 댓글을 남길 수 있는 기능을 제공한다.
+GitHub Issues를 활용한 댓글 시스템으로, GitHub를 통해 웹사이트에 댓글을 남길 수 있는 기능을 제공한다.
 
 ###
 
 **[giscus](https://giscus.app/ko)**
 
-GitHub Discussions를 활용한 댓글 시스템으로, GitHub를 통해 웹사이트에 댓글과 반응을 남길 수 있는 기능을 제공한다. Utterances에서 영감을 받아 만들어졌다고 한다.
+GitHub Discussions를 활용한 댓글 시스템으로, GitHub를 통해 웹사이트에 댓글과 반응을 남길 수 있는 기능을 제공한다. utterances에서 영감을 받아 만들어졌다고 한다.
 
 ###
 
 **[Disqus](https://disqus.com/)**
 
-기능이 매우 풍부한 독립적인 댓글 플랫폼으로, 다양한 사이트에서 사용 가능하며, 광고 및 수익화 옵션을 제공한다.
+다양한 기능을 제공하는 독립적인 댓글 플랫폼으로, 다양한 사이트에서 사용 가능하며, 광고 및 수익화 옵션을 제공한다.
 
 # 내가 구현한 방법
 
@@ -49,18 +49,18 @@ GitHub Discussions를 활용한 댓글 시스템으로, GitHub를 통해 웹사�
 
 ## giscus를 선택한 이유
 
-현재로서는 간단한 댓글 기능 정도만 필요했기 때문에 Disqus를 사용하기엔 시스템이 다소 무겁다고 생각되었다. 그래서 Utterances 또는 giscus 중에 고민을 했는데, 이번에도 역시나 시행착오가 있었다. 사실 처음엔 두 시스템의 차이가 크게 없어 보여서 Utterances를 적용했었다. 그런데 다른 블로그들에서 종종 보이는 **반응** 기능이 내 블로그에는 보이지 않는 것이었다. giscus에서 제공하는 기능이었던 것이다..😞
+현재로서는 간단한 댓글 기능 정도만 필요했기 때문에 Disqus를 사용하기엔 시스템이 다소 무겁다고 생각되었다. 그래서 utterances 또는 giscus 중에 고민을 했는데, 이번에도 역시나 시행착오가 있었다. 사실 처음엔 두 시스템의 차이가 크게 없어 보여서 utterances를 적용했었다. 그런데 다른 블로그들에서 종종 보이는 **반응** 기능이 내 블로그에는 보이지 않는 것이었다. giscus에서 제공하는 기능이었던 것이다..😞
 ![giscus 반응 기능](/images/posts/blog/part6/giscus_reaction.png)
-그래서 결국 Utterances로 적용했던 댓글 기능을 giscus로 교체했다.. 사실 조금 귀찮아서 하지 말까 고민도 했었는데,, `Utterances은 댓글을 Issues에 저장`하고, `giscus는 댓글을 Discussions에 저장`하기 때문에 나중에 변경하게 될 때 번거로워질 것 같아서 그냥 바꾸기로 결정했다.🫠
+그래서 결국 utterances로 적용했던 댓글 기능을 giscus로 교체했다.. 사실 조금 귀찮아서 하지 말까 고민도 했었는데,, **utterances은 댓글을 Issues에 저장**하고, **giscus는 댓글을 Discussions에 저장**하기 때문에 나중에 변경하게 될 때 번거로워질 것 같아서 이번에 변경하기로 결정했다.🫠
 
 # 적용 방법
 
-적용 방식은 Utterances와 비슷한 방식으로 꽤 간단해서 어렵지 않게 변경할 수 있었다.
+적용 방식은 utterances와 비슷한 방식으로 꽤 간단해서 어렵지 않게 변경할 수 있었다.
 
 ## giscus Github App 설치
 
 giscus를 Github에 설치하기 위해 [giscus Github App](https://github.com/apps/giscus)에서 접속한다. 나는 이미 설치했기 때문에 Configure 버튼이 보이는데, 처음 설치하는 경우엔 Install 버튼이 보인다. 이 버튼을 클릭하면 된다.
-![giscus Github App 설치 화면](/images/posts/blog/part6/giscus_github_app_install.png)
+![giscus Github App 설치 화면](/images/posts/blog/part6/giscus_github_app_installation.png)
 
 ## giscus 사용할 Repository 설정
 
@@ -101,7 +101,7 @@ Repository > Discussions > Categories > 수정 버튼 클릭 > New category 버�
 
 ## giscus script 적용
 
-이렇게 생성된 script를 가지고 Next.js 프로젝트에 다음과 같이 적용했다.
+이렇게 생성된 script를 가지고 Next.js 프로젝트에 다음과 같은 방식으로 적용했다.
 
 ```typescript:Comments.tsx
 "use client";
@@ -124,9 +124,9 @@ export const Comments = () => {
     script.crossOrigin = "anonymous";
 
     script.setAttribute("data-repo", "woohyemin/blog");
-    script.setAttribute("data-repo-id", "R_kgDOLyuNag");
+    script.setAttribute("data-repo-id", "R_abCDEfgHij");
     script.setAttribute("data-category", "Comments");
-    script.setAttribute("data-category-id", "DIC_kwDOLyuNas4CiHOi");
+    script.setAttribute("data-category-id", "DIC_abCDEfgHijKlMNo");
     script.setAttribute("data-mapping", "pathname");
     script.setAttribute("data-strict", "0");
     script.setAttribute("data-reactions-enabled", "1");
@@ -154,4 +154,4 @@ export const Comments = () => {
 export default Comments;
 ```
 
-디자인도 Utterances보다 마음에 들고, 댓글이 로딩될 때 귀여운 애니메이션도 나와서 바꾸길 잘했다는 생각이 들었다. 적용 방법도 꽤 간단했고 댓글 기능을 `Comments`라는 컴포넌트로 분리하여 구현했었기 때문에 해당 컴포넌트만 수정하면 되어서 사이드 이펙트도 딱히 없었다.👏🏻
+디자인도 utterances보다 마음에 들고, 댓글이 로딩될 때 귀여운 애니메이션도 나와서 바꾸길 잘했다는 생각이 들었다. 적용 방법도 꽤 간단했고 댓글 기능을 `Comments`라는 컴포넌트로 분리하여 구현했었기 때문에 해당 컴포넌트만 수정하면 되어서 사이드 이펙트도 딱히 없었다.👏🏻
