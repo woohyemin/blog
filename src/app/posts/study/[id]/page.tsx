@@ -17,8 +17,6 @@ export async function generateMetadata({
 
   if (post === "not-found") return undefined;
 
-  const imagePaths = post.path.split("-");
-
   return {
     metadataBase: new URL("https://www.woohyemin.com"),
     title: post.title,
@@ -26,9 +24,7 @@ export async function generateMetadata({
     openGraph: {
       images: [
         {
-          url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join(
-            "_"
-          )}_thumbnail.jpg`,
+          url: `/images/posts/${post.thumbnail}`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -38,9 +34,7 @@ export async function generateMetadata({
     twitter: {
       images: [
         {
-          url: `/images/posts/${imagePaths.join("/")}/${imagePaths.join(
-            "_"
-          )}_thumbnail.jpg`,
+          url: `/images/posts/${post.thumbnail}`,
           width: 1200,
           height: 630,
           alt: post.title,
