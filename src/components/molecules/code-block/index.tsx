@@ -44,7 +44,7 @@ const CodeBlock = ({
       ) : (
         <SyntaxHighlighter
           style={{
-            ...(theme === "dark" ? oneDark : oneLight),
+            ...(theme === "light" ? oneLight : oneDark),
             'code[class*="language-"]': { background: "transparent" },
           }}
           language={language}
