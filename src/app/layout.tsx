@@ -5,6 +5,7 @@ import Footer from "@/components/organisms/footer";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import { montserrat, notoColorEmoji } from "./fonts";
 import ReactQueryProvider from "@/providers/react-query-provider";
+import GoogleAdSense from "@/lib/GoogleAdSense";
 
 export const metadata: Metadata = {
   title: "hem's blog",
@@ -53,6 +54,7 @@ export default function RootLayout({
           </ReactQueryProvider>
         </Providers>
       </body>
+      <GoogleAdSense />
     </html>
   );
 }
