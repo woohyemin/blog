@@ -47,6 +47,7 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
+        <GoogleAdSense />
         <Providers>
           <ReactQueryProvider>
             {children}
@@ -54,7 +55,6 @@ export default function RootLayout({
           </ReactQueryProvider>
         </Providers>
       </body>
-      <GoogleAdSense />
     </html>
   );
 }
