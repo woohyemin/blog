@@ -1,6 +1,13 @@
 import Script from "next/script";
 
 export default function GoogleAnalytics({ gaId }: { gaId: string }) {
+  // production 환경에서만 Google Analytics 실행
+  const isProduction = process.env.NODE_ENV === "production";
+
+  if (!isProduction) {
+    return null;
+  }
+
   return (
     <>
       <Script
